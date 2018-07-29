@@ -1,0 +1,10 @@
+import { NAME } from './userConstants';
+
+export const FETCH_USERS_REQUEST = `${NAME}/FETCH_USERS_REQUEST`;
+export type FETCH_USERS_REQUEST = typeof FETCH_USERS_REQUEST;
+
+export const FETCH_USERS_SUCCESS = `${NAME}/FETCH_USERS_SUCCESS`;
+export type FETCH_USERS_SUCCESS = typeof FETCH_USERS_SUCCESS;
+
+export const FETCH_USERS_FAIL = `${NAME}/FETCH_USERS_FAIL`;
+export type FETCH_USERS_FAIL = typeof FETCH_USERS_FAIL;

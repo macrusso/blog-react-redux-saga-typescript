@@ -7,20 +7,33 @@ import {
   postActions,
   postSelectors,
   IPost,
-  // Post,
+  Post,
 } from '../Post';
+import {
+  userActions,
+  userSelectors,
+  IUser,
+} from '../User';
 
 interface IPostContainerProps {
   match: any;
-  error?: string;
   posts: IPost[];
+  users: IUser[];
+  error?: string;
+  loading: boolean;
   fetchPosts: () => void;
+  fetchUsers: () => void;
 };
 
 class PostContainer extends Component<IPostContainerProps> {
   public componentDidMount() {
-    const { fetchPosts } = this.props;
+    const {
+      fetchPosts,
+      fetchUsers,
+    } = this.props;
+
     fetchPosts();
+    fetchUsers();
   }
 
   public render() {
@@ -30,11 +43,9 @@ class PostContainer extends Component<IPostContainerProps> {
 
     return (
       <ErrorBoundary>
-
-        sdssd
-        {/* <Post
+        <Post
           {...props}
-        /> */}
+        />
       </ErrorBoundary>
     );
   }
@@ -44,22 +55,27 @@ interface IStateFromProps {
   error?: string,
   loading: boolean,
   posts: IPost[],
+  users: IUser[],
 }
 
 interface IDispatchFromProps {
   fetchPosts: () => void;
+  fetchUsers: () => void;
 }
 
 const mapStateToProps = (state: IStoreState) => ({
   error: postSelectors.getError(state),
   loading: postSelectors.getLoadingStatus(state),
   posts: postSelectors.getAllPosts(state),
+  users: userSelectors.getAllUsers(state),
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
   fetchPosts: () => {
-    console.log('fetchPosts');
     dispatch(postActions.fetchPostsRequest());
+  },
+  fetchUsers: () => {
+    dispatch(userActions.fetchUsersRequest());
   },
 });
 

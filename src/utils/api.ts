@@ -24,7 +24,7 @@ const requests = {
     superagent.post(`${API_ROOT}${url}`, body).then(responseBody),
 };
 
-const limit = (count: number, p?: number) => `limit=${count}&offset=${p ? p * count : 0}`;
+const limit = (count: number, p?: number) => `_limit=${count}&_offset=${p ? p * count : 0}`;
 
 export const Users = {
   all: (page?: number) =>
