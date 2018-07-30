@@ -7,17 +7,16 @@ import {
   postActions,
   postSelectors,
   IPost,
-  Post,
+  PostsListItem,
 } from '.';
 import {
   userActions,
   userSelectors,
   IUser,
 } from '../User';
-import { commentActions } from '../Comment';
 import { Users } from '../utils/api';
 
-interface IPostContainerProps {
+interface IPostsListContainerProps {
   match: any;
   posts: IPost[];
   users: IUser[];
@@ -28,7 +27,7 @@ interface IPostContainerProps {
   fetchUsers: () => void;
 };
 
-class PostContainer extends Component<IPostContainerProps> {
+class PostsListContainer extends Component<IPostsListContainerProps> {
   public componentDidMount() {
     const {
       fetchPosts,
@@ -45,10 +44,9 @@ class PostContainer extends Component<IPostContainerProps> {
 
     return (
       <ErrorBoundary>
-        sdsdsdsssdsdsd
-        {/* <Post
+        <PostsListItem
           {...props}
-        /> */}
+        />
       </ErrorBoundary>
     );
   }
@@ -83,4 +81,4 @@ const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
   },
 });
 
-export default connect<IStateFromProps, IDispatchFromProps, any>(mapStateToProps, mapDispatchToProps)(PostContainer);
+export default connect<IStateFromProps, IDispatchFromProps, any>(mapStateToProps, mapDispatchToProps)(PostsListContainer);

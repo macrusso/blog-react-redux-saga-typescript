@@ -1,2 +1,2 @@
 export const posts = '/';
-export const selectedPost = `posts/:postId`;
+export const selectedPost = `/posts/:postId`;

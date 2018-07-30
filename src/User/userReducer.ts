@@ -3,7 +3,7 @@ import { IAction } from '../types';
 
 export const initialState = {
   error: false,
-  items: {},
+  items: [],
   loading: true,
 };
 

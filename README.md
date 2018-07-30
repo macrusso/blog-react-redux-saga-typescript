@@ -12,7 +12,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### Testing (TODO)
 * enzyme
-* Jest
+* jest
 
 ### Styling (TODO)
 * semantic ui react

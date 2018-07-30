@@ -3,14 +3,15 @@ import { Route, Switch } from 'react-router';
 import { ConnectedRouter } from 'connected-react-router';
 import { History } from 'history';
 import NotFound from '../Common/NotFound';
-import { posts as postsPath } from '../routes';
-import { PostContainer } from '../Post';
+import { posts as postsPath, selectedPost } from '../routes';
+import { PostsListContainer, PostContainer } from '../Post';
 
 
 const App = ({ history }: { history: History }) => (
   <ConnectedRouter history={history}>
     <Switch>
-      <Route path={postsPath} component={PostContainer} />
+      <Route path={selectedPost} component={PostContainer} />
+      <Route path={postsPath} component={PostsListContainer} />
       <Route component={NotFound} />
     </Switch>
   </ConnectedRouter>
