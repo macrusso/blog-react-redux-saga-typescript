@@ -1,21 +1,30 @@
 import * as actionTypes from './postActionTypes';
-// import IPost from './IPost';
 
 export interface IPostsRequest {
-  type: actionTypes.FETCH_POSTS_REQUEST,
-  payload: object,
+  type: actionTypes.FETCH_POSTS_REQUEST;
+  payload: object;
 }
 export interface IPostsFailure {
-  type: actionTypes.FETCH_POSTS_FAIL,
-  payload: object,
+  type: actionTypes.FETCH_POSTS_FAIL;
+  payload: object;
 }
 
 export interface IPostsSuccess {
-  type: actionTypes.FETCH_POSTS_SUCCESS,
-  payload: object,
+  type: actionTypes.FETCH_POSTS_SUCCESS;
+  payload: object;
 }
 
-export const fetchPostsRequest = (page?: number): IPostsRequest => ({
+// general fail response
+export interface IPostFailResponse {
+  response?: any;
+  message?: string;
+}
+
+export const fetchPostsRequest = ({
+  page,
+}: {
+  page?: number;
+}): IPostsRequest => ({
   type: actionTypes.FETCH_POSTS_REQUEST,
   payload: { page },
 });
@@ -25,7 +34,11 @@ export const fetchPostsSuccess = (result: object): IPostsSuccess => ({
   payload: { data: result },
 });
 
-export const fetchPostsFailure = (result: object): IPostsFailure => ({
+export const fetchPostsFailure = (
+  result: IPostFailResponse
+): IPostsFailure => ({
   type: actionTypes.FETCH_POSTS_FAIL,
-  payload: { text: 'error' },
+  payload: {
+    text: (result.response && result.response.text) || result.message,
+  },
 });
