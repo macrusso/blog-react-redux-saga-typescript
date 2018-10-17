@@ -2,13 +2,13 @@ import * as actionTypes from './commentActionTypes';
 import { IAction } from '../../types';
 
 export const initialState = {
-  error: false,
+  error: undefined,
   items: [],
   loading: true,
 };
 
 export interface ICommentsState {
-  error?: boolean;
+  error?: string;
   items: object;
   loading?: boolean;
 }
@@ -19,7 +19,7 @@ const reducer = (state: ICommentsState = initialState, action: IAction) => {
       return {
         ...state,
         loading: true,
-        error: false,
+        error: undefined,
       };
     }
     case actionTypes.FETCH_COMMENTS_SUCCESS: {
@@ -27,7 +27,7 @@ const reducer = (state: ICommentsState = initialState, action: IAction) => {
         ...state,
         items: action.payload,
         loading: false,
-        error: false,
+        error: undefined,
       };
     }
     case actionTypes.FETCH_COMMENTS_FAIL: {
