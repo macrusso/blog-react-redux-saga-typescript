@@ -3,24 +3,29 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 # Overly complicated and overengineered blog
 
 ### Basics
-* react
-* react router
-* react connected router
-* redux
-* redux saga
-* type script
 
-### Testing (TODO)
-* enzyme
-* jest
+- react
+- react router
+- react connected router
+- redux
+- redux saga
+- type script
+
+### Testing
+
+- enzyme
+- jest
 
 ### Styling (TODO)
-* semantic ui react
+
+- semantic ui react
 
 ### Back-end
-* fake API with [JSON Server](https://jsonplaceholder.typicode.com).
+
+- fake API with [JSON Server](https://jsonplaceholder.typicode.com).
 
 # Installation
+
 Before start, clone the repository.
 
 Then in the command line, run:

@@ -60,10 +60,10 @@ const mapStateToProps = (state: IStoreState) => ({
 
 const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
   fetchPosts: () => {
-    dispatch(postActions.fetchPostsRequest());
+    dispatch(postActions.fetchPostsRequest({}));
   },
   fetchUsers: () => {
-    dispatch(userActions.fetchUsersRequest());
+    dispatch(userActions.fetchUsersRequest({}));
   },
 });
 
