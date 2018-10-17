@@ -1,10 +1,6 @@
 import { all } from 'redux-saga/effects';
-import { postSagas } from './Post';
-import { userSagas } from './User';
+import { postSagas, userSagas } from './Entities';
 
 export default function* rootSaga() {
-  yield all([
-    postSagas.watchFetchPosts(),
-    userSagas.watchFetchUsers(),
-  ]);
+  yield all([postSagas.watchFetchPosts(), userSagas.watchFetchUsers()]);
 }

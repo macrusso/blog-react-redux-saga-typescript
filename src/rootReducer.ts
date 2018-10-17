@@ -1,7 +1,12 @@
 import { combineReducers } from 'redux';
-import { postConstants, postReducer } from './Post'
-import { userConstants, userReducer } from './User';
-import { commentConstants, commentReducer } from './Comment';
+import {
+  commentConstants,
+  commentReducer,
+  postConstants,
+  postReducer,
+  userConstants,
+  userReducer,
+} from './Entities';
 
 export default combineReducers({
   [commentConstants.NAME]: commentReducer,

@@ -1,21 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import { IAction, IStoreState } from '../types';
+import { IAction, IStoreState } from '../../types';
 import ErrorBoundary from '../Common/ErrorBoundary';
-import {
-  postActions,
-  postSelectors,
-  IPost,
-  Post,
-} from '.';
-import {
-  userActions,
-  userSelectors,
-  IUser,
-} from '../User';
-import { commentActions } from '../Comment';
-import { Users } from '../utils/api';
+import { postActions, postSelectors, IPost, Post } from '../../Entities/Post';
+import { userActions, userSelectors, IUser } from '../../Entities/User';
+import { commentActions } from '../../Entities/Comment';
+import { Users } from '../../utils/api';
 
 interface IPostContainerProps {
   match: any;
@@ -26,21 +17,17 @@ interface IPostContainerProps {
   usersLoading: boolean;
   fetchPosts: () => void;
   fetchUsers: () => void;
-};
+}
 
 class PostContainer extends Component<IPostContainerProps> {
   public componentDidMount() {
-    const {
-      fetchPosts,
-      fetchUsers,
-    } = this.props;
+    const { fetchPosts, fetchUsers } = this.props;
 
     fetchPosts();
     fetchUsers();
   }
 
   public render() {
-
     const props = this.props;
 
     return (
@@ -55,10 +42,10 @@ class PostContainer extends Component<IPostContainerProps> {
 }
 
 interface IStateFromProps {
-  error?: string,
-  loading: boolean,
-  posts: IPost[],
-  users: IUser[],
+  error?: string;
+  loading: boolean;
+  posts: IPost[];
+  users: IUser[];
 }
 
 interface IDispatchFromProps {
@@ -83,4 +70,7 @@ const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
   },
 });
 
-export default connect<IStateFromProps, IDispatchFromProps, any>(mapStateToProps, mapDispatchToProps)(PostContainer);
+export default connect<IStateFromProps, IDispatchFromProps, any>(
+  mapStateToProps,
+  mapDispatchToProps
+)(PostContainer);

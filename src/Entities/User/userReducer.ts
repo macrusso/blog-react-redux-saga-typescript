@@ -1,29 +1,28 @@
-import * as actionTypes from './postActionTypes';
-import { IAction } from '../types';
+import * as actionTypes from './userActionTypes';
+import { IAction } from '../../types';
 
 export const initialState = {
   error: false,
-  items: {},
+  items: [],
   loading: true,
 };
 
-export interface IPostsState {
-  error?: boolean,
-  items: object,
-  loading?: boolean,
+export interface IUsersState {
+  error?: boolean;
+  items: object;
+  loading?: boolean;
 }
 
-
-const reducer = (state: IPostsState = initialState, action: IAction) => {
+const reducer = (state: IUsersState = initialState, action: IAction) => {
   switch (action.type) {
-    case actionTypes.FETCH_POSTS_REQUEST: {
+    case actionTypes.FETCH_USERS_REQUEST: {
       return {
         ...state,
         loading: true,
         error: false,
       };
     }
-    case actionTypes.FETCH_POSTS_SUCCESS: {
+    case actionTypes.FETCH_USERS_SUCCESS: {
       return {
         ...state,
         items: action.payload,
@@ -31,7 +30,7 @@ const reducer = (state: IPostsState = initialState, action: IAction) => {
         error: false,
       };
     }
-    case actionTypes.FETCH_POSTS_FAIL: {
+    case actionTypes.FETCH_USERS_FAIL: {
       return {
         ...state,
         loading: false,

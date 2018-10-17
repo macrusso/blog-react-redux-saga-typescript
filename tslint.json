@@ -1,27 +1,22 @@
 {
-  "extends": [
-    "tslint:recommended",
-    "tslint-react",
-    "tslint-config-prettier"
-  ],
+  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
   "linterOptions": {
-    "exclude": [
-      "config/**/*.js",
-      "node_modules/**/*.ts",
-      "coverage/lcov-report/*.js"
-    ]
+    "exclude": ["node_modules/**/*.ts", "src/registerServiceWorker.js"]
   },
+  "defaultSeverity": "warning",
   "rules": {
     "object-literal-sort-keys": false,
     "ordered-imports": false,
     "jsx-no-lambda": false,
-    "no-console": false,
-    "array-type": false
+    "no-console": true,
+    "no-debugger": true,
+    "array-type": false,
+    "import-name": false
   },
   "jsRules": {
     "object-literal-sort-keys": false,
     "ordered-imports": false,
-    "no-console": false,
+    "no-console": true,
     "variable-name": false
   }
 }
