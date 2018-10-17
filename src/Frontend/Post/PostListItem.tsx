@@ -22,11 +22,11 @@ const PostListItem = ({
       !usersLoading &&
       posts.length > 0 &&
       posts.map(post => (
-        <div>
+        <div key={post.id}>
           <Link to={selectedPost.replace(':postId', post.id.toString())}>
             {post.title}
           </Link>
-          <p>by {users[post.userId].name}</p>
+          <p>by {post.userId && users[post.userId].name}</p>
           <p>{post.body}</p>
         </div>
       ))}

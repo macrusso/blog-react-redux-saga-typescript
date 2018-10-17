@@ -5,8 +5,6 @@ import { IAction, IStoreState } from '../../types';
 import ErrorBoundary from '../Common/ErrorBoundary';
 import { postActions, postSelectors, IPost, Post } from '../../Entities/Post';
 import { userActions, userSelectors, IUser } from '../../Entities/User';
-import { commentActions } from '../../Entities/Comment';
-import { Users } from '../../utils/api';
 
 interface IPostContainerProps {
   match: any;

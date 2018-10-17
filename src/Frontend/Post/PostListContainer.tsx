@@ -7,6 +7,7 @@ import { postActions, postSelectors, IPost } from '../../Entities/Post';
 import { userActions, userSelectors, IUser } from '../../Entities/User';
 import { Users } from '../../utils/api';
 import { PostListItem } from '.';
+import { PostAddContainer } from '../PostAdd';
 
 interface IPostListContainerProps {
   match: any;
@@ -33,6 +34,7 @@ class PostListContainer extends Component<IPostListContainerProps> {
     return (
       <ErrorBoundary>
         <PostListItem {...props} />
+        <PostAddContainer />
       </ErrorBoundary>
     );
   }
