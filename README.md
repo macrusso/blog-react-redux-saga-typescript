@@ -22,7 +22,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### Back-end
 
-- fake API with [JSON Server](https://jsonplaceholder.typicode.com).
+- fake API with [JSON Server](https://github.com/typicode/json-server).
 
 # Installation
 
@@ -33,6 +33,18 @@ Then in the command line, run:
 ```
 $ cd blog-react-redux-saga-typescript
 $ npm install
+```
+
+Install JSON Server:
+
+```
+$ npm install -g json-server
+```
+
+And start it with:
+
+```
+$ json-server db.json --routes routes.json
 ```
 
 To start the application, run:

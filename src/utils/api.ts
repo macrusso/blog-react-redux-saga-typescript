@@ -1,7 +1,7 @@
 import superagent from 'superagent';
 import { IUser, IComment, IPost } from '../Entities';
 
-const API_ROOT = 'https://jsonplaceholder.typicode.com';
+const API_ROOT = `${process.env.REACT_APP_API_ROOT}/api/v1`;
 const responseBody = (res: any) => res.body;
 
 type URL = string;
@@ -12,7 +12,11 @@ interface IPatchPostRequest {
 }
 
 const requests = {
-  del: (url: URL) => superagent.del(`${API_ROOT}${url}`).then(responseBody),
+  del: (url: URL) =>
+    superagent
+      .del(`${API_ROOT}${url}`)
+      .withCredentials()
+      .then(responseBody),
   get: (url: URL) => superagent.get(`${API_ROOT}${url}`).then(responseBody),
   patch: ({ url, body }: IPatchPostRequest) =>
     superagent.patch(`${API_ROOT}${url}`, body).then(responseBody),
