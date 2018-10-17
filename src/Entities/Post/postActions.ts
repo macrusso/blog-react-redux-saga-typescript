@@ -5,27 +5,29 @@ export interface IFetchPostsRequest {
   type: actionTypes.FETCH_POSTS_REQUEST;
   payload: object;
 }
+
+export interface IFetchPostsSuccess {
+  type: actionTypes.FETCH_POSTS_SUCCESS;
+  payload: IPost[];
+}
+
 export interface IFetchPostsFailure {
   type: actionTypes.FETCH_POSTS_FAIL;
   payload: object;
 }
 
-export interface IFetchPostsSuccess {
-  type: actionTypes.FETCH_POSTS_SUCCESS;
-  payload: object;
-}
-
 export interface IAddPostRequest {
   type: actionTypes.ADD_POST_REQUEST;
-  payload: object;
-}
-export interface IAddPostFailure {
-  type: actionTypes.ADD_POST_FAIL;
-  payload: object;
+  payload: IPostPartial;
 }
 
 export interface IAddPostSuccess {
   type: actionTypes.ADD_POST_SUCCESS;
+  payload: IPost;
+}
+
+export interface IAddPostFailure {
+  type: actionTypes.ADD_POST_FAIL;
   payload: object;
 }
 
@@ -44,9 +46,9 @@ export const fetchPostsRequest = ({
   payload: { page },
 });
 
-export const fetchPostsSuccess = (result: object): IFetchPostsSuccess => ({
+export const fetchPostsSuccess = (result: IPost[]): IFetchPostsSuccess => ({
   type: actionTypes.FETCH_POSTS_SUCCESS,
-  payload: { data: result },
+  payload: result,
 });
 
 export const fetchPostsFailure = (
@@ -62,9 +64,9 @@ export const addPostRequest = (post: IPostPartial): IAddPostRequest => ({
   payload: post,
 });
 
-export const addPostSuccess = (result: object): IAddPostSuccess => ({
+export const addPostSuccess = (result: IPost): IAddPostSuccess => ({
   type: actionTypes.ADD_POST_SUCCESS,
-  payload: { data: result },
+  payload: result,
 });
 
 export const addPostFailure = (result: IPostFailResponse): IAddPostFailure => ({

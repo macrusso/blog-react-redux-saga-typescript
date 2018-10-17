@@ -22,9 +22,9 @@ describe('Comment Actions', () => {
   });
 
   it(`Returns right action for ${actionTypes.FETCH_COMMENTS_SUCCESS}`, () => {
-    expect(actions.fetchCommentsSuccess(testComment)).toEqual({
+    expect(actions.fetchCommentsSuccess([testComment])).toEqual({
       type: actionTypes.FETCH_COMMENTS_SUCCESS,
-      payload: { data: testComment },
+      payload: [testComment],
     });
   });
 

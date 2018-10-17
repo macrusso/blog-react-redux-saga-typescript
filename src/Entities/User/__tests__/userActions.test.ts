@@ -21,9 +21,9 @@ describe('User Actions', () => {
   });
 
   it(`Returns right action for ${actionTypes.FETCH_USERS_SUCCESS}`, () => {
-    expect(actions.fetchUsersSuccess(testUser)).toEqual({
+    expect(actions.fetchUsersSuccess([testUser])).toEqual({
       type: actionTypes.FETCH_USERS_SUCCESS,
-      payload: { data: testUser },
+      payload: [testUser],
     });
   });
 
