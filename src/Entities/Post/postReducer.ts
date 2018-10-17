@@ -1,15 +1,16 @@
 import * as actionTypes from './postActionTypes';
 import { IAction } from '../../types';
+import { IPost } from '.';
 
 export const initialState = {
   error: undefined,
-  items: {},
+  items: [],
   loading: true,
 };
 
 export interface IPostsState {
   error?: string;
-  items: object;
+  items: IPost[];
   loading?: boolean;
 }
 
@@ -47,7 +48,6 @@ const reducer = (state: IPostsState = initialState, action: IAction) => {
     case actionTypes.ADD_POST_SUCCESS: {
       return {
         ...state,
-        items: action.payload,
         loading: false,
         error: undefined,
       };

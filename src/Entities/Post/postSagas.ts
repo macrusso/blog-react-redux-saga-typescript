@@ -8,7 +8,7 @@ export function* watchFetchPosts(): Generator {
 }
 
 export function* watchAddPost(): Generator {
-  yield takeLatest(actionTypes.FETCH_POSTS_REQUEST, addPostSaga);
+  yield takeLatest(actionTypes.ADD_POST_REQUEST, addPostSaga);
 }
 
 export function* fetchPostsSaga(action: IAction): Generator {
@@ -22,7 +22,7 @@ export function* fetchPostsSaga(action: IAction): Generator {
 
 export function* addPostSaga(action: IAction): Generator {
   try {
-    const result = yield call(api.Posts.create, action.payload.post);
+    const result = yield call(api.Posts.create, action.payload);
     yield put({ type: actionTypes.ADD_POST_SUCCESS, payload: result });
   } catch (error) {
     yield put({ type: actionTypes.ADD_POST_FAIL, payload: error });

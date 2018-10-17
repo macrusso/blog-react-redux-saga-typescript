@@ -1,5 +1,6 @@
 import * as actionTypes from './userActionTypes';
 import { IAction } from '../../types';
+import { IUser } from '.';
 
 export const initialState = {
   error: undefined,
@@ -9,7 +10,7 @@ export const initialState = {
 
 export interface IUsersState {
   error?: string;
-  items: object;
+  items: IUser[];
   loading?: boolean;
 }
 

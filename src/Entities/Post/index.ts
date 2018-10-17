@@ -2,9 +2,10 @@ import * as postConstants from './postConstants';
 import * as postSelectors from './postSelectors';
 import * as postActions from './postActions';
 import * as postSagas from './postSagas';
+import Post from '../../Frontend/Post/PostListItem';
+import IPostPartial from './IPostPartial';
 import postReducer from './postReducer';
 import IPost from './IPost';
-import Post from '../../Frontend/Post/PostListItem';
 
 export {
   Post,
@@ -12,6 +13,7 @@ export {
   postSagas,
   postActions,
   postReducer,
+  IPostPartial,
   postSelectors,
   postConstants,
 };

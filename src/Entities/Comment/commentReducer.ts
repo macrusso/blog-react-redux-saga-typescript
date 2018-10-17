@@ -1,5 +1,6 @@
 import * as actionTypes from './commentActionTypes';
 import { IAction } from '../../types';
+import { IComment } from '.';
 
 export const initialState = {
   error: undefined,
@@ -9,7 +10,7 @@ export const initialState = {
 
 export interface ICommentsState {
   error?: string;
-  items: object;
+  items: IComment[];
   loading?: boolean;
 }
 

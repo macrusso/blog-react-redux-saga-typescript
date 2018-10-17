@@ -1,5 +1,5 @@
 import superagent from 'superagent';
-import { IUser, IComment, IPost } from '../Entities';
+import { IUser, IComment, IPost, IPostPartial } from '../Entities';
 
 const API_ROOT = `${process.env.REACT_APP_API_ROOT}/api/v1`;
 const responseBody = (res: any) => res.body;
@@ -54,10 +54,10 @@ export const Posts = {
       url: `/posts/${post.id}`,
       body: { post },
     }),
-  create: (post: IPost) =>
+  create: (post: IPostPartial) =>
     requests.post({
       url: '/posts',
-      body: { post },
+      body: post,
     }),
   del: (id: number) => requests.del(`/users/${id}`),
 };
