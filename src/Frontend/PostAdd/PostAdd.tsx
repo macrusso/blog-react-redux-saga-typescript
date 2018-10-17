@@ -10,7 +10,7 @@ const PostAdd: React.SFC<IPostAddProps> = props => {
   const { addPost } = props;
   return (
     <div>
-      <h1>Anywhere in your app!</h1>
+      <h1>Create a post!</h1>
       <Formik
         initialValues={{ title: '', body: '' }}
         onSubmit={values => {

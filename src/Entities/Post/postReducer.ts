@@ -46,6 +46,7 @@ const reducer = (state: IPostsState = initialState, action: IAction) => {
       };
     }
     case actionTypes.ADD_POST_SUCCESS: {
+      state.items.push(action.payload);
       return {
         ...state,
         loading: false,
