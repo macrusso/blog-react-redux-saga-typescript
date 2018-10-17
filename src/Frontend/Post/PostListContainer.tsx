@@ -5,20 +5,10 @@ import { IAction, IStoreState } from '../../types';
 import ErrorBoundary from '../Common/ErrorBoundary';
 import { postActions, postSelectors, IPost } from '../../Entities/Post';
 import { userActions, userSelectors, IUser } from '../../Entities/User';
-import { Users } from '../../utils/api';
 import { PostListItem } from '.';
 import { PostAddContainer } from '../PostAdd';
 
-interface IPostListContainerProps {
-  match: any;
-  posts: IPost[];
-  users: IUser[];
-  error?: string;
-  loading: boolean;
-  usersLoading: boolean;
-  fetchPosts: () => void;
-  fetchUsers: () => void;
-}
+type IPostListContainerProps = IStateToProps & IDispatchToProps;
 
 class PostListContainer extends Component<IPostListContainerProps> {
   public componentDidMount() {
@@ -40,14 +30,15 @@ class PostListContainer extends Component<IPostListContainerProps> {
   }
 }
 
-interface IStateFromProps {
+interface IStateToProps {
   error?: string;
   loading: boolean;
   posts: IPost[];
   users: IUser[];
+  usersLoading: boolean;
 }
 
-interface IDispatchFromProps {
+interface IDispatchToProps {
   fetchPosts: () => void;
   fetchUsers: () => void;
 }
@@ -69,7 +60,7 @@ const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
   },
 });
 
-export default connect<IStateFromProps, IDispatchFromProps, any>(
+export default connect<IStateToProps, IDispatchToProps, any>(
   mapStateToProps,
   mapDispatchToProps
 )(PostListContainer);

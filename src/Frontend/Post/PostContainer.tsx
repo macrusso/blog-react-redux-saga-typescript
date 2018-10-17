@@ -3,19 +3,15 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { IAction, IStoreState } from '../../types';
 import ErrorBoundary from '../Common/ErrorBoundary';
-import { postActions, postSelectors, IPost, Post } from '../../Entities/Post';
-import { userActions, userSelectors, IUser } from '../../Entities/User';
+import { postSelectors, IPost, postActions } from '../../Entities/Post';
+import { Post } from '.';
+import { userActions } from 'src/Entities';
 
-interface IPostContainerProps {
+interface IOwnProps {
   match: any;
-  posts: IPost[];
-  users: IUser[];
-  error?: string;
-  loading: boolean;
-  usersLoading: boolean;
-  fetchPosts: () => void;
-  fetchUsers: () => void;
 }
+
+type IPostContainerProps = IOwnProps & IStateToProps & IDispatchToProps;
 
 class PostContainer extends Component<IPostContainerProps> {
   public componentDidMount() {
@@ -24,29 +20,25 @@ class PostContainer extends Component<IPostContainerProps> {
     fetchPosts();
     fetchUsers();
   }
-
   public render() {
-    const props = this.props;
-
+    const { posts, match } = this.props;
     return (
       <ErrorBoundary>
-        sdsdsdsssdsdsd
-        {/* <Post
-          {...props}
-        /> */}
+        <Post
+          post={posts.find(post => post.id === Number(match.params.postId))}
+        />
       </ErrorBoundary>
     );
   }
 }
 
-interface IStateFromProps {
+interface IStateToProps {
   error?: string;
   loading: boolean;
   posts: IPost[];
-  users: IUser[];
 }
 
-interface IDispatchFromProps {
+interface IDispatchToProps {
   fetchPosts: () => void;
   fetchUsers: () => void;
 }
@@ -55,8 +47,6 @@ const mapStateToProps = (state: IStoreState) => ({
   error: postSelectors.getError(state),
   loading: postSelectors.getLoadingStatus(state),
   posts: postSelectors.getAllPosts(state),
-  users: userSelectors.getAllUsersObject(state),
-  usersLoading: userSelectors.getLoadingStatus(state),
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
@@ -68,7 +58,7 @@ const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
   },
 });
 
-export default connect<IStateFromProps, IDispatchFromProps, any>(
+export default connect<IStateToProps, IDispatchToProps, any>(
   mapStateToProps,
   mapDispatchToProps
 )(PostContainer);
