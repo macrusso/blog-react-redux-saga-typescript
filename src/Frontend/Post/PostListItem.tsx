@@ -1,5 +1,4 @@
 import React from 'react';
-import { Item, Container } from 'semantic-ui-react';
 import { IPost } from '../../Entities/Post';
 import { IUser } from '../../Entities/User';
 import { Link } from 'react-router-dom';
@@ -18,30 +17,20 @@ const PostListItem = ({
   loading,
   usersLoading,
 }: IPostListItemProps) => (
-  <Container>
-    <Item.Group>
-      {!loading &&
-        !usersLoading &&
-        posts.length > 0 &&
-        posts.map(post => (
-          <Item key={post.id}>
-            <Item.Image
-              size="tiny"
-              src="https://react.semantic-ui.com/images/wireframe/image.png"
-            />
-            <Item.Content>
-              <Item.Header>
-                <Link to={selectedPost.replace(':postId', post.id.toString())}>
-                  {post.title}
-                </Link>
-              </Item.Header>
-              <Item.Meta>by {users[post.userId].name}</Item.Meta>
-              <Item.Description>{post.body}</Item.Description>
-            </Item.Content>
-          </Item>
-        ))}
-    </Item.Group>
-  </Container>
+  <div>
+    {!loading &&
+      !usersLoading &&
+      posts.length > 0 &&
+      posts.map(post => (
+        <div>
+          <Link to={selectedPost.replace(':postId', post.id.toString())}>
+            {post.title}
+          </Link>
+          <p>by {users[post.userId].name}</p>
+          <p>{post.body}</p>
+        </div>
+      ))}
+  </div>
 );
 
 export default PostListItem;

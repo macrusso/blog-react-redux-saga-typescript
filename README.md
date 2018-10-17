@@ -16,9 +16,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - enzyme
 - jest
 
-### Styling (TODO)
+### Styling
 
-- semantic ui react
+- Material UI
 
 ### Back-end
 
