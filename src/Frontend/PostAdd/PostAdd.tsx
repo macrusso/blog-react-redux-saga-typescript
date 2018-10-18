@@ -1,6 +1,6 @@
 import React from 'react';
 import { Formik } from 'formik';
-import { IPostPartial } from 'src/Entities';
+import { IPostPartial } from '../../Entities';
 
 interface IPostAddProps {
   addPost: (post: IPostPartial) => void;

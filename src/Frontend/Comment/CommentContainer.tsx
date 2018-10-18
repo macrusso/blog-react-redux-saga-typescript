@@ -9,7 +9,7 @@ import {
   commentActions,
 } from '../../Entities/Comment';
 import { Comment } from '.';
-import { userActions } from 'src/Entities';
+import { userActions } from '../../Entities';
 
 interface IOwnProps {
   match: any;

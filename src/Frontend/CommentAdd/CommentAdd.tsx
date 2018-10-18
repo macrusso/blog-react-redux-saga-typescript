@@ -1,6 +1,6 @@
 import React from 'react';
 import { Formik } from 'formik';
-import { ICommentPartial } from 'src/Entities';
+import { ICommentPartial } from '../../Entities';
 
 interface ICommentAddProps {
   match: any;

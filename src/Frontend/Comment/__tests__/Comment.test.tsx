@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { shallow } from 'enzyme';
 import Comment from '../Comment';
-import { IComment } from 'src/Entities';
+import { IComment } from '../../../Entities';
 
 describe('Comment', () => {
   test('Snapshot matches', () => {

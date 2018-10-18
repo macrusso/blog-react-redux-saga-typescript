@@ -23,7 +23,6 @@ export function* watchAddComment(): Generator {
 export function* addCommentSaga(action: IAction): Generator {
   try {
     const result = yield call(api.Comments.create, action.payload);
-    console.log(result);
     yield put({ type: actionTypes.ADD_COMMENT_SUCCESS, payload: result });
   } catch (error) {
     yield put({ type: actionTypes.ADD_COMMENT_FAIL, payload: error });

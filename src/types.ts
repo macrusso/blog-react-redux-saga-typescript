@@ -5,8 +5,9 @@ export interface IAction {
 }
 
 export interface IStoreState {
+  readonly App: any;
   readonly Posts: any;
   readonly Users: any;
-  readonly Comments: any;
   readonly router: any;
+  readonly Comments: any;
 }

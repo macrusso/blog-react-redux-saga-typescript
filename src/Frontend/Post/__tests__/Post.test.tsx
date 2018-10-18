@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { shallow } from 'enzyme';
 import Post from '../Post';
-import { IPost } from 'src/Entities';
+import { IPost } from '../../../Entities';
 
 describe('Post', () => {
   test('Snapshot matches', () => {

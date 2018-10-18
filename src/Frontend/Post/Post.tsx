@@ -1,5 +1,5 @@
 import React from 'react';
-import { IPostPartial, IPost } from 'src/Entities';
+import { IPost } from '../../Entities';
 
 interface IPostProps {
   post?: IPost;

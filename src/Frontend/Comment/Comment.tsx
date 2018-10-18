@@ -1,5 +1,5 @@
 import React from 'react';
-import { IComment } from 'src/Entities';
+import { IComment } from '../../Entities';
 
 interface ICommentProps {
   comment?: IComment;

@@ -5,7 +5,7 @@ import { IAction, IStoreState } from '../../types';
 import ErrorBoundary from '../Common/ErrorBoundary';
 import { postSelectors, IPost, postActions } from '../../Entities/Post';
 import { Post } from '.';
-import { userActions } from 'src/Entities';
+import { userActions } from '../../Entities';
 import { CommentListContainer } from '../Comment';
 
 interface IOwnProps {
