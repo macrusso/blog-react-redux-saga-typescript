@@ -5,10 +5,9 @@ import { IComment } from '..';
 describe('Comment Selectors', () => {
   const testComment1: IComment = {
     id: 1,
-    name: 'string',
-    email: 'string',
     body: 'string',
-    postId: 'string',
+    postId: 1,
+    userId: 1,
   };
 
   const testComment2: IComment = {

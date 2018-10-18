@@ -6,6 +6,7 @@ import ErrorBoundary from '../Common/ErrorBoundary';
 import { postSelectors, IPost, postActions } from '../../Entities/Post';
 import { Post } from '.';
 import { userActions } from 'src/Entities';
+import { CommentListContainer } from '../Comment';
 
 interface IOwnProps {
   match: any;
@@ -27,6 +28,7 @@ class PostContainer extends Component<IPostContainerProps> {
         <Post
           post={posts.find(post => post.id === Number(match.params.postId))}
         />
+        <CommentListContainer />
       </ErrorBoundary>
     );
   }

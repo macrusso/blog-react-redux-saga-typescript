@@ -5,10 +5,9 @@ import { IComment } from '..';
 describe('Comment Actions', () => {
   const testComment: IComment = {
     id: 1,
-    name: 'string',
-    email: 'string',
     body: 'string',
-    postId: 'string',
+    postId: 1,
+    userId: 1,
   };
   const testError = {
     message: 'sample error message',
