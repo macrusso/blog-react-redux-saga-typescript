@@ -9,12 +9,9 @@ import {
   commentActions,
 } from '../../Entities';
 import { CommentAdd } from '.';
+import { appSelectors } from '../../App';
 
-interface IOwnProps {
-  match: any;
-}
-
-type ICommentAddContainerProps = IStateToProps & IDispatchToProps & IOwnProps;
+type ICommentAddContainerProps = IStateToProps & IDispatchToProps;
 
 class CommentAddContainer extends Component<ICommentAddContainerProps> {
   public render() {
@@ -30,6 +27,7 @@ class CommentAddContainer extends Component<ICommentAddContainerProps> {
 
 interface IStateToProps {
   error?: string;
+  userId: number;
 }
 
 interface IDispatchToProps {
@@ -38,6 +36,7 @@ interface IDispatchToProps {
 
 const mapStateToProps = (state: IStoreState) => ({
   error: commentSelectors.getError(state),
+  userId: appSelectors.getUserId(state),
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({

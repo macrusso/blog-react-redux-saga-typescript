@@ -3,13 +3,9 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { IAction, IStoreState } from '../../types';
 import ErrorBoundary from '../Common/ErrorBoundary';
-import {
-  postSelectors,
-  IPost,
-  IPostPartial,
-  postActions,
-} from '../../Entities';
+import { postSelectors, IPostPartial, postActions } from '../../Entities';
 import { PostAdd } from '.';
+import { appSelectors } from '../../App';
 
 type IPostAddContainerProps = IStateToProps & IDispatchToProps;
 
@@ -27,6 +23,7 @@ class PostAddContainer extends Component<IPostAddContainerProps> {
 
 interface IStateToProps {
   error?: string;
+  userId: number;
 }
 
 interface IDispatchToProps {
@@ -35,6 +32,7 @@ interface IDispatchToProps {
 
 const mapStateToProps = (state: IStoreState) => ({
   error: postSelectors.getError(state),
+  userId: appSelectors.getUserId(state),
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({

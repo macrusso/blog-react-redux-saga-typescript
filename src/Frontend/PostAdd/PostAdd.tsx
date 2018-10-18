@@ -3,18 +3,19 @@ import { Formik } from 'formik';
 import { IPostPartial } from '../../Entities';
 
 interface IPostAddProps {
+  userId: number;
   addPost: (post: IPostPartial) => void;
 }
 
 const PostAdd: React.SFC<IPostAddProps> = props => {
-  const { addPost } = props;
+  const { userId, addPost } = props;
   return (
     <div>
       <h1>Create a post!</h1>
       <Formik
         initialValues={{ title: '', body: '' }}
         onSubmit={values => {
-          addPost({ ...values, userId: 1 });
+          addPost({ ...values, userId });
         }}
       >
         {({ values, handleChange, handleBlur, handleSubmit }) => (

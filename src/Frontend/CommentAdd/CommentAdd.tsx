@@ -3,19 +3,19 @@ import { Formik } from 'formik';
 import { ICommentPartial } from '../../Entities';
 
 interface ICommentAddProps {
-  match: any;
+  userId: number;
   addComment: (comment: ICommentPartial) => void;
 }
 
 const CommentAdd: React.SFC<ICommentAddProps> = props => {
-  const { addComment, match } = props;
+  const { userId, addComment } = props;
   return (
     <div>
       <h1>Create a comment!</h1>
       <Formik
         initialValues={{ body: '' }}
         onSubmit={values => {
-          addComment({ ...values, userId: 1, postId: 2 });
+          addComment({ ...values, userId, postId: 2 });
         }}
       >
         {({ values, handleChange, handleBlur, handleSubmit }) => (
