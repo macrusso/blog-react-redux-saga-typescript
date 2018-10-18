@@ -15,7 +15,7 @@ const CommentAdd: React.SFC<ICommentAddProps> = props => {
       <Formik
         initialValues={{ body: '' }}
         onSubmit={values => {
-          addComment({ ...values, userId: 1, postId: match.params.postId });
+          addComment({ ...values, userId: 1, postId: 2 });
         }}
       >
         {({ values, handleChange, handleBlur, handleSubmit }) => (

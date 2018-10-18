@@ -6,6 +6,7 @@ export default function* rootSaga() {
     postSagas.watchAddPost(),
     postSagas.watchFetchPosts(),
     userSagas.watchFetchUsers(),
+    commentSagas.watchAddComment(),
     commentSagas.watchFetchComments(),
   ]);
 }

@@ -16,13 +16,14 @@ export function* fetchCommentsSaga(action: IAction): Generator {
   }
 }
 
-export function* watchAddPost(): Generator {
-  yield takeLatest(actionTypes.ADD_COMMENT_REQUEST, addPostSaga);
+export function* watchAddComment(): Generator {
+  yield takeLatest(actionTypes.ADD_COMMENT_REQUEST, addCommentSaga);
 }
 
-export function* addPostSaga(action: IAction): Generator {
+export function* addCommentSaga(action: IAction): Generator {
   try {
-    const result = yield call(api.Posts.create, action.payload);
+    const result = yield call(api.Comments.create, action.payload);
+    console.log(result);
     yield put({ type: actionTypes.ADD_COMMENT_SUCCESS, payload: result });
   } catch (error) {
     yield put({ type: actionTypes.ADD_COMMENT_FAIL, payload: error });

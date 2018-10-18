@@ -10,7 +10,7 @@ import {
 } from '../../Entities/Comment';
 import { userActions, userSelectors, IUser } from '../../Entities/User';
 import { CommentListItem } from '.';
-// import { CommentAddContainer } from '../CommentAdd';
+import { CommentAddContainer } from '../';
 
 type ICommentListContainerProps = IStateToProps & IDispatchToProps;
 
@@ -28,7 +28,7 @@ class CommentListContainer extends Component<ICommentListContainerProps> {
     return (
       <ErrorBoundary>
         <CommentListItem {...props} />
-        {/* <CommentAddContainer /> */}
+        <CommentAddContainer />
       </ErrorBoundary>
     );
   }

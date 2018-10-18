@@ -1,5 +1,11 @@
 import superagent from 'superagent';
-import { IUser, IComment, IPost, IPostPartial } from '../Entities';
+import {
+  IUser,
+  IComment,
+  IPost,
+  IPostPartial,
+  ICommentPartial,
+} from '../Entities';
 
 const API_ROOT = `${process.env.REACT_APP_API_ROOT}/api/v1`;
 const responseBody = (res: any) => res.body;
@@ -32,12 +38,12 @@ export const Users = {
   update: (user: IUser) =>
     requests.patch({
       url: `/users/${user.id}`,
-      body: { user },
+      body: user,
     }),
   create: (user: IUser) =>
     requests.post({
       url: '/users',
-      body: { user },
+      body: user,
     }),
   del: (id: number) => requests.del(`/users/${id}`),
 };
@@ -52,7 +58,7 @@ export const Posts = {
   update: (post: IPost) =>
     requests.patch({
       url: `/posts/${post.id}`,
-      body: { post },
+      body: post,
     }),
   create: (post: IPostPartial) =>
     requests.post({
@@ -72,12 +78,12 @@ export const Comments = {
   update: (comment: IComment) =>
     requests.patch({
       url: `/comments/${comment.id}`,
-      body: { comment },
+      body: comment,
     }),
-  create: (comment: IComment) =>
+  create: (comment: ICommentPartial) =>
     requests.post({
       url: '/comments',
-      body: { comment },
+      body: comment,
     }),
   del: (id: number) => requests.del(`/comments/${id}`),
 };
