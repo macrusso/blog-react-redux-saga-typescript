@@ -38,6 +38,28 @@ const reducer = (state: ICommentsState = initialState, action: IAction) => {
         error: action.payload.text,
       };
     }
+    case actionTypes.ADD_COMMENT_REQUEST: {
+      return {
+        ...state,
+        loading: true,
+        error: undefined,
+      };
+    }
+    case actionTypes.ADD_COMMENT_SUCCESS: {
+      state.items.push(action.payload);
+      return {
+        ...state,
+        loading: false,
+        error: undefined,
+      };
+    }
+    case actionTypes.ADD_COMMENT_FAIL: {
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.text,
+      };
+    }
     default: {
       return state;
     }

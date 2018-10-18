@@ -1,5 +1,5 @@
 import * as actionTypes from './commentActionTypes';
-import { IComment } from '.';
+import { IComment, ICommentPartial } from '.';
 
 export interface ICommentsRequest {
   type: actionTypes.FETCH_COMMENTS_REQUEST;
@@ -13,6 +13,21 @@ export interface ICommentsSuccess {
 
 export interface ICommentsFailure {
   type: actionTypes.FETCH_COMMENTS_FAIL;
+  payload: object;
+}
+
+export interface IAddCommentRequest {
+  type: actionTypes.ADD_COMMENT_REQUEST;
+  payload: ICommentPartial;
+}
+
+export interface IAddCommentSuccess {
+  type: actionTypes.ADD_COMMENT_SUCCESS;
+  payload: IComment;
+}
+
+export interface IAddCommentFailure {
+  type: actionTypes.ADD_COMMENT_FAIL;
   payload: object;
 }
 
@@ -40,6 +55,27 @@ export const fetchCommentsFailure = (
   result: ICommentFailResponse
 ): ICommentsFailure => ({
   type: actionTypes.FETCH_COMMENTS_FAIL,
+  payload: {
+    text: (result.response && result.response.text) || result.message,
+  },
+});
+
+export const addCommentRequest = (
+  post: ICommentPartial
+): IAddCommentRequest => ({
+  type: actionTypes.ADD_COMMENT_REQUEST,
+  payload: post,
+});
+
+export const addCommentSuccess = (result: IComment): IAddCommentSuccess => ({
+  type: actionTypes.ADD_COMMENT_SUCCESS,
+  payload: result,
+});
+
+export const addCommentFailure = (
+  result: ICommentFailResponse
+): IAddCommentFailure => ({
+  type: actionTypes.ADD_COMMENT_FAIL,
   payload: {
     text: (result.response && result.response.text) || result.message,
   },

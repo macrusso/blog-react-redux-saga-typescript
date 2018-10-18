@@ -59,6 +59,7 @@ export const fetchPostsFailure = (
     text: (result.response && result.response.text) || result.message,
   },
 });
+
 export const addPostRequest = (post: IPostPartial): IAddPostRequest => ({
   type: actionTypes.ADD_POST_REQUEST,
   payload: post,

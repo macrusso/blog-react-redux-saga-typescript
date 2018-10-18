@@ -67,7 +67,7 @@ describe('postReducer', () => {
   it(`Should return correct state for ${actionTypes.ADD_POST_SUCCESS}`, () => {
     const testAction = {
       type: actionTypes.ADD_POST_SUCCESS,
-      payload: { data: testPost },
+      payload: testPost,
     };
     expect(reducer(testState, testAction)).toEqual({
       ...testState,

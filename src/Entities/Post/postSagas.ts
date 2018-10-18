@@ -6,11 +6,6 @@ import * as actionTypes from './postActionTypes';
 export function* watchFetchPosts(): Generator {
   yield takeLatest(actionTypes.FETCH_POSTS_REQUEST, fetchPostsSaga);
 }
-
-export function* watchAddPost(): Generator {
-  yield takeLatest(actionTypes.ADD_POST_REQUEST, addPostSaga);
-}
-
 export function* fetchPostsSaga(action: IAction): Generator {
   try {
     const result = yield call(api.Posts.all, action.payload);
@@ -18,6 +13,10 @@ export function* fetchPostsSaga(action: IAction): Generator {
   } catch (error) {
     yield put({ type: actionTypes.FETCH_POSTS_FAIL, payload: error });
   }
+}
+
+export function* watchAddPost(): Generator {
+  yield takeLatest(actionTypes.ADD_POST_REQUEST, addPostSaga);
 }
 
 export function* addPostSaga(action: IAction): Generator {
