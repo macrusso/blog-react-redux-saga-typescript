@@ -5,6 +5,7 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <BrowserRouter>
     <WithStyles(Post)
+      handleOpenDialog={[MockFunction]}
       post={
         Object {
           "body": "string",
@@ -39,6 +40,7 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "children": <WithStyles(Post)
+        handleOpenDialog={[MockFunction]}
         post={
           Object {
             "body": "string",
@@ -83,6 +85,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
+        "handleOpenDialog": [MockFunction],
         "post": Object {
           "body": "string",
           "id": 1,
@@ -111,6 +114,7 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "children": <WithStyles(Post)
+          handleOpenDialog={[MockFunction]}
           post={
             Object {
               "body": "string",
@@ -155,6 +159,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
+          "handleOpenDialog": [MockFunction],
           "post": Object {
             "body": "string",
             "id": 1,
