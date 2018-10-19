@@ -1,3 +1,6 @@
+import * as entities from './Entities';
+import { IAppState } from './App';
+
 export interface IAction {
   type: string;
   payload?: any;
@@ -5,9 +8,9 @@ export interface IAction {
 }
 
 export interface IStoreState {
-  readonly App: any;
-  readonly Posts: any;
-  readonly Users: any;
-  readonly router: any;
-  readonly Comments: any;
+  readonly App: IAppState;
+  readonly Posts: entities.IPostsState;
+  readonly Users: entities.IUsersState;
+  readonly Comments: entities.ICommentsState;
+  router: any;
 }

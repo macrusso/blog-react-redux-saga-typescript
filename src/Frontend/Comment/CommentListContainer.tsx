@@ -11,6 +11,7 @@ import {
 import { userActions, userSelectors, IUser } from '../../Entities/User';
 import { CommentListItem } from '.';
 import { CommentAddContainer } from '../';
+import { postSelectors } from 'src/Entities';
 
 type ICommentListContainerProps = IStateToProps & IDispatchToProps;
 
@@ -35,11 +36,12 @@ class CommentListContainer extends Component<ICommentListContainerProps> {
 }
 
 interface IStateToProps {
+  users: IUser[];
   error?: string;
   loading: boolean;
   comments: IComment[];
-  users: IUser[];
   usersLoading: boolean;
+  selectedPostId?: number;
 }
 
 interface IDispatchToProps {
@@ -49,9 +51,10 @@ interface IDispatchToProps {
 
 const mapStateToProps = (state: IStoreState) => ({
   error: commentSelectors.getError(state),
-  loading: commentSelectors.getLoadingStatus(state),
-  comments: commentSelectors.getAllComments(state),
   users: userSelectors.getAllUsersObject(state),
+  comments: commentSelectors.getAllComments(state),
+  loading: commentSelectors.getLoadingStatus(state),
+  selectedPostId: postSelectors.getSelectedId(state),
   usersLoading: userSelectors.getLoadingStatus(state),
 });
 

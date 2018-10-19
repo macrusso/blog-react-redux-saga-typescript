@@ -11,7 +11,7 @@ export const initialState = {
 export interface ICommentsState {
   error?: string;
   items: IComment[];
-  loading?: boolean;
+  loading: boolean;
 }
 
 const reducer = (state: ICommentsState = initialState, action: IAction) => {

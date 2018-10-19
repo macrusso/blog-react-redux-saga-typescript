@@ -7,6 +7,7 @@ import {
   commentSelectors,
   ICommentPartial,
   commentActions,
+  postSelectors,
 } from '../../Entities';
 import { CommentAdd } from '.';
 import { appSelectors } from '../../App';
@@ -19,6 +20,7 @@ class CommentAddContainer extends Component<ICommentAddContainerProps> {
 
     return (
       <ErrorBoundary>
+        selectedId: {props.selectedPostId}
         <CommentAdd {...props} />
       </ErrorBoundary>
     );
@@ -26,6 +28,7 @@ class CommentAddContainer extends Component<ICommentAddContainerProps> {
 }
 
 interface IStateToProps {
+  selectedPostId?: number;
   error?: string;
   userId: number;
 }
@@ -35,6 +38,7 @@ interface IDispatchToProps {
 }
 
 const mapStateToProps = (state: IStoreState) => ({
+  selectedPostId: postSelectors.getSelectedId(state),
   error: commentSelectors.getError(state),
   userId: appSelectors.getUserId(state),
 });

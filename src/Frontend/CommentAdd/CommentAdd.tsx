@@ -4,33 +4,36 @@ import { ICommentPartial } from '../../Entities';
 
 interface ICommentAddProps {
   userId: number;
+  selectedPostId?: number;
   addComment: (comment: ICommentPartial) => void;
 }
 
 const CommentAdd: React.SFC<ICommentAddProps> = props => {
-  const { userId, addComment } = props;
+  const { userId, addComment, selectedPostId } = props;
   return (
     <div>
       <h1>Create a comment!</h1>
-      <Formik
-        initialValues={{ body: '' }}
-        onSubmit={values => {
-          addComment({ ...values, userId, postId: 2 });
-        }}
-      >
-        {({ values, handleChange, handleBlur, handleSubmit }) => (
-          <form onSubmit={handleSubmit}>
-            <input
-              type="body"
-              name="body"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.body}
-            />
-            <button type="submit">Submit</button>
-          </form>
-        )}
-      </Formik>
+      {selectedPostId && (
+        <Formik
+          initialValues={{ body: '' }}
+          onSubmit={values => {
+            addComment({ ...values, userId, postId: selectedPostId });
+          }}
+        >
+          {({ values, handleChange, handleBlur, handleSubmit }) => (
+            <form onSubmit={handleSubmit}>
+              <input
+                type="body"
+                name="body"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.body}
+              />
+              <button type="submit">Submit</button>
+            </form>
+          )}
+        </Formik>
+      )}
     </div>
   );
 };

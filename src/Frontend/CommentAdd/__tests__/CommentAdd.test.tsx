@@ -7,7 +7,7 @@ describe('CommentAdd', () => {
   test('Snapshot matches', () => {
     const wrapper = shallow(
       <BrowserRouter>
-        <CommentAdd addComment={jest.fn()} match={{}} />
+        <CommentAdd addComment={jest.fn()} userId={1} selectedPostId={1} />
       </BrowserRouter>
     );
     expect(wrapper).toMatchSnapshot();

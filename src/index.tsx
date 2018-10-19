@@ -4,30 +4,29 @@ import { Provider } from 'react-redux';
 import { applyMiddleware, compose, createStore } from 'redux';
 import { createBrowserHistory } from 'history';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
-import createSagaMiddleware from 'redux-saga'
+import createSagaMiddleware from 'redux-saga';
 import { App } from './App';
 import './index.css';
 import rootReducer from './rootReducer';
 import registerServiceWorker from './registerServiceWorker';
 import rootSaga from './rootSagas';
 
-const history = createBrowserHistory();
-const sagaMiddleware = createSagaMiddleware()
-const middleware = applyMiddleware(
-  routerMiddleware(history),
-  sagaMiddleware,
-);
+const basename = '/';
+const history = createBrowserHistory({ basename });
+const sagaMiddleware = createSagaMiddleware();
+const middleware = applyMiddleware(routerMiddleware(history), sagaMiddleware);
 
 /* eslint-disable no-underscore-dangle */
-const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers =
+  (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 /* eslint-enable */
 
 const store = createStore(
   connectRouter(history)(rootReducer),
-  composeEnhancers(middleware),
-)
+  composeEnhancers(middleware)
+);
 
-sagaMiddleware.run(rootSaga)
+sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <Provider store={store}>

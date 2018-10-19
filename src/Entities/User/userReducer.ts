@@ -11,7 +11,7 @@ export const initialState = {
 export interface IUsersState {
   error?: string;
   items: IUser[];
-  loading?: boolean;
+  loading: boolean;
 }
 
 const reducer = (state: IUsersState = initialState, action: IAction) => {
