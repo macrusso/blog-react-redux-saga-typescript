@@ -1,8 +1,17 @@
 import React from 'react';
-import { IPost } from '../../Entities';
+import { IPost, IUser } from '../../Entities';
 import { Link } from 'react-router-dom';
 import { posts } from '../../routes';
-import { Typography, withStyles, Card, CardContent } from '@material-ui/core';
+import {
+  Typography,
+  withStyles,
+  Card,
+  CardContent,
+  Paper,
+  Chip,
+  Avatar,
+} from '@material-ui/core';
+import { NotFound } from '../Common';
 
 const styles = {
   card: {
@@ -19,27 +28,43 @@ const styles = {
   pos: {
     marginBottom: 12,
   },
+  root: {
+    minWidth: '100%',
+    padding: 20,
+    margin: '5px 0',
+  },
 };
 
 interface IPostProps {
   post?: IPost;
   classes: any;
+  users: IUser[];
 }
 
 const Post: React.SFC<IPostProps> = props => {
-  const { post, classes } = props;
+  const { post, classes, users } = props;
   return (
-    <div>
-      <Link to={posts}>back</Link>
-      <Card className={classes.card}>
-        <CardContent>
-          <Typography variant="h5" component="h2">
-            {post && post.title}
+    <>
+      {post ? (
+        <>
+          <Typography variant="h5" component="h3">
+            {post.title}
           </Typography>
-          <Typography component="p">{post && post.body}</Typography>
-        </CardContent>
-      </Card>
-    </div>
+          {post.userId && (
+            <Chip
+              avatar={
+                <Avatar>{users[post.userId].name[0].toUpperCase()}</Avatar>
+              }
+              label={users[post.userId].name}
+              className={classes.chip}
+            />
+          )}
+          <Typography component="p">{post.body}</Typography>
+        </>
+      ) : (
+        <NotFound />
+      )}
+    </>
   );
 };
 

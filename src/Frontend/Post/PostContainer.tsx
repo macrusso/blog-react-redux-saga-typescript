@@ -5,17 +5,13 @@ import { IAction, IStoreState } from '../../types';
 import ErrorBoundary from '../Common/ErrorBoundary';
 import { postSelectors, IPost, postActions } from '../../Entities/Post';
 import { Post } from '.';
-import { userActions } from '../../Entities';
+import { userActions, userSelectors, IUser } from '../../Entities';
 import { CommentListContainer } from '../Comment';
 import { CommentAddContainer } from '../CommentAdd';
 import { Route } from 'react-router';
 import { selectedPost } from '../../routes';
 
-interface IOwnProps {
-  match: any;
-}
-
-type IPostContainerProps = IOwnProps & IStateToProps & IDispatchToProps;
+type IPostContainerProps = IStateToProps & IDispatchToProps;
 
 class PostContainer extends Component<IPostContainerProps> {
   public componentDidMount() {
@@ -25,12 +21,13 @@ class PostContainer extends Component<IPostContainerProps> {
     fetchUsers();
   }
   public render() {
-    const { posts, match } = this.props;
+    const { posts, selectedPostId, loadingUsers } = this.props;
     return (
       <ErrorBoundary>
-        <Post
-          post={posts.find(post => post.id === Number(match.params.postId))}
-        />
+        {selectedPostId &&
+          !loadingUsers && (
+            <Post {...this.props} post={posts[selectedPostId]} />
+          )}
         <Route path={selectedPost} component={CommentListContainer} />
         <Route path={selectedPost} component={CommentAddContainer} />
       </ErrorBoundary>
@@ -39,9 +36,12 @@ class PostContainer extends Component<IPostContainerProps> {
 }
 
 interface IStateToProps {
-  error?: string;
-  loading: boolean;
   posts: IPost[];
+  users: IUser[];
+  error?: string;
+  loadingPosts: boolean;
+  loadingUsers: boolean;
+  selectedPostId?: number;
 }
 
 interface IDispatchToProps {
@@ -51,8 +51,11 @@ interface IDispatchToProps {
 
 const mapStateToProps = (state: IStoreState) => ({
   error: postSelectors.getError(state),
-  loading: postSelectors.getLoadingStatus(state),
-  posts: postSelectors.getAllPosts(state),
+  posts: postSelectors.getAllPostsObject(state),
+  users: userSelectors.getAllUsers(state),
+  loadingPosts: postSelectors.getLoadingStatus(state),
+  loadingUsers: userSelectors.getLoadingStatus(state),
+  selectedPostId: postSelectors.getSelectedPostId(state),
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({

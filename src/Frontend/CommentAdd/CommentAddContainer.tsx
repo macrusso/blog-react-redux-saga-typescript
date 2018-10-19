@@ -20,7 +20,6 @@ class CommentAddContainer extends Component<ICommentAddContainerProps> {
 
     return (
       <ErrorBoundary>
-        selectedId: {props.selectedPostId}
         <CommentAdd {...props} />
       </ErrorBoundary>
     );

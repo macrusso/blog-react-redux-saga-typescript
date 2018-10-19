@@ -25,8 +25,8 @@ class PostListContainer extends Component<IPostListContainerProps> {
 
     return (
       <ErrorBoundary>
+        <PostAddContainer />
         <PostListItem {...props} />
-        <Route path={posts} component={PostAddContainer} />
       </ErrorBoundary>
     );
   }

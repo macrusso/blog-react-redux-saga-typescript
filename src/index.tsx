@@ -19,6 +19,8 @@ const middleware = applyMiddleware(routerMiddleware(history), sagaMiddleware);
 /* eslint-disable no-underscore-dangle */
 const composeEnhancers =
   (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+(window as any).__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true;
 /* eslint-enable */
 
 const store = createStore(

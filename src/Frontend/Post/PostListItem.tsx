@@ -3,11 +3,20 @@ import { IPost } from '../../Entities/Post';
 import { IUser } from '../../Entities/User';
 import { Link } from 'react-router-dom';
 import { selectedPost } from '../../routes';
-import { Typography, withStyles, Card, CardContent } from '@material-ui/core';
+import { ChatBubble } from '@material-ui/icons';
+import {
+  Typography,
+  withStyles,
+  Paper,
+  Chip,
+  Avatar,
+  Badge,
+} from '@material-ui/core';
 
 const styles = {
   card: {
     minWidth: 275,
+    width: '100%',
   },
   bullet: {
     display: 'inline-block',
@@ -17,8 +26,22 @@ const styles = {
   title: {
     fontSize: 14,
   },
-  pos: {
-    marginBottom: 12,
+  root: {
+    minWidth: '100%',
+    padding: 20,
+    margin: '5px 0',
+  },
+  link: {
+    textDecoration: 'none',
+    color: 'black',
+  },
+  badge: {
+    top: 1,
+    right: -15,
+    border: '2px solid white',
+  },
+  icon: {
+    color: '#bdbdbd',
   },
 };
 
@@ -30,33 +53,45 @@ export interface IPostListItemProps {
   usersLoading: boolean;
 }
 
-const PostListItem = ({
-  users,
-  posts,
-  classes,
-  loading,
-  usersLoading,
-}: IPostListItemProps) => (
-  <div>
-    {!loading &&
-      !usersLoading &&
-      posts.length > 0 &&
-      posts.map(post => (
-        <Card className={classes.card} key={post.id}>
-          <CardContent>
-            <Typography variant="h5" component="h2">
-              <Link to={selectedPost.replace(':postId', post.id.toString())}>
+const PostListItem: React.SFC<IPostListItemProps> = props => {
+  const { users, posts, classes, loading, usersLoading } = props;
+
+  return (
+    <>
+      {!loading &&
+        !usersLoading &&
+        posts.length > 0 &&
+        posts.map(post => (
+          <Paper className={classes.root} elevation={1} key={post.id}>
+            <Typography variant="h5" component="h3">
+              <Link
+                className={classes.link}
+                to={selectedPost.replace(':postId', post.id.toString())}
+              >
                 {post.title}
               </Link>
             </Typography>
-            <Typography className={classes.pos} color="textSecondary">
-              by {post.userId && users[post.userId].name}
-            </Typography>
             <Typography component="p">{post.body}</Typography>
-          </CardContent>
-        </Card>
-      ))}
-  </div>
-);
+            {post.userId && (
+              <Chip
+                avatar={
+                  <Avatar>{users[post.userId].name[0].toUpperCase()}</Avatar>
+                }
+                label={users[post.userId].name}
+                className={classes.chip}
+              />
+            )}
+            <Badge
+              badgeContent={4}
+              color="primary"
+              classes={{ badge: classes.badge }}
+            >
+              <ChatBubble className={classes.icon} />
+            </Badge>
+          </Paper>
+        ))}
+    </>
+  );
+};
 
 export default withStyles(styles)(PostListItem);
