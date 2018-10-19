@@ -3,10 +3,20 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { IAction, IStoreState } from '../../types';
 import ErrorBoundary from '../Common/ErrorBoundary';
-import { postSelectors, IPost, postActions } from '../../Entities/Post';
-import { Post } from '.';
-import { userActions, userSelectors, IUser } from '../../Entities';
-import { CommentListContainer, CommentAddContainer, PostEditDialog } from '../';
+import {
+  userActions,
+  userSelectors,
+  IUser,
+  postSelectors,
+  IPost,
+  postActions,
+} from '../../Entities';
+import {
+  CommentListContainer,
+  CommentAddContainer,
+  PostEditDialog,
+  Post,
+} from '../../Frontend';
 import { Route } from 'react-router';
 import { selectedPost } from '../../routes';
 
@@ -91,8 +101,7 @@ const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
     dispatch(postActions.fetchPostsRequest({}));
   },
   updatePost: (post: IPost) => {
-    console.log(post);
-    // dispatch(postActions.updatePostRequest());
+    dispatch(postActions.updatePostRequest(post));
   },
   fetchUsers: () => {
     dispatch(userActions.fetchUsersRequest({}));

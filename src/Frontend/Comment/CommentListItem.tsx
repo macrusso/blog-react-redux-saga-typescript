@@ -1,6 +1,5 @@
 import React from 'react';
-import { IComment } from '../../Entities/Comment';
-import { IUser } from '../../Entities/User';
+import { IComment, IUser } from '../../Entities/';
 
 export interface ICommentListItemProps {
   users: IUser[];

@@ -3,14 +3,16 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { IAction, IStoreState } from '../../types';
 import ErrorBoundary from '../Common/ErrorBoundary';
+import { CommentListItem } from '.';
 import {
+  postSelectors,
   commentActions,
   commentSelectors,
   IComment,
-} from '../../Entities/Comment';
-import { userActions, userSelectors, IUser } from '../../Entities/User';
-import { CommentListItem } from '.';
-import { postSelectors } from '../../Entities';
+  userActions,
+  userSelectors,
+  IUser,
+} from '../../Entities';
 
 type ICommentListContainerProps = IStateToProps & IDispatchToProps;
 

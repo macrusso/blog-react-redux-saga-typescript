@@ -1,8 +1,6 @@
 import React from 'react';
 import { IPost, IUser } from '../../Entities';
-import { Link } from 'react-router-dom';
-import { posts } from '../../routes';
-import { ModeComment, AddComment, Edit, Delete } from '@material-ui/icons';
+import { Edit, Delete } from '@material-ui/icons';
 import {
   Typography,
   withStyles,

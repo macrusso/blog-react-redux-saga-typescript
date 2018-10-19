@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { IAction, IStoreState } from '../../types';
 import ErrorBoundary from '../Common/ErrorBoundary';
+import { Comment } from '.';
 import {
+  userActions,
   commentSelectors,
   IComment,
   commentActions,
-} from '../../Entities/Comment';
-import { Comment } from '.';
-import { userActions } from '../../Entities';
+} from '../../Entities';
 
 interface IOwnProps {
   match: any;

@@ -3,11 +3,18 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { IAction, IStoreState } from '../../types';
 import ErrorBoundary from '../Common/ErrorBoundary';
-import { postActions, postSelectors, IPost } from '../../Entities/Post';
-import { userActions, userSelectors, IUser } from '../../Entities/User';
-import { PostListItem } from '.';
-import { PostAddContainer } from '../PostAdd';
-import { commentActions, commentSelectors, IComment } from 'src/Entities';
+import { PostAddContainer, PostListItem } from '../../Frontend';
+import {
+  commentActions,
+  commentSelectors,
+  IComment,
+  postActions,
+  postSelectors,
+  IPost,
+  userActions,
+  userSelectors,
+  IUser,
+} from '../../Entities';
 
 type IPostListContainerProps = IStateToProps & IDispatchToProps;
 
