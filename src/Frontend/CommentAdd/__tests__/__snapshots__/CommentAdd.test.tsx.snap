@@ -6,7 +6,8 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <BrowserRouter>
     <CommentAdd
       addComment={[MockFunction]}
-      match={Object {}}
+      selectedPostId={1}
+      userId={1}
     />
   </BrowserRouter>,
   Symbol(enzyme.__renderer__): Object {
@@ -24,7 +25,8 @@ ShallowWrapper {
     "props": Object {
       "children": <CommentAdd
         addComment={[MockFunction]}
-        match={Object {}}
+        selectedPostId={1}
+        userId={1}
       />,
       "history": Object {
         "action": "POP",
@@ -52,7 +54,8 @@ ShallowWrapper {
       "nodeType": "function",
       "props": Object {
         "addComment": [MockFunction],
-        "match": Object {},
+        "selectedPostId": 1,
+        "userId": 1,
       },
       "ref": null,
       "rendered": null,
@@ -68,7 +71,8 @@ ShallowWrapper {
       "props": Object {
         "children": <CommentAdd
           addComment={[MockFunction]}
-          match={Object {}}
+          selectedPostId={1}
+          userId={1}
         />,
         "history": Object {
           "action": "POP",
@@ -96,7 +100,8 @@ ShallowWrapper {
         "nodeType": "function",
         "props": Object {
           "addComment": [MockFunction],
-          "match": Object {},
+          "selectedPostId": 1,
+          "userId": 1,
         },
         "ref": null,
         "rendered": null,

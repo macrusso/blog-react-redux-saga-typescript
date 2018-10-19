@@ -10,7 +10,7 @@ import {
 } from '../../Entities/Comment';
 import { userActions, userSelectors, IUser } from '../../Entities/User';
 import { CommentListItem } from '.';
-import { postSelectors } from 'src/Entities';
+import { postSelectors } from '../../Entities';
 
 type ICommentListContainerProps = IStateToProps & IDispatchToProps;
 

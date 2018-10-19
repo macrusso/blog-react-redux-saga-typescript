@@ -4,7 +4,7 @@ exports[`Post Snapshot matches 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <BrowserRouter>
-    <Post
+    <WithStyles(Post)
       post={
         Object {
           "body": "string",
@@ -12,6 +12,16 @@ ShallowWrapper {
           "title": "string",
           "userId": 1,
         }
+      }
+      users={
+        Array [
+          Object {
+            "email": "string",
+            "id": 1,
+            "name": "string",
+            "username": "string",
+          },
+        ]
       }
     />
   </BrowserRouter>,
@@ -28,7 +38,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "children": <Post
+      "children": <WithStyles(Post)
         post={
           Object {
             "body": "string",
@@ -36,6 +46,16 @@ ShallowWrapper {
             "title": "string",
             "userId": 1,
           }
+        }
+        users={
+          Array [
+            Object {
+              "email": "string",
+              "id": 1,
+              "name": "string",
+              "username": "string",
+            },
+          ]
         }
       />,
       "history": Object {
@@ -61,7 +81,7 @@ ShallowWrapper {
     "rendered": Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "function",
+      "nodeType": "class",
       "props": Object {
         "post": Object {
           "body": "string",
@@ -69,6 +89,14 @@ ShallowWrapper {
           "title": "string",
           "userId": 1,
         },
+        "users": Array [
+          Object {
+            "email": "string",
+            "id": 1,
+            "name": "string",
+            "username": "string",
+          },
+        ],
       },
       "ref": null,
       "rendered": null,
@@ -82,7 +110,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "children": <Post
+        "children": <WithStyles(Post)
           post={
             Object {
               "body": "string",
@@ -90,6 +118,16 @@ ShallowWrapper {
               "title": "string",
               "userId": 1,
             }
+          }
+          users={
+            Array [
+              Object {
+                "email": "string",
+                "id": 1,
+                "name": "string",
+                "username": "string",
+              },
+            ]
           }
         />,
         "history": Object {
@@ -115,7 +153,7 @@ ShallowWrapper {
       "rendered": Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "function",
+        "nodeType": "class",
         "props": Object {
           "post": Object {
             "body": "string",
@@ -123,6 +161,14 @@ ShallowWrapper {
             "title": "string",
             "userId": 1,
           },
+          "users": Array [
+            Object {
+              "email": "string",
+              "id": 1,
+              "name": "string",
+              "username": "string",
+            },
+          ],
         },
         "ref": null,
         "rendered": null,
