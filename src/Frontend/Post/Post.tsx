@@ -2,14 +2,13 @@ import React from 'react';
 import { IPost, IUser } from '../../Entities';
 import { Link } from 'react-router-dom';
 import { posts } from '../../routes';
+import { ModeComment, AddComment, Edit, Delete } from '@material-ui/icons';
 import {
   Typography,
   withStyles,
-  Card,
-  CardContent,
-  Paper,
   Chip,
   Avatar,
+  IconButton,
 } from '@material-ui/core';
 import { NotFound } from '../Common';
 
@@ -39,10 +38,11 @@ interface IPostProps {
   post?: IPost;
   classes: any;
   users: IUser[];
+  handleOpenDialog: () => void;
 }
 
 const Post: React.SFC<IPostProps> = props => {
-  const { post, classes, users } = props;
+  const { post, classes, users, handleOpenDialog } = props;
   return (
     <>
       {post ? (
@@ -60,6 +60,16 @@ const Post: React.SFC<IPostProps> = props => {
             />
           )}
           <Typography component="p">{post.body}</Typography>
+          <IconButton className={classes.button} aria-label="Delete">
+            <Delete />
+          </IconButton>
+          <IconButton
+            className={classes.button}
+            aria-label="Edit"
+            onClick={() => handleOpenDialog()}
+          >
+            <Edit />
+          </IconButton>
         </>
       ) : (
         <NotFound />

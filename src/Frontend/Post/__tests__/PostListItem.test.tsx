@@ -10,6 +10,7 @@ describe('PostListItem', () => {
         <PostListItem
           posts={[]}
           users={[]}
+          comments={[]}
           loading={false}
           usersLoading={false}
         />

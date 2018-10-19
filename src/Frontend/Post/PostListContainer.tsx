@@ -7,17 +7,17 @@ import { postActions, postSelectors, IPost } from '../../Entities/Post';
 import { userActions, userSelectors, IUser } from '../../Entities/User';
 import { PostListItem } from '.';
 import { PostAddContainer } from '../PostAdd';
-import { Route } from 'react-router';
-import { posts } from '../../routes';
+import { commentActions, commentSelectors, IComment } from 'src/Entities';
 
 type IPostListContainerProps = IStateToProps & IDispatchToProps;
 
 class PostListContainer extends Component<IPostListContainerProps> {
   public componentDidMount() {
-    const { fetchPosts, fetchUsers } = this.props;
+    const { fetchPosts, fetchUsers, fetchComments } = this.props;
 
     fetchPosts();
     fetchUsers();
+    fetchComments();
   }
 
   public render() {
@@ -34,22 +34,25 @@ class PostListContainer extends Component<IPostListContainerProps> {
 
 interface IStateToProps {
   error?: string;
-  loading: boolean;
   posts: IPost[];
   users: IUser[];
+  loading: boolean;
+  comments: IComment[];
   usersLoading: boolean;
 }
 
 interface IDispatchToProps {
   fetchPosts: () => void;
   fetchUsers: () => void;
+  fetchComments: () => void;
 }
 
 const mapStateToProps = (state: IStoreState) => ({
   error: postSelectors.getError(state),
-  loading: postSelectors.getLoadingStatus(state),
   posts: postSelectors.getAllPosts(state),
   users: userSelectors.getAllUsersObject(state),
+  loading: postSelectors.getLoadingStatus(state),
+  comments: commentSelectors.getAllComments(state),
   usersLoading: userSelectors.getLoadingStatus(state),
 });
 
@@ -59,6 +62,9 @@ const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
   },
   fetchUsers: () => {
     dispatch(userActions.fetchUsersRequest({}));
+  },
+  fetchComments: () => {
+    dispatch(commentActions.fetchCommentsRequest({}));
   },
 });
 

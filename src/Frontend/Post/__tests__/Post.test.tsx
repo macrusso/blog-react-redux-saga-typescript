@@ -23,7 +23,7 @@ describe('Post', () => {
     ];
     const wrapper = shallow(
       <BrowserRouter>
-        <Post post={post} users={users} />
+        <Post post={post} users={users} handleOpenDialog={jest.fn()} />
       </BrowserRouter>
     );
     expect(wrapper).toMatchSnapshot();

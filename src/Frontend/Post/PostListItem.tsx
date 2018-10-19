@@ -3,7 +3,7 @@ import { IPost } from '../../Entities/Post';
 import { IUser } from '../../Entities/User';
 import { Link } from 'react-router-dom';
 import { selectedPost } from '../../routes';
-import { ChatBubble } from '@material-ui/icons';
+import { ModeComment, AddComment } from '@material-ui/icons';
 import {
   Typography,
   withStyles,
@@ -11,7 +11,9 @@ import {
   Chip,
   Avatar,
   Badge,
+  IconButton,
 } from '@material-ui/core';
+import { IComment } from '../../Entities';
 
 const styles = {
   card: {
@@ -37,11 +39,11 @@ const styles = {
   },
   badge: {
     top: 1,
-    right: -15,
+    left: -10,
     border: '2px solid white',
   },
   icon: {
-    color: '#bdbdbd',
+    color: '#757575',
   },
 };
 
@@ -50,11 +52,12 @@ export interface IPostListItemProps {
   posts: IPost[];
   users: IUser[];
   loading: boolean;
+  comments: IComment[];
   usersLoading: boolean;
 }
 
 const PostListItem: React.SFC<IPostListItemProps> = props => {
-  const { users, posts, classes, loading, usersLoading } = props;
+  const { users, posts, classes, loading, comments, usersLoading } = props;
 
   return (
     <>
@@ -63,15 +66,6 @@ const PostListItem: React.SFC<IPostListItemProps> = props => {
         posts.length > 0 &&
         posts.map(post => (
           <Paper className={classes.root} elevation={1} key={post.id}>
-            <Typography variant="h5" component="h3">
-              <Link
-                className={classes.link}
-                to={selectedPost.replace(':postId', post.id.toString())}
-              >
-                {post.title}
-              </Link>
-            </Typography>
-            <Typography component="p">{post.body}</Typography>
             {post.userId && (
               <Chip
                 avatar={
@@ -81,13 +75,33 @@ const PostListItem: React.SFC<IPostListItemProps> = props => {
                 className={classes.chip}
               />
             )}
-            <Badge
-              badgeContent={4}
-              color="primary"
-              classes={{ badge: classes.badge }}
-            >
-              <ChatBubble className={classes.icon} />
-            </Badge>
+            <Typography variant="h5" component="h3">
+              <Link
+                className={classes.link}
+                to={selectedPost.replace(':postId', post.id.toString())}
+              >
+                {post.title}
+              </Link>
+            </Typography>
+            <Typography component="p">{post.body}</Typography>
+
+            <IconButton className={classes.button} aria-label="Edit">
+              {comments.filter(comment => comment.postId === post.id).length >
+              0 ? (
+                <Badge
+                  badgeContent={
+                    comments.filter(comment => comment.postId === post.id)
+                      .length
+                  }
+                  color="primary"
+                  classes={{ badge: classes.badge }}
+                >
+                  <ModeComment className={classes.icon} />
+                </Badge>
+              ) : (
+                <AddComment />
+              )}
+            </IconButton>
           </Paper>
         ))}
     </>

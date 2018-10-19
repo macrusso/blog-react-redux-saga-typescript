@@ -6,14 +6,26 @@ import ErrorBoundary from '../Common/ErrorBoundary';
 import { postSelectors, IPost, postActions } from '../../Entities/Post';
 import { Post } from '.';
 import { userActions, userSelectors, IUser } from '../../Entities';
-import { CommentListContainer } from '../Comment';
-import { CommentAddContainer } from '../CommentAdd';
+import { CommentListContainer, CommentAddContainer, PostEditDialog } from '../';
 import { Route } from 'react-router';
 import { selectedPost } from '../../routes';
 
 type IPostContainerProps = IStateToProps & IDispatchToProps;
 
-class PostContainer extends Component<IPostContainerProps> {
+interface IPostContainerState {
+  openEditDialog: boolean;
+}
+
+class PostContainer extends Component<
+  IPostContainerProps,
+  IPostContainerState
+> {
+  constructor(props: IPostContainerProps) {
+    super(props);
+    this.state = {
+      openEditDialog: false,
+    };
+  }
   public componentDidMount() {
     const { fetchPosts, fetchUsers } = this.props;
 
@@ -21,18 +33,33 @@ class PostContainer extends Component<IPostContainerProps> {
     fetchUsers();
   }
   public render() {
-    const { posts, selectedPostId, loadingUsers } = this.props;
+    const { posts, selectedPostId, loadingUsers, updatePost } = this.props;
     return (
       <ErrorBoundary>
         {selectedPostId &&
           !loadingUsers && (
-            <Post {...this.props} post={posts[selectedPostId]} />
+            <Post
+              {...this.props}
+              post={posts[selectedPostId]}
+              handleOpenDialog={this.handleOpenDialog}
+            />
           )}
+        {selectedPostId && (
+          <PostEditDialog
+            updatePost={updatePost}
+            open={this.state.openEditDialog}
+            handleCloseDialog={this.handleCloseDialog}
+            post={posts[selectedPostId]}
+          />
+        )}
         <Route path={selectedPost} component={CommentListContainer} />
         <Route path={selectedPost} component={CommentAddContainer} />
       </ErrorBoundary>
     );
   }
+
+  private handleOpenDialog = () => this.setState({ openEditDialog: true });
+  private handleCloseDialog = () => this.setState({ openEditDialog: false });
 }
 
 interface IStateToProps {
@@ -47,6 +74,7 @@ interface IStateToProps {
 interface IDispatchToProps {
   fetchPosts: () => void;
   fetchUsers: () => void;
+  updatePost: (post: IPost) => void;
 }
 
 const mapStateToProps = (state: IStoreState) => ({
@@ -61,6 +89,10 @@ const mapStateToProps = (state: IStoreState) => ({
 const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
   fetchPosts: () => {
     dispatch(postActions.fetchPostsRequest({}));
+  },
+  updatePost: (post: IPost) => {
+    console.log(post);
+    // dispatch(postActions.updatePostRequest());
   },
   fetchUsers: () => {
     dispatch(userActions.fetchUsersRequest({}));
