@@ -60,4 +60,25 @@ describe('Post Actions', () => {
       payload: { text: testError.message },
     });
   });
+
+  it(`Returns right action for ${actionTypes.UPDATE_POST_REQUEST}`, () => {
+    expect(actions.updatePostRequest(testPost)).toEqual({
+      type: actionTypes.UPDATE_POST_REQUEST,
+      payload: testPost,
+    });
+  });
+
+  it(`Returns right action for ${actionTypes.UPDATE_POST_SUCCESS}`, () => {
+    expect(actions.updatePostSuccess(testPost)).toEqual({
+      type: actionTypes.UPDATE_POST_SUCCESS,
+      payload: testPost,
+    });
+  });
+
+  it(`Returns right action for ${actionTypes.UPDATE_POST_FAIL}`, () => {
+    expect(actions.updatePostFailure(testError)).toEqual({
+      type: actionTypes.UPDATE_POST_FAIL,
+      payload: { text: testError.message },
+    });
+  });
 });

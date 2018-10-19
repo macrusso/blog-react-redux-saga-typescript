@@ -27,3 +27,16 @@ export function* addPostSaga(action: IAction): Generator {
     yield put({ type: actionTypes.ADD_POST_FAIL, payload: error });
   }
 }
+
+export function* watchUpdatePost(): Generator {
+  yield takeLatest(actionTypes.UPDATE_POST_REQUEST, updatePostSaga);
+}
+
+export function* updatePostSaga(action: IAction): Generator {
+  try {
+    const result = yield call(api.Posts.update, action.payload);
+    yield put({ type: actionTypes.UPDATE_POST_SUCCESS, payload: result });
+  } catch (error) {
+    yield put({ type: actionTypes.UPDATE_POST_FAIL, payload: error });
+  }
+}
