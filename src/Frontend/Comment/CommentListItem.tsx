@@ -3,10 +3,11 @@ import { IComment } from '../../Entities/Comment';
 import { IUser } from '../../Entities/User';
 
 export interface ICommentListItemProps {
-  comments: IComment[];
   users: IUser[];
   loading: boolean;
+  comments: IComment[];
   usersLoading: boolean;
+  selectedPostId?: number;
 }
 
 const CommentListItem = ({
@@ -14,15 +15,17 @@ const CommentListItem = ({
   comments,
   loading,
   usersLoading,
+  selectedPostId,
 }: ICommentListItemProps) => (
   <div>
     {!loading &&
       !usersLoading &&
+      selectedPostId &&
       comments.length > 0 &&
       comments.map(comment => (
         <div key={comment.id}>
           <h6>{comment.body}</h6>
-          <p>by {comment.userId && users[comment.userId].name}</p>
+          <p>by {comment.userId ? users[comment.userId].name : 'Guest'}</p>
         </div>
       ))}
   </div>

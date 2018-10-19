@@ -10,7 +10,6 @@ import {
 } from '../../Entities/Comment';
 import { userActions, userSelectors, IUser } from '../../Entities/User';
 import { CommentListItem } from '.';
-import { CommentAddContainer } from '../';
 import { postSelectors } from 'src/Entities';
 
 type ICommentListContainerProps = IStateToProps & IDispatchToProps;
@@ -25,11 +24,13 @@ class CommentListContainer extends Component<ICommentListContainerProps> {
 
   public render() {
     const props = this.props;
+    const filteredComments = props.comments.filter(
+      comment => comment.postId === props.selectedPostId
+    );
 
     return (
       <ErrorBoundary>
-        <CommentListItem {...props} />
-        <CommentAddContainer />
+        <CommentListItem {...props} comments={filteredComments} />
       </ErrorBoundary>
     );
   }
@@ -54,7 +55,7 @@ const mapStateToProps = (state: IStoreState) => ({
   users: userSelectors.getAllUsersObject(state),
   comments: commentSelectors.getAllComments(state),
   loading: commentSelectors.getLoadingStatus(state),
-  selectedPostId: postSelectors.getSelectedId(state),
+  selectedPostId: postSelectors.getSelectedPostId(state),
   usersLoading: userSelectors.getLoadingStatus(state),
 });
 

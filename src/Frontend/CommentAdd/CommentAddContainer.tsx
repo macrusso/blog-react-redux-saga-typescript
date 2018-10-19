@@ -38,7 +38,7 @@ interface IDispatchToProps {
 }
 
 const mapStateToProps = (state: IStoreState) => ({
-  selectedPostId: postSelectors.getSelectedId(state),
+  selectedPostId: postSelectors.getSelectedPostId(state),
   error: commentSelectors.getError(state),
   userId: appSelectors.getUserId(state),
 });

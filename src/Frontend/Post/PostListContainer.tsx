@@ -7,6 +7,8 @@ import { postActions, postSelectors, IPost } from '../../Entities/Post';
 import { userActions, userSelectors, IUser } from '../../Entities/User';
 import { PostListItem } from '.';
 import { PostAddContainer } from '../PostAdd';
+import { Route } from 'react-router';
+import { posts } from '../../routes';
 
 type IPostListContainerProps = IStateToProps & IDispatchToProps;
 
@@ -24,7 +26,7 @@ class PostListContainer extends Component<IPostListContainerProps> {
     return (
       <ErrorBoundary>
         <PostListItem {...props} />
-        <PostAddContainer />
+        <Route path={posts} component={PostAddContainer} />
       </ErrorBoundary>
     );
   }

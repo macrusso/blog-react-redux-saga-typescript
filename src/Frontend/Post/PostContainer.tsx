@@ -7,6 +7,9 @@ import { postSelectors, IPost, postActions } from '../../Entities/Post';
 import { Post } from '.';
 import { userActions } from '../../Entities';
 import { CommentListContainer } from '../Comment';
+import { CommentAddContainer } from '../CommentAdd';
+import { Route } from 'react-router';
+import { selectedPost } from '../../routes';
 
 interface IOwnProps {
   match: any;
@@ -28,7 +31,8 @@ class PostContainer extends Component<IPostContainerProps> {
         <Post
           post={posts.find(post => post.id === Number(match.params.postId))}
         />
-        <CommentListContainer />
+        <Route path={selectedPost} component={CommentListContainer} />
+        <Route path={selectedPost} component={CommentAddContainer} />
       </ErrorBoundary>
     );
   }
