@@ -60,6 +60,53 @@ const reducer = (state: ICommentsState = initialState, action: IAction) => {
         error: action.payload.text,
       };
     }
+    case actionTypes.UPDATE_COMMENT_REQUEST: {
+      return {
+        ...state,
+        loading: true,
+        error: undefined,
+      };
+    }
+    case actionTypes.UPDATE_COMMENT_SUCCESS: {
+      const filteredItems = state.items.filter(
+        item => item.id !== action.payload.id
+      );
+      filteredItems.push(action.payload);
+      return {
+        ...state,
+        items: filteredItems,
+        loading: false,
+        error: undefined,
+      };
+    }
+    case actionTypes.UPDATE_COMMENT_FAIL: {
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.text,
+      };
+    }
+    case actionTypes.DELETE_COMMENT_REQUEST: {
+      return {
+        ...state,
+        loading: true,
+        error: undefined,
+      };
+    }
+    case actionTypes.DELETE_COMMENT_SUCCESS: {
+      return {
+        ...state,
+        loading: false,
+        error: undefined,
+      };
+    }
+    case actionTypes.DELETE_COMMENT_FAIL: {
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.text,
+      };
+    }
     default: {
       return state;
     }

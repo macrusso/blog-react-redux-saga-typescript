@@ -57,4 +57,45 @@ describe('Comment Actions', () => {
       payload: { text: testError.message },
     });
   });
+
+  it(`Returns right action for ${actionTypes.UPDATE_COMMENT_REQUEST}`, () => {
+    expect(actions.updateCommentRequest(testComment)).toEqual({
+      type: actionTypes.UPDATE_COMMENT_REQUEST,
+      payload: testComment,
+    });
+  });
+
+  it(`Returns right action for ${actionTypes.UPDATE_COMMENT_SUCCESS}`, () => {
+    expect(actions.updateCommentSuccess(testComment)).toEqual({
+      type: actionTypes.UPDATE_COMMENT_SUCCESS,
+      payload: testComment,
+    });
+  });
+
+  it(`Returns right action for ${actionTypes.UPDATE_COMMENT_FAIL}`, () => {
+    expect(actions.updateCommentFailure(testError)).toEqual({
+      type: actionTypes.UPDATE_COMMENT_FAIL,
+      payload: { text: testError.message },
+    });
+  });
+
+  it(`Returns right action for ${actionTypes.DELETE_COMMENT_REQUEST}`, () => {
+    expect(actions.deleteCommentRequest(testComment.id)).toEqual({
+      type: actionTypes.DELETE_COMMENT_REQUEST,
+      payload: testComment.id,
+    });
+  });
+
+  it(`Returns right action for ${actionTypes.DELETE_COMMENT_SUCCESS}`, () => {
+    expect(actions.deleteCommentSuccess()).toEqual({
+      type: actionTypes.DELETE_COMMENT_SUCCESS,
+    });
+  });
+
+  it(`Returns right action for ${actionTypes.DELETE_COMMENT_FAIL}`, () => {
+    expect(actions.deleteCommentFailure(testError)).toEqual({
+      type: actionTypes.DELETE_COMMENT_FAIL,
+      payload: { text: testError.message },
+    });
+  });
 });

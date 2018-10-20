@@ -94,4 +94,88 @@ describe('commentReducer', () => {
       error: testAction.payload.text,
     });
   });
+
+  it(`Should return correct state for ${
+    actionTypes.UPDATE_COMMENT_REQUEST
+  }`, () => {
+    const testAction = {
+      type: actionTypes.UPDATE_COMMENT_REQUEST,
+      payload: testComment,
+    };
+    expect(reducer(testState, testAction)).toEqual({
+      ...testState,
+      loading: true,
+      error: undefined,
+    });
+  });
+
+  it(`Should return correct state for ${
+    actionTypes.UPDATE_COMMENT_SUCCESS
+  }`, () => {
+    const testAction = {
+      type: actionTypes.UPDATE_COMMENT_SUCCESS,
+      payload: testComment,
+    };
+    expect(reducer(testState, testAction)).toEqual({
+      ...testState,
+      items: [testAction.payload],
+      loading: false,
+      error: undefined,
+    });
+  });
+
+  it(`Should return correct state for ${
+    actionTypes.UPDATE_COMMENT_FAIL
+  }`, () => {
+    const testAction = {
+      type: actionTypes.UPDATE_COMMENT_FAIL,
+      payload: { text: testError.message },
+    };
+    expect(reducer(testState, testAction)).toEqual({
+      ...testState,
+      loading: false,
+      error: testAction.payload.text,
+    });
+  });
+
+  it(`Should return correct state for ${
+    actionTypes.DELETE_COMMENT_REQUEST
+  }`, () => {
+    const testAction = {
+      type: actionTypes.DELETE_COMMENT_REQUEST,
+      payload: testComment.id,
+    };
+    expect(reducer(testState, testAction)).toEqual({
+      ...testState,
+      loading: true,
+      error: undefined,
+    });
+  });
+
+  it(`Should return correct state for ${
+    actionTypes.DELETE_COMMENT_SUCCESS
+  }`, () => {
+    const testAction = {
+      type: actionTypes.DELETE_COMMENT_SUCCESS,
+    };
+    expect(reducer(testState, testAction)).toEqual({
+      ...testState,
+      loading: false,
+      error: undefined,
+    });
+  });
+
+  it(`Should return correct state for ${
+    actionTypes.DELETE_COMMENT_FAIL
+  }`, () => {
+    const testAction = {
+      type: actionTypes.DELETE_COMMENT_FAIL,
+      payload: { text: testError.message },
+    };
+    expect(reducer(testState, testAction)).toEqual({
+      ...testState,
+      loading: false,
+      error: testAction.payload.text,
+    });
+  });
 });

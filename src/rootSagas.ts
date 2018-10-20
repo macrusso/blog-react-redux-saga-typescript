@@ -10,5 +10,7 @@ export default function* rootSaga() {
     userSagas.watchFetchUsers(),
     commentSagas.watchAddComment(),
     commentSagas.watchFetchComments(),
+    commentSagas.watchDeleteComment(),
+    commentSagas.watchUpdateComment(),
   ]);
 }
