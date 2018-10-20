@@ -12,6 +12,8 @@ describe('CommentListItem', () => {
           users={[]}
           loading={false}
           usersLoading={false}
+          handleOpenEditDialog={jest.fn()}
+          handleOpenDeleteDialog={jest.fn()}
         />
       </BrowserRouter>
     );

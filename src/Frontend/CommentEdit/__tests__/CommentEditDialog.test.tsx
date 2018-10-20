@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { shallow } from 'enzyme';
-import Comment from '../Comment';
-import { IComment } from '../../../Entities';
+import CommentEditDialog from '../CommentEditDialog';
+import { IComment } from 'src/Entities';
 
-describe('Comment', () => {
+describe('CommentEditDialog', () => {
   test('Snapshot matches', () => {
     const comment: IComment = {
       id: 1,
@@ -12,9 +12,15 @@ describe('Comment', () => {
       postId: 1,
       body: 'string',
     };
+
     const wrapper = shallow(
       <BrowserRouter>
-        <Comment comment={comment} />
+        <CommentEditDialog
+          comment={comment}
+          open={true}
+          updateComment={jest.fn()}
+          handleCloseDialog={jest.fn()}
+        />
       </BrowserRouter>
     );
     expect(wrapper).toMatchSnapshot();

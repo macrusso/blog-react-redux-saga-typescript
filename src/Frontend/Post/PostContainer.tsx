@@ -40,6 +40,7 @@ class PostContainer extends Component<
       openDeleteDialog: false,
     };
   }
+
   public componentDidMount() {
     const { fetchPosts, fetchUsers } = this.props;
 

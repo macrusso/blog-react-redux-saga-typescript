@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Comment Snapshot matches 1`] = `
+exports[`CommentEditDialog Snapshot matches 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <BrowserRouter>
-    <Comment
+    <CommentEditDialog
       comment={
         Object {
           "body": "string",
@@ -13,6 +13,9 @@ ShallowWrapper {
           "userId": 1,
         }
       }
+      handleCloseDialog={[MockFunction]}
+      open={true}
+      updateComment={[MockFunction]}
     />
   </BrowserRouter>,
   Symbol(enzyme.__renderer__): Object {
@@ -28,7 +31,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "children": <Comment
+      "children": <CommentEditDialog
         comment={
           Object {
             "body": "string",
@@ -37,6 +40,9 @@ ShallowWrapper {
             "userId": 1,
           }
         }
+        handleCloseDialog={[MockFunction]}
+        open={true}
+        updateComment={[MockFunction]}
       />,
       "history": Object {
         "action": "POP",
@@ -69,6 +75,9 @@ ShallowWrapper {
           "postId": 1,
           "userId": 1,
         },
+        "handleCloseDialog": [MockFunction],
+        "open": true,
+        "updateComment": [MockFunction],
       },
       "ref": null,
       "rendered": null,
@@ -82,7 +91,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "children": <Comment
+        "children": <CommentEditDialog
           comment={
             Object {
               "body": "string",
@@ -91,6 +100,9 @@ ShallowWrapper {
               "userId": 1,
             }
           }
+          handleCloseDialog={[MockFunction]}
+          open={true}
+          updateComment={[MockFunction]}
         />,
         "history": Object {
           "action": "POP",
@@ -123,6 +135,9 @@ ShallowWrapper {
             "postId": 1,
             "userId": 1,
           },
+          "handleCloseDialog": [MockFunction],
+          "open": true,
+          "updateComment": [MockFunction],
         },
         "ref": null,
         "rendered": null,

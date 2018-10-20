@@ -66,17 +66,12 @@ const Post: React.SFC<IPostProps> = props => {
           )}
           <Typography component="p">{post.body}</Typography>
           <IconButton
-            className={classes.button}
             aria-label="Delete"
             onClick={() => handleOpenDeleteDialog()}
           >
             <Delete />
           </IconButton>
-          <IconButton
-            className={classes.button}
-            aria-label="Edit"
-            onClick={() => handleOpenEditDialog()}
-          >
+          <IconButton aria-label="Edit" onClick={() => handleOpenEditDialog()}>
             <Edit />
           </IconButton>
         </>

@@ -13,10 +13,32 @@ import {
   userSelectors,
   IUser,
 } from '../../Entities';
+import { CommentEditDialog } from '../../Frontend';
+import { DeleteDialog } from '../Common';
+import * as routes from '../../routes';
+import { push } from 'connected-react-router';
 
 type ICommentListContainerProps = IStateToProps & IDispatchToProps;
 
-class CommentListContainer extends Component<ICommentListContainerProps> {
+interface ICommentListContainerState {
+  openEditDialog: boolean;
+  openDeleteDialog: boolean;
+  selectedComment?: IComment;
+}
+
+class CommentListContainer extends Component<
+  ICommentListContainerProps,
+  ICommentListContainerState
+> {
+  constructor(props: ICommentListContainerProps) {
+    super(props);
+    this.state = {
+      openEditDialog: false,
+      openDeleteDialog: false,
+      selectedComment: undefined,
+    };
+  }
+
   public componentDidMount() {
     const { fetchComments, fetchUsers } = this.props;
 
@@ -25,17 +47,54 @@ class CommentListContainer extends Component<ICommentListContainerProps> {
   }
 
   public render() {
-    const props = this.props;
-    const filteredComments = props.comments.filter(
-      comment => comment.postId === props.selectedPostId
+    const {
+      comments,
+      updateComment,
+      deleteComment,
+      selectedPostId,
+    } = this.props;
+    const { openEditDialog, openDeleteDialog, selectedComment } = this.state;
+
+    const filteredComments = comments.filter(
+      comment => comment.postId === selectedPostId
     );
 
     return (
       <ErrorBoundary>
-        <CommentListItem {...props} comments={filteredComments} />
+        <CommentListItem
+          {...this.props}
+          comments={filteredComments}
+          handleOpenEditDialog={this.handleOpenEditDialog}
+          handleOpenDeleteDialog={this.handleOpenDeleteDialog}
+        />
+        {selectedComment && (
+          <CommentEditDialog
+            open={openEditDialog}
+            comment={selectedComment}
+            updateComment={updateComment}
+            handleCloseDialog={this.handleCloseEditDialog}
+          />
+        )}
+        {selectedComment && (
+          <DeleteDialog
+            open={openDeleteDialog}
+            object={selectedComment}
+            deleteFn={deleteComment}
+            handleCloseDialog={this.handleCloseDeleteDialog}
+          />
+        )}
       </ErrorBoundary>
     );
   }
+
+  private handleOpenEditDialog = (comment: IComment) =>
+    this.setState({ openEditDialog: true, selectedComment: comment });
+  private handleCloseEditDialog = () =>
+    this.setState({ openEditDialog: false, selectedComment: undefined });
+  private handleOpenDeleteDialog = (comment: IComment) =>
+    this.setState({ openDeleteDialog: true, selectedComment: comment });
+  private handleCloseDeleteDialog = () =>
+    this.setState({ openDeleteDialog: false, selectedComment: undefined });
 }
 
 interface IStateToProps {
@@ -50,6 +109,8 @@ interface IStateToProps {
 interface IDispatchToProps {
   fetchComments: () => void;
   fetchUsers: () => void;
+  updateComment: (comment: IComment) => void;
+  deleteComment: (id: number, postId: number) => void;
 }
 
 const mapStateToProps = (state: IStoreState) => ({
@@ -64,6 +125,13 @@ const mapStateToProps = (state: IStoreState) => ({
 const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
   fetchComments: () => {
     dispatch(commentActions.fetchCommentsRequest());
+  },
+  updateComment: (comment: IComment) => {
+    dispatch(commentActions.updateCommentRequest(comment));
+  },
+  deleteComment: (id: number, postId: number) => {
+    dispatch(commentActions.deleteCommentRequest(id));
+    dispatch(push(routes.selectedPost.replace(':postId', postId.toString())));
   },
   fetchUsers: () => {
     dispatch(userActions.fetchUsersRequest());

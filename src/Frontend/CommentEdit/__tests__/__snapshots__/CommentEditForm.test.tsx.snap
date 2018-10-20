@@ -1,16 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CommentListItem Snapshot matches 1`] = `
+exports[`CommentEditForm Snapshot matches 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <BrowserRouter>
-    <CommentListItem
-      comments={Array []}
-      handleOpenDeleteDialog={[MockFunction]}
-      handleOpenEditDialog={[MockFunction]}
-      loading={false}
-      users={Array []}
-      usersLoading={false}
+    <CommentEditForm
+      comment={
+        Object {
+          "body": "string",
+          "id": 1,
+          "postId": 1,
+          "userId": 1,
+        }
+      }
+      handleCloseDialog={[MockFunction]}
+      updateComment={[MockFunction]}
     />
   </BrowserRouter>,
   Symbol(enzyme.__renderer__): Object {
@@ -26,13 +30,17 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "children": <CommentListItem
-        comments={Array []}
-        handleOpenDeleteDialog={[MockFunction]}
-        handleOpenEditDialog={[MockFunction]}
-        loading={false}
-        users={Array []}
-        usersLoading={false}
+      "children": <CommentEditForm
+        comment={
+          Object {
+            "body": "string",
+            "id": 1,
+            "postId": 1,
+            "userId": 1,
+          }
+        }
+        handleCloseDialog={[MockFunction]}
+        updateComment={[MockFunction]}
       />,
       "history": Object {
         "action": "POP",
@@ -59,12 +67,14 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "function",
       "props": Object {
-        "comments": Array [],
-        "handleOpenDeleteDialog": [MockFunction],
-        "handleOpenEditDialog": [MockFunction],
-        "loading": false,
-        "users": Array [],
-        "usersLoading": false,
+        "comment": Object {
+          "body": "string",
+          "id": 1,
+          "postId": 1,
+          "userId": 1,
+        },
+        "handleCloseDialog": [MockFunction],
+        "updateComment": [MockFunction],
       },
       "ref": null,
       "rendered": null,
@@ -78,13 +88,17 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "children": <CommentListItem
-          comments={Array []}
-          handleOpenDeleteDialog={[MockFunction]}
-          handleOpenEditDialog={[MockFunction]}
-          loading={false}
-          users={Array []}
-          usersLoading={false}
+        "children": <CommentEditForm
+          comment={
+            Object {
+              "body": "string",
+              "id": 1,
+              "postId": 1,
+              "userId": 1,
+            }
+          }
+          handleCloseDialog={[MockFunction]}
+          updateComment={[MockFunction]}
         />,
         "history": Object {
           "action": "POP",
@@ -111,12 +125,14 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "comments": Array [],
-          "handleOpenDeleteDialog": [MockFunction],
-          "handleOpenEditDialog": [MockFunction],
-          "loading": false,
-          "users": Array [],
-          "usersLoading": false,
+          "comment": Object {
+            "body": "string",
+            "id": 1,
+            "postId": 1,
+            "userId": 1,
+          },
+          "handleCloseDialog": [MockFunction],
+          "updateComment": [MockFunction],
         },
         "ref": null,
         "rendered": null,

@@ -5,3 +5,4 @@ export * from './PostEdit';
 export * from './Comment';
 export * from './PostDelete';
 export * from './CommentAdd';
+export * from './CommentEdit';
