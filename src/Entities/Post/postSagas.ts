@@ -40,3 +40,18 @@ export function* updatePostSaga(action: IAction): Generator {
     yield put({ type: actionTypes.UPDATE_POST_FAIL, payload: error });
   }
 }
+
+export function* watchDeletePost(): Generator {
+  yield takeLatest(actionTypes.DELETE_POST_REQUEST, deletePostSaga);
+}
+
+export function* deletePostSaga(action: IAction): Generator {
+  try {
+    yield call(api.Posts.del, action.payload);
+    yield put({
+      type: actionTypes.DELETE_POST_SUCCESS,
+    });
+  } catch (error) {
+    yield put({ type: actionTypes.DELETE_POST_FAIL, payload: error });
+  }
+}

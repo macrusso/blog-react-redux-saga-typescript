@@ -46,6 +46,20 @@ export interface IUpdatePostFailure {
   payload: object;
 }
 
+export interface IDeletePostRequest {
+  type: actionTypes.DELETE_POST_REQUEST;
+  payload: number;
+}
+
+export interface IDeletePostSuccess {
+  type: actionTypes.DELETE_POST_SUCCESS;
+}
+
+export interface IDeletePostFailure {
+  type: actionTypes.DELETE_POST_FAIL;
+  payload: object;
+}
+
 // general fail response
 export interface IPostFailResponse {
   response?: any;
@@ -106,6 +120,24 @@ export const updatePostFailure = (
   result: IPostFailResponse
 ): IUpdatePostFailure => ({
   type: actionTypes.UPDATE_POST_FAIL,
+  payload: {
+    text: (result.response && result.response.text) || result.message,
+  },
+});
+
+export const deletePostRequest = (id: number): IDeletePostRequest => ({
+  type: actionTypes.DELETE_POST_REQUEST,
+  payload: id,
+});
+
+export const deletePostSuccess = (): IDeletePostSuccess => ({
+  type: actionTypes.DELETE_POST_SUCCESS,
+});
+
+export const deletePostFailure = (
+  result: IPostFailResponse
+): IDeletePostFailure => ({
+  type: actionTypes.DELETE_POST_FAIL,
   payload: {
     text: (result.response && result.response.text) || result.message,
   },

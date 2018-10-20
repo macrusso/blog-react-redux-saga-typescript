@@ -132,4 +132,43 @@ describe('postReducer', () => {
       error: testAction.payload.text,
     });
   });
+
+  it(`Should return correct state for ${
+    actionTypes.DELETE_POST_REQUEST
+  }`, () => {
+    const testAction = {
+      type: actionTypes.DELETE_POST_REQUEST,
+      payload: testPost.id,
+    };
+    expect(reducer(testState, testAction)).toEqual({
+      ...testState,
+      loading: true,
+      error: undefined,
+    });
+  });
+
+  it(`Should return correct state for ${
+    actionTypes.DELETE_POST_SUCCESS
+  }`, () => {
+    const testAction = {
+      type: actionTypes.DELETE_POST_SUCCESS,
+    };
+    expect(reducer(testState, testAction)).toEqual({
+      ...testState,
+      loading: false,
+      error: undefined,
+    });
+  });
+
+  it(`Should return correct state for ${actionTypes.DELETE_POST_FAIL}`, () => {
+    const testAction = {
+      type: actionTypes.DELETE_POST_FAIL,
+      payload: { text: testError.message },
+    };
+    expect(reducer(testState, testAction)).toEqual({
+      ...testState,
+      loading: false,
+      error: testAction.payload.text,
+    });
+  });
 });

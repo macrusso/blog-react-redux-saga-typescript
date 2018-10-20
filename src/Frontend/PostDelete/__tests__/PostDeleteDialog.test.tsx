@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { shallow } from 'enzyme';
-import Post from '../Post';
-import { IPost, IUser } from '../../../Entities';
+import PostDeleteDialog from '../PostDeleteDialog';
+import { IPost } from 'src/Entities';
 
-describe('Post', () => {
+describe('PostDeleteDialog', () => {
   test('Snapshot matches', () => {
     const post: IPost = {
       id: 1,
@@ -13,21 +13,13 @@ describe('Post', () => {
       body: 'string',
     };
 
-    const users: IUser[] = [
-      {
-        id: 1,
-        name: 'string',
-        username: 'string',
-        email: 'string',
-      },
-    ];
     const wrapper = shallow(
       <BrowserRouter>
-        <Post
+        <PostDeleteDialog
           post={post}
-          users={users}
-          handleOpenEditDialog={jest.fn()}
-          handleOpenDeleteDialog={jest.fn()}
+          open={true}
+          deletePost={jest.fn()}
+          handleCloseDialog={jest.fn()}
         />
       </BrowserRouter>
     );

@@ -65,7 +65,7 @@ export const Posts = {
       url: '/posts',
       body: post,
     }),
-  del: (id: number) => requests.del(`/users/${id}`),
+  del: (id: number) => requests.del(`/posts/${id}`),
 };
 
 export const PostComments = {

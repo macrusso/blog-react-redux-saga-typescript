@@ -109,6 +109,27 @@ const reducer = (state: IPostsState = initialState, action: IAction) => {
         error: action.payload.text,
       };
     }
+    case actionTypes.DELETE_POST_REQUEST: {
+      return {
+        ...state,
+        loading: true,
+        error: undefined,
+      };
+    }
+    case actionTypes.DELETE_POST_SUCCESS: {
+      return {
+        ...state,
+        loading: false,
+        error: undefined,
+      };
+    }
+    case actionTypes.DELETE_POST_FAIL: {
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.text,
+      };
+    }
     default: {
       return state;
     }

@@ -81,4 +81,24 @@ describe('Post Actions', () => {
       payload: { text: testError.message },
     });
   });
+
+  it(`Returns right action for ${actionTypes.DELETE_POST_REQUEST}`, () => {
+    expect(actions.deletePostRequest(testPost.id)).toEqual({
+      type: actionTypes.DELETE_POST_REQUEST,
+      payload: testPost.id,
+    });
+  });
+
+  it(`Returns right action for ${actionTypes.DELETE_POST_SUCCESS}`, () => {
+    expect(actions.deletePostSuccess()).toEqual({
+      type: actionTypes.DELETE_POST_SUCCESS,
+    });
+  });
+
+  it(`Returns right action for ${actionTypes.DELETE_POST_FAIL}`, () => {
+    expect(actions.deletePostFailure(testError)).toEqual({
+      type: actionTypes.DELETE_POST_FAIL,
+      payload: { text: testError.message },
+    });
+  });
 });

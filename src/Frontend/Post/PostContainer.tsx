@@ -16,14 +16,17 @@ import {
   CommentAddContainer,
   PostEditDialog,
   Post,
+  PostDeleteDialog,
 } from '../../Frontend';
 import { Route } from 'react-router';
-import { selectedPost } from '../../routes';
+import * as routes from '../../routes';
+import { push } from 'connected-react-router';
 
 type IPostContainerProps = IStateToProps & IDispatchToProps;
 
 interface IPostContainerState {
   openEditDialog: boolean;
+  openDeleteDialog: boolean;
 }
 
 class PostContainer extends Component<
@@ -34,6 +37,7 @@ class PostContainer extends Component<
     super(props);
     this.state = {
       openEditDialog: false,
+      openDeleteDialog: false,
     };
   }
   public componentDidMount() {
@@ -43,7 +47,13 @@ class PostContainer extends Component<
     fetchUsers();
   }
   public render() {
-    const { posts, selectedPostId, loadingUsers, updatePost } = this.props;
+    const {
+      posts,
+      selectedPostId,
+      loadingUsers,
+      updatePost,
+      deletePost,
+    } = this.props;
     return (
       <ErrorBoundary>
         {selectedPostId &&
@@ -51,25 +61,39 @@ class PostContainer extends Component<
             <Post
               {...this.props}
               post={posts[selectedPostId]}
-              handleOpenDialog={this.handleOpenDialog}
+              handleOpenEditDialog={this.handleOpenEditDialog}
+              handleOpenDeleteDialog={this.handleOpenDeleteDialog}
             />
           )}
         {selectedPostId && (
           <PostEditDialog
             updatePost={updatePost}
             open={this.state.openEditDialog}
-            handleCloseDialog={this.handleCloseDialog}
+            handleCloseDialog={this.handleCloseEditDialog}
             post={posts[selectedPostId]}
           />
         )}
-        <Route path={selectedPost} component={CommentListContainer} />
-        <Route path={selectedPost} component={CommentAddContainer} />
+        {selectedPostId && (
+          <PostDeleteDialog
+            deletePost={deletePost}
+            open={this.state.openDeleteDialog}
+            handleCloseDialog={this.handleCloseDeleteDialog}
+            post={posts[selectedPostId]}
+          />
+        )}
+        <Route path={routes.selectedPost} component={CommentListContainer} />
+        <Route path={routes.selectedPost} component={CommentAddContainer} />
       </ErrorBoundary>
     );
   }
 
-  private handleOpenDialog = () => this.setState({ openEditDialog: true });
-  private handleCloseDialog = () => this.setState({ openEditDialog: false });
+  private handleOpenEditDialog = () => this.setState({ openEditDialog: true });
+  private handleCloseEditDialog = () =>
+    this.setState({ openEditDialog: false });
+  private handleOpenDeleteDialog = () =>
+    this.setState({ openDeleteDialog: true });
+  private handleCloseDeleteDialog = () =>
+    this.setState({ openDeleteDialog: false });
 }
 
 interface IStateToProps {
@@ -84,13 +108,14 @@ interface IStateToProps {
 interface IDispatchToProps {
   fetchPosts: () => void;
   fetchUsers: () => void;
+  deletePost: (id: number) => void;
   updatePost: (post: IPost) => void;
 }
 
 const mapStateToProps = (state: IStoreState) => ({
   error: postSelectors.getError(state),
   posts: postSelectors.getAllPostsObject(state),
-  users: userSelectors.getAllUsers(state),
+  users: userSelectors.getAllUsersObject(state),
   loadingPosts: postSelectors.getLoadingStatus(state),
   loadingUsers: userSelectors.getLoadingStatus(state),
   selectedPostId: postSelectors.getSelectedPostId(state),
@@ -102,6 +127,10 @@ const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
   },
   updatePost: (post: IPost) => {
     dispatch(postActions.updatePostRequest(post));
+  },
+  deletePost: (id: number) => {
+    dispatch(postActions.deletePostRequest(id));
+    dispatch(push(routes.posts));
   },
   fetchUsers: () => {
     dispatch(userActions.fetchUsersRequest({}));

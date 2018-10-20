@@ -36,11 +36,18 @@ interface IPostProps {
   post?: IPost;
   classes: any;
   users: IUser[];
-  handleOpenDialog: () => void;
+  handleOpenEditDialog: () => void;
+  handleOpenDeleteDialog: () => void;
 }
 
 const Post: React.SFC<IPostProps> = props => {
-  const { post, classes, users, handleOpenDialog } = props;
+  const {
+    post,
+    classes,
+    users,
+    handleOpenEditDialog,
+    handleOpenDeleteDialog,
+  } = props;
   return (
     <>
       {post ? (
@@ -58,13 +65,17 @@ const Post: React.SFC<IPostProps> = props => {
             />
           )}
           <Typography component="p">{post.body}</Typography>
-          <IconButton className={classes.button} aria-label="Delete">
+          <IconButton
+            className={classes.button}
+            aria-label="Delete"
+            onClick={() => handleOpenDeleteDialog()}
+          >
             <Delete />
           </IconButton>
           <IconButton
             className={classes.button}
             aria-label="Edit"
-            onClick={() => handleOpenDialog()}
+            onClick={() => handleOpenEditDialog()}
           >
             <Edit />
           </IconButton>

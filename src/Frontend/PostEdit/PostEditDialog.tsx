@@ -15,7 +15,7 @@ const PostEditDialog: React.SFC<IPostEditDialog> = props => {
 
   return (
     <Dialog open={open} onClose={handleCloseDialog}>
-      <DialogTitle>Edit your post</DialogTitle>
+      <DialogTitle>Edit post</DialogTitle>
       <PostEditForm {...props} />
     </Dialog>
   );
