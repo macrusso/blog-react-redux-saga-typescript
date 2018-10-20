@@ -3,7 +3,6 @@ import { IPost, IPostPartial } from '.';
 
 export interface IFetchPostsRequest {
   type: actionTypes.FETCH_POSTS_REQUEST;
-  payload: object;
 }
 
 export interface IFetchPostsSuccess {
@@ -66,13 +65,8 @@ export interface IPostFailResponse {
   message?: string;
 }
 
-export const fetchPostsRequest = ({
-  page,
-}: {
-  page?: number;
-}): IFetchPostsRequest => ({
+export const fetchPostsRequest = (): IFetchPostsRequest => ({
   type: actionTypes.FETCH_POSTS_REQUEST,
-  payload: { page },
 });
 
 export const fetchPostsSuccess = (result: IPost[]): IFetchPostsSuccess => ({

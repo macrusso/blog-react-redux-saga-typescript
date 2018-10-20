@@ -7,9 +7,9 @@ export function* watchFetchUsers(): Generator {
   yield takeLatest(actionTypes.FETCH_USERS_REQUEST, fetchUsersSaga);
 }
 
-export function* fetchUsersSaga(action: IAction): Generator {
+export function* fetchUsersSaga(): Generator {
   try {
-    const result = yield call(api.Users.all, action.payload);
+    const result = yield call(api.Users.all);
     yield put({ type: actionTypes.FETCH_USERS_SUCCESS, payload: result });
   } catch (error) {
     yield put({ type: actionTypes.FETCH_USERS_FAIL, payload: error });

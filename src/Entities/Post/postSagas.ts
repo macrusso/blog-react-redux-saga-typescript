@@ -6,9 +6,9 @@ import * as actionTypes from './postActionTypes';
 export function* watchFetchPosts(): Generator {
   yield takeLatest(actionTypes.FETCH_POSTS_REQUEST, fetchPostsSaga);
 }
-export function* fetchPostsSaga(action: IAction): Generator {
+export function* fetchPostsSaga(): Generator {
   try {
-    const result = yield call(api.Posts.all, action.payload);
+    const result = yield call(api.Posts.all);
     yield put({ type: actionTypes.FETCH_POSTS_SUCCESS, payload: result });
   } catch (error) {
     yield put({ type: actionTypes.FETCH_POSTS_FAIL, payload: error });

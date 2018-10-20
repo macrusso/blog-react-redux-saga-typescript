@@ -7,9 +7,9 @@ export function* watchFetchComments(): Generator {
   yield takeLatest(actionTypes.FETCH_COMMENTS_REQUEST, fetchCommentsSaga);
 }
 
-export function* fetchCommentsSaga(action: IAction): Generator {
+export function* fetchCommentsSaga(): Generator {
   try {
-    const result = yield call(api.Comments.all, action.payload);
+    const result = yield call(api.Comments.all);
     yield put({ type: actionTypes.FETCH_COMMENTS_SUCCESS, payload: result });
   } catch (error) {
     yield put({ type: actionTypes.FETCH_COMMENTS_FAIL, payload: error });

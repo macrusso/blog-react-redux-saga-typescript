@@ -63,10 +63,10 @@ const mapStateToProps = (state: IStoreState) => ({
 
 const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
   fetchComments: () => {
-    dispatch(commentActions.fetchCommentsRequest({}));
+    dispatch(commentActions.fetchCommentsRequest());
   },
   fetchUsers: () => {
-    dispatch(userActions.fetchUsersRequest({}));
+    dispatch(userActions.fetchUsersRequest());
   },
 });
 

@@ -19,10 +19,8 @@ describe('Post Actions', () => {
   };
 
   it(`Returns right action for ${actionTypes.FETCH_POSTS_REQUEST}`, () => {
-    const params = { page: 3 };
-    expect(actions.fetchPostsRequest(params)).toEqual({
+    expect(actions.fetchPostsRequest()).toEqual({
       type: actionTypes.FETCH_POSTS_REQUEST,
-      payload: { page: 3 },
     });
   });
 

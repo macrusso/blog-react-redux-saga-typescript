@@ -13,10 +13,8 @@ describe('User Actions', () => {
     message: 'sample error message',
   };
   it(`Returns right action for ${actionTypes.FETCH_USERS_REQUEST}`, () => {
-    const params = { page: 3 };
-    expect(actions.fetchUsersRequest(params)).toEqual({
+    expect(actions.fetchUsersRequest()).toEqual({
       type: actionTypes.FETCH_USERS_REQUEST,
-      payload: { page: 3 },
     });
   });
 

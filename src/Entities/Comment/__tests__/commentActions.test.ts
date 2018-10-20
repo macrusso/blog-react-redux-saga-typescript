@@ -18,10 +18,8 @@ describe('Comment Actions', () => {
     message: 'sample error message',
   };
   it(`Returns right action for ${actionTypes.FETCH_COMMENTS_REQUEST}`, () => {
-    const params = { page: 3 };
-    expect(actions.fetchCommentsRequest(params)).toEqual({
+    expect(actions.fetchCommentsRequest()).toEqual({
       type: actionTypes.FETCH_COMMENTS_REQUEST,
-      payload: { page: 3 },
     });
   });
 

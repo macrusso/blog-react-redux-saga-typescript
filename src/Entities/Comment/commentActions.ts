@@ -1,17 +1,16 @@
 import * as actionTypes from './commentActionTypes';
 import { IComment, ICommentPartial } from '.';
 
-export interface ICommentsRequest {
+export interface IFetchCommentsRequest {
   type: actionTypes.FETCH_COMMENTS_REQUEST;
-  payload: object;
 }
 
-export interface ICommentsSuccess {
+export interface IFetchCommentsSuccess {
   type: actionTypes.FETCH_COMMENTS_SUCCESS;
   payload: IComment[];
 }
 
-export interface ICommentsFailure {
+export interface IFetchCommentsFailure {
   type: actionTypes.FETCH_COMMENTS_FAIL;
   payload: object;
 }
@@ -37,23 +36,20 @@ export interface ICommentFailResponse {
   message?: string;
 }
 
-export const fetchCommentsRequest = ({
-  page,
-}: {
-  page?: number;
-}): ICommentsRequest => ({
+export const fetchCommentsRequest = (): IFetchCommentsRequest => ({
   type: actionTypes.FETCH_COMMENTS_REQUEST,
-  payload: { page },
 });
 
-export const fetchCommentsSuccess = (result: IComment[]): ICommentsSuccess => ({
+export const fetchCommentsSuccess = (
+  result: IComment[]
+): IFetchCommentsSuccess => ({
   type: actionTypes.FETCH_COMMENTS_SUCCESS,
   payload: result,
 });
 
 export const fetchCommentsFailure = (
   result: ICommentFailResponse
-): ICommentsFailure => ({
+): IFetchCommentsFailure => ({
   type: actionTypes.FETCH_COMMENTS_FAIL,
   payload: {
     text: (result.response && result.response.text) || result.message,

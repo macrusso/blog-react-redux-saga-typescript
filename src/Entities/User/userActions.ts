@@ -1,17 +1,16 @@
 import * as actionTypes from './userActionTypes';
 import { IUser } from '.';
 
-export interface IUsersRequest {
+export interface IFetchUsersRequest {
   type: actionTypes.FETCH_USERS_REQUEST;
-  payload: object;
 }
 
-export interface IUsersSuccess {
+export interface IFetchUsersSuccess {
   type: actionTypes.FETCH_USERS_SUCCESS;
   payload: IUser[];
 }
 
-export interface IUsersFailure {
+export interface IFetchUsersFailure {
   type: actionTypes.FETCH_USERS_FAIL;
   payload: object;
 }
@@ -22,23 +21,18 @@ export interface IUserFailResponse {
   message?: string;
 }
 
-export const fetchUsersRequest = ({
-  page,
-}: {
-  page?: number;
-}): IUsersRequest => ({
+export const fetchUsersRequest = (): IFetchUsersRequest => ({
   type: actionTypes.FETCH_USERS_REQUEST,
-  payload: { page },
 });
 
-export const fetchUsersSuccess = (result: IUser[]): IUsersSuccess => ({
+export const fetchUsersSuccess = (result: IUser[]): IFetchUsersSuccess => ({
   type: actionTypes.FETCH_USERS_SUCCESS,
   payload: result,
 });
 
 export const fetchUsersFailure = (
   result: IUserFailResponse
-): IUsersFailure => ({
+): IFetchUsersFailure => ({
   type: actionTypes.FETCH_USERS_FAIL,
   payload: {
     text: (result.response && result.response.text) || result.message,

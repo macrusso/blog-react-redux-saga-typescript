@@ -123,7 +123,7 @@ const mapStateToProps = (state: IStoreState) => ({
 
 const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
   fetchPosts: () => {
-    dispatch(postActions.fetchPostsRequest({}));
+    dispatch(postActions.fetchPostsRequest());
   },
   updatePost: (post: IPost) => {
     dispatch(postActions.updatePostRequest(post));
@@ -133,7 +133,7 @@ const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
     dispatch(push(routes.posts));
   },
   fetchUsers: () => {
-    dispatch(userActions.fetchUsersRequest({}));
+    dispatch(userActions.fetchUsersRequest());
   },
 });
 

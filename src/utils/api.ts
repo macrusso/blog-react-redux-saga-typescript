@@ -30,11 +30,8 @@ const requests = {
     superagent.post(`${API_ROOT}${url}`, body).then(responseBody),
 };
 
-const limit = (count: number, p?: number) =>
-  `_limit=${count}&_offset=${p ? p * count : 0}`;
-
 export const Users = {
-  all: (page?: number) => requests.get(`/users?${limit(10, page)}`),
+  all: () => requests.get(`/users`),
   update: (user: IUser) =>
     requests.patch({
       url: `/users/${user.id}`,
@@ -48,13 +45,8 @@ export const Users = {
   del: (id: number) => requests.del(`/users/${id}`),
 };
 
-export const UserPosts = {
-  all: ({ page, id }: { page?: number; id: number }) =>
-    requests.get(`/users/${id}/posts?${limit(10, page)}`),
-};
-
 export const Posts = {
-  all: (page?: number) => requests.get(`/posts?${limit(10, page)}`),
+  all: () => requests.get(`/posts`),
   update: (post: IPost) =>
     requests.patch({
       url: `/posts/${post.id}`,
@@ -68,13 +60,8 @@ export const Posts = {
   del: (id: number) => requests.del(`/posts/${id}`),
 };
 
-export const PostComments = {
-  all: ({ page, id }: { page?: number; id: number }) =>
-    requests.get(`/posts/${id}/comments?${limit(10, page)}`),
-};
-
 export const Comments = {
-  all: (page?: number) => requests.get(`/comments?${limit(10, page)}`),
+  all: () => requests.get(`/comments`),
   update: (comment: IComment) =>
     requests.patch({
       url: `/comments/${comment.id}`,
@@ -92,6 +79,4 @@ export default {
   Users,
   Posts,
   Comments,
-  UserPosts,
-  PostComments,
 };
