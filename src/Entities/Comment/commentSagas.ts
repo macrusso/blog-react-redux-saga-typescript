@@ -51,6 +51,7 @@ export function* deleteCommentSaga(action: IAction): Generator {
     yield call(api.Comments.del, action.payload);
     yield put({
       type: actionTypes.DELETE_COMMENT_SUCCESS,
+      payload: action.payload,
     });
   } catch (error) {
     yield put({ type: actionTypes.DELETE_COMMENT_FAIL, payload: error });

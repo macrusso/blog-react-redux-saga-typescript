@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { IAction, IStoreState } from '../../types';
-import ErrorBoundary from '../Common/ErrorBoundary';
+import { ErrorBoundary } from '../Shared';
 import { PostAddContainer, PostListItem } from '../../Frontend';
 import {
   commentActions,

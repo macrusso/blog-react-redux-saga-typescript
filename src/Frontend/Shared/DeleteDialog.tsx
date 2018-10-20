@@ -7,13 +7,12 @@ import {
   DialogContentText,
   Button,
 } from '@material-ui/core';
-import { selectedPost } from 'src/routes';
 
 interface IDeleteDialog {
   object: any;
   open: boolean;
   handleCloseDialog: () => void;
-  deleteFn: (id: number, postId?: number) => void;
+  deleteFn: (id: number) => void;
 }
 
 const PostEditDialog: React.SFC<IDeleteDialog> = props => {
@@ -34,7 +33,7 @@ const PostEditDialog: React.SFC<IDeleteDialog> = props => {
         </Button>
         <Button
           onClick={() => {
-            deleteFn(object.id, object.postId);
+            deleteFn(object.id);
             handleCloseDialog();
           }}
           color="primary"

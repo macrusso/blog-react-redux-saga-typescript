@@ -52,6 +52,7 @@ export interface IDeleteCommentRequest {
 
 export interface IDeleteCommentSuccess {
   type: actionTypes.DELETE_COMMENT_SUCCESS;
+  payload: number;
 }
 
 export interface IDeleteCommentFailure {
@@ -134,8 +135,9 @@ export const deleteCommentRequest = (id: number): IDeleteCommentRequest => ({
   payload: id,
 });
 
-export const deleteCommentSuccess = (): IDeleteCommentSuccess => ({
+export const deleteCommentSuccess = (id: number): IDeleteCommentSuccess => ({
   type: actionTypes.DELETE_COMMENT_SUCCESS,
+  payload: id,
 });
 
 export const deleteCommentFailure = (

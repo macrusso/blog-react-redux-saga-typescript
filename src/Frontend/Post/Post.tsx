@@ -8,7 +8,7 @@ import {
   Avatar,
   IconButton,
 } from '@material-ui/core';
-import { NotFound } from '../Common';
+import { NotFound } from '../Shared';
 
 const styles = {
   card: {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { IAction, IStoreState } from '../../types';
-import ErrorBoundary from '../Common/ErrorBoundary';
+import { ErrorBoundary } from '../Shared';
 import {
   userActions,
   userSelectors,
@@ -16,7 +16,7 @@ import {
   CommentAddContainer,
   PostEditDialog,
   Post,
-  PostDeleteDialog,
+  DeleteDialog,
 } from '../../Frontend';
 import { Route } from 'react-router';
 import * as routes from '../../routes';
@@ -75,11 +75,11 @@ class PostContainer extends Component<
           />
         )}
         {selectedPostId && (
-          <PostDeleteDialog
-            deletePost={deletePost}
+          <DeleteDialog
+            deleteFn={deletePost}
             open={this.state.openDeleteDialog}
             handleCloseDialog={this.handleCloseDeleteDialog}
-            post={posts[selectedPostId]}
+            object={posts[selectedPostId]}
           />
         )}
         <Route path={routes.selectedPost} component={CommentListContainer} />

@@ -87,8 +87,9 @@ describe('Comment Actions', () => {
   });
 
   it(`Returns right action for ${actionTypes.DELETE_COMMENT_SUCCESS}`, () => {
-    expect(actions.deleteCommentSuccess()).toEqual({
+    expect(actions.deleteCommentSuccess(testComment.id)).toEqual({
       type: actionTypes.DELETE_COMMENT_SUCCESS,
+      payload: testComment.id,
     });
   });
 

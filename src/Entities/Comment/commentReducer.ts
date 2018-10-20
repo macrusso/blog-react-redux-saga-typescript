@@ -94,8 +94,12 @@ const reducer = (state: ICommentsState = initialState, action: IAction) => {
       };
     }
     case actionTypes.DELETE_COMMENT_SUCCESS: {
+      const filteredItems = state.items.filter(
+        item => item.id !== action.payload
+      );
       return {
         ...state,
+        items: filteredItems,
         loading: false,
         error: undefined,
       };

@@ -1,21 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PostDeleteDialog Snapshot matches 1`] = `
+exports[`DeleteDialog Snapshot matches 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <BrowserRouter>
     <PostEditDialog
-      deletePost={[MockFunction]}
+      deleteFn={[MockFunction]}
       handleCloseDialog={[MockFunction]}
+      object={Object {}}
       open={true}
-      post={
-        Object {
-          "body": "string",
-          "id": 1,
-          "title": "string",
-          "userId": 1,
-        }
-      }
     />
   </BrowserRouter>,
   Symbol(enzyme.__renderer__): Object {
@@ -32,17 +25,10 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "children": <PostEditDialog
-        deletePost={[MockFunction]}
+        deleteFn={[MockFunction]}
         handleCloseDialog={[MockFunction]}
+        object={Object {}}
         open={true}
-        post={
-          Object {
-            "body": "string",
-            "id": 1,
-            "title": "string",
-            "userId": 1,
-          }
-        }
       />,
       "history": Object {
         "action": "POP",
@@ -69,15 +55,10 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "function",
       "props": Object {
-        "deletePost": [MockFunction],
+        "deleteFn": [MockFunction],
         "handleCloseDialog": [MockFunction],
+        "object": Object {},
         "open": true,
-        "post": Object {
-          "body": "string",
-          "id": 1,
-          "title": "string",
-          "userId": 1,
-        },
       },
       "ref": null,
       "rendered": null,
@@ -92,17 +73,10 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "children": <PostEditDialog
-          deletePost={[MockFunction]}
+          deleteFn={[MockFunction]}
           handleCloseDialog={[MockFunction]}
+          object={Object {}}
           open={true}
-          post={
-            Object {
-              "body": "string",
-              "id": 1,
-              "title": "string",
-              "userId": 1,
-            }
-          }
         />,
         "history": Object {
           "action": "POP",
@@ -129,15 +103,10 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "deletePost": [MockFunction],
+          "deleteFn": [MockFunction],
           "handleCloseDialog": [MockFunction],
+          "object": Object {},
           "open": true,
-          "post": Object {
-            "body": "string",
-            "id": 1,
-            "title": "string",
-            "userId": 1,
-          },
         },
         "ref": null,
         "rendered": null,

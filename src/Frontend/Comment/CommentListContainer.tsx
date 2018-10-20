@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { IAction, IStoreState } from '../../types';
-import ErrorBoundary from '../Common/ErrorBoundary';
 import { CommentListItem } from '.';
 import {
   postSelectors,
@@ -14,9 +13,7 @@ import {
   IUser,
 } from '../../Entities';
 import { CommentEditDialog } from '../../Frontend';
-import { DeleteDialog } from '../Common';
-import * as routes from '../../routes';
-import { push } from 'connected-react-router';
+import { DeleteDialog, ErrorBoundary } from '../Shared';
 
 type ICommentListContainerProps = IStateToProps & IDispatchToProps;
 
@@ -110,7 +107,7 @@ interface IDispatchToProps {
   fetchComments: () => void;
   fetchUsers: () => void;
   updateComment: (comment: IComment) => void;
-  deleteComment: (id: number, postId: number) => void;
+  deleteComment: (id: number) => void;
 }
 
 const mapStateToProps = (state: IStoreState) => ({
@@ -129,9 +126,9 @@ const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
   updateComment: (comment: IComment) => {
     dispatch(commentActions.updateCommentRequest(comment));
   },
-  deleteComment: (id: number, postId: number) => {
+  deleteComment: (id: number) => {
     dispatch(commentActions.deleteCommentRequest(id));
-    dispatch(push(routes.selectedPost.replace(':postId', postId.toString())));
+    // dispatch(push(routes.selectedPost.replace(':postId', postId.toString())));
   },
   fetchUsers: () => {
     dispatch(userActions.fetchUsersRequest());
