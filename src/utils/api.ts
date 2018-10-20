@@ -5,6 +5,7 @@ import {
   IPost,
   IPostPartial,
   ICommentPartial,
+  IUserPartial,
 } from '../Entities';
 
 const API_ROOT = `${process.env.REACT_APP_API_ROOT}/api/v1`;
@@ -28,6 +29,19 @@ const requests = {
     superagent.patch(`${API_ROOT}${url}`, body).then(responseBody),
   post: ({ url, body }: IPatchPostRequest) =>
     superagent.post(`${API_ROOT}${url}`, body).then(responseBody),
+};
+
+export const Auth = {
+  login: (user: IUserPartial) =>
+    requests.post({
+      url: '/login',
+      body: user,
+    }),
+  register: (user: IUser) =>
+    requests.post({
+      url: '/register',
+      body: user,
+    }),
 };
 
 export const Users = {
@@ -76,6 +90,7 @@ export const Comments = {
 };
 
 export default {
+  Auth,
   Users,
   Posts,
   Comments,

@@ -1,3 +1,4 @@
+export * from './Auth';
 export * from './Post';
 export * from './Shared';
 export * from './PostAdd';
