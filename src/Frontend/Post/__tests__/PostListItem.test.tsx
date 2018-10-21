@@ -13,6 +13,7 @@ describe('PostListItem', () => {
           comments={[]}
           loading={false}
           usersLoading={false}
+          onAddCommentClick={jest.fn()}
         />
       </BrowserRouter>
     );

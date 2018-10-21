@@ -72,7 +72,7 @@ const App = ({ history, classes, logoutUser, currentUser }: IAppProps) => (
               Simple React Blog
             </Link>
           </Typography>
-          {currentUser && currentUser.token ? (
+          {(currentUser && currentUser.token) || localStorage.token ? (
             <Button color="inherit" onClick={() => logoutUser()}>
               Logout
             </Button>
@@ -104,7 +104,7 @@ const App = ({ history, classes, logoutUser, currentUser }: IAppProps) => (
           <Route
             path={routes.selectedPost}
             render={() =>
-              currentUser && currentUser.token ? (
+              (currentUser && currentUser.token) || localStorage.token ? (
                 <PostContainer />
               ) : (
                 <Redirect to={routes.login} />
@@ -114,7 +114,7 @@ const App = ({ history, classes, logoutUser, currentUser }: IAppProps) => (
           <Route
             path={routes.posts}
             render={() =>
-              currentUser && currentUser.token ? (
+              (currentUser && currentUser.token) || localStorage.token ? (
                 <PostListContainer />
               ) : (
                 <Redirect to={routes.login} />

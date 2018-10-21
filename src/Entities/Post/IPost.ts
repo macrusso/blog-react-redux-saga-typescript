@@ -3,4 +3,6 @@ export default interface IPost {
   userId: string;
   title: string;
   body: string;
+  createdAt?: string;
+  updatedAt?: string;
 }

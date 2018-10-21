@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { IAction, IStoreState } from '../../types';
 import { ErrorBoundary } from '../Shared';
+import * as routes from '../../routes';
 import { PostAddContainer, PostListItem } from '../../Frontend';
+import { push } from 'connected-react-router';
 import {
   commentActions,
   commentSelectors,
@@ -52,6 +54,7 @@ interface IDispatchToProps {
   fetchPosts: () => void;
   fetchUsers: () => void;
   fetchComments: () => void;
+  onAddCommentClick: (id: string) => void;
 }
 
 const mapStateToProps = (state: IStoreState) => ({
@@ -72,6 +75,9 @@ const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
   },
   fetchComments: () => {
     dispatch(commentActions.fetchCommentsRequest());
+  },
+  onAddCommentClick: (id: string) => {
+    dispatch(push(routes.selectedPost.replace(':postId', id)));
   },
 });
 

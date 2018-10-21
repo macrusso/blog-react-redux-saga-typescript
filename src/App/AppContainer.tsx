@@ -4,6 +4,8 @@ import { Dispatch } from 'redux';
 import { IAction, IStoreState } from '../types';
 import { ErrorBoundary } from '../Frontend/Shared';
 import { History } from 'history';
+import * as routes from '../routes';
+import { push } from 'connected-react-router';
 import {
   IUser,
   userActions,
@@ -47,6 +49,7 @@ const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
   logoutUser: () => {
     dispatch(userActions.logoutUser());
     localStorage.removeItem('token');
+    dispatch(push(routes.posts));
   },
 });
 
