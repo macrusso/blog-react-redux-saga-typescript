@@ -35,7 +35,12 @@ it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
     <Provider store={store}>
-      <App history={history} currentUser={user} classes={{}} />
+      <App
+        classes={{}}
+        history={history}
+        currentUser={user}
+        logoutUser={jest.fn()}
+      />
     </Provider>,
     div
   );

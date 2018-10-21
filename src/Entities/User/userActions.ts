@@ -45,6 +45,10 @@ export interface IRegisterUserFailure {
   payload: any;
 }
 
+export interface ILogoutUser {
+  type: actionTypes.LOGOUT_USER;
+}
+
 export const fetchUsersRequest = (): IFetchUsersRequest => ({
   type: actionTypes.FETCH_USERS_REQUEST,
 });
@@ -87,4 +91,8 @@ export const registerUserSuccess = (result: IUser): IRegisterUserSuccess => ({
 export const registerUserFailure = (result: any): IRegisterUserFailure => ({
   type: actionTypes.REGISTER_USER_FAIL,
   payload: result,
+});
+
+export const logoutUser = (): ILogoutUser => ({
+  type: actionTypes.LOGOUT_USER,
 });

@@ -84,6 +84,14 @@ const reducer = (state: IUsersState = initialState, action: IAction) => {
         error: action.payload.response.body.error.message,
       };
     }
+    case actionTypes.LOGOUT_USER: {
+      return {
+        ...state,
+        loading: false,
+        error: undefined,
+        currentUser: undefined,
+      };
+    }
     default: {
       return state;
     }

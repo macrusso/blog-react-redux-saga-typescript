@@ -6,7 +6,7 @@ import { ErrorBoundary } from '../Frontend/Shared';
 import { History } from 'history';
 import {
   IUser,
-  postActions,
+  userActions,
   IPostPartial,
   userSelectors,
   postSelectors,
@@ -36,7 +36,7 @@ interface IStateToProps {
 }
 
 interface IDispatchToProps {
-  addPost: (post: IPostPartial) => void;
+  logoutUser: () => void;
 }
 
 const mapStateToProps = (state: IStoreState) => ({
@@ -44,8 +44,8 @@ const mapStateToProps = (state: IStoreState) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
-  addPost: (post: IPostPartial) => {
-    dispatch(postActions.addPostRequest(post));
+  logoutUser: () => {
+    dispatch(userActions.logoutUser());
   },
 });
 

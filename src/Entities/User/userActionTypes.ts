@@ -26,3 +26,6 @@ export type REGISTER_USER_SUCCESS = typeof REGISTER_USER_SUCCESS;
 
 export const REGISTER_USER_FAIL = `${NAME}/REGISTER_USER_FAIL`;
 export type REGISTER_USER_FAIL = typeof REGISTER_USER_FAIL;
+
+export const LOGOUT_USER = `${NAME}/LOGOUT_USER`;
+export type LOGOUT_USER = typeof LOGOUT_USER;

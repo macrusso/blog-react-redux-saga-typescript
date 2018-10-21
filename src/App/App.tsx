@@ -55,15 +55,14 @@ const styles = {
   },
 };
 
-const App = ({
-  history,
-  classes,
-  currentUser,
-}: {
-  history: History;
+interface IAppProps {
   classes: any;
+  history: History;
   currentUser?: IUser;
-}) => (
+  logoutUser: () => void;
+}
+
+const App = ({ history, classes, logoutUser, currentUser }: IAppProps) => (
   <ConnectedRouter history={history}>
     <>
       <AppBar position="static">
@@ -74,7 +73,9 @@ const App = ({
             </Link>
           </Typography>
           {currentUser && currentUser.token ? (
-            <Button color="inherit">Logout</Button>
+            <Button color="inherit" onClick={() => logoutUser()}>
+              Logout
+            </Button>
           ) : (
             <>
               <Link to={routes.register} className={classes.link}>
