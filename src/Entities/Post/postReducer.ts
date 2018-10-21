@@ -58,7 +58,7 @@ const reducer = (state: IPostsState = initialState, action: IAction) => {
       return {
         ...state,
         loading: false,
-        error: action.payload.text,
+        error: action.payload.response.body.error.message,
       };
     }
     case actionTypes.ADD_POST_REQUEST: {
@@ -80,7 +80,7 @@ const reducer = (state: IPostsState = initialState, action: IAction) => {
       return {
         ...state,
         loading: false,
-        error: action.payload.text,
+        error: action.payload.response.body.error.message,
       };
     }
     case actionTypes.UPDATE_POST_REQUEST: {
@@ -106,7 +106,7 @@ const reducer = (state: IPostsState = initialState, action: IAction) => {
       return {
         ...state,
         loading: false,
-        error: action.payload.text,
+        error: action.payload.response.body.error.message,
       };
     }
     case actionTypes.DELETE_POST_REQUEST: {
@@ -127,7 +127,7 @@ const reducer = (state: IPostsState = initialState, action: IAction) => {
       return {
         ...state,
         loading: false,
-        error: action.payload.text,
+        error: action.payload.response.body.error.message,
       };
     }
     default: {

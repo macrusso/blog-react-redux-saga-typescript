@@ -35,7 +35,7 @@ const reducer = (state: ICommentsState = initialState, action: IAction) => {
       return {
         ...state,
         loading: false,
-        error: action.payload.text,
+        error: action.payload.response.body.error.message,
       };
     }
     case actionTypes.ADD_COMMENT_REQUEST: {
@@ -57,7 +57,7 @@ const reducer = (state: ICommentsState = initialState, action: IAction) => {
       return {
         ...state,
         loading: false,
-        error: action.payload.text,
+        error: action.payload.response.body.error.message,
       };
     }
     case actionTypes.UPDATE_COMMENT_REQUEST: {
@@ -83,7 +83,7 @@ const reducer = (state: ICommentsState = initialState, action: IAction) => {
       return {
         ...state,
         loading: false,
-        error: action.payload.text,
+        error: action.payload.response.body.error.message,
       };
     }
     case actionTypes.DELETE_COMMENT_REQUEST: {
@@ -108,7 +108,7 @@ const reducer = (state: ICommentsState = initialState, action: IAction) => {
       return {
         ...state,
         loading: false,
-        error: action.payload.text,
+        error: action.payload.response.body.error.message,
       };
     }
     default: {

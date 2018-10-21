@@ -28,8 +28,8 @@ describe('User Selectors', () => {
 
   it('Should return Users.items as object of objects', () => {
     expect(selectors.getAllUsersObject(testState)).toEqual({
-      1: testUser1,
-      2: testUser2,
+      '5bcc554259e0dbfda6ed1a55': testUser1,
+      '5bcc554259e0dbfda6ed1a66': testUser2,
     });
   });
 

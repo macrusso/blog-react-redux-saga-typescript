@@ -12,7 +12,7 @@ export interface IFetchCommentsSuccess {
 
 export interface IFetchCommentsFailure {
   type: actionTypes.FETCH_COMMENTS_FAIL;
-  payload: object;
+  payload: any;
 }
 
 export interface IAddCommentRequest {
@@ -27,7 +27,7 @@ export interface IAddCommentSuccess {
 
 export interface IAddCommentFailure {
   type: actionTypes.ADD_COMMENT_FAIL;
-  payload: object;
+  payload: any;
 }
 
 export interface IUpdateCommentRequest {
@@ -42,7 +42,7 @@ export interface IUpdateCommentSuccess {
 
 export interface IUpdateCommentFailure {
   type: actionTypes.UPDATE_COMMENT_FAIL;
-  payload: object;
+  payload: any;
 }
 
 export interface IDeleteCommentRequest {
@@ -57,13 +57,7 @@ export interface IDeleteCommentSuccess {
 
 export interface IDeleteCommentFailure {
   type: actionTypes.DELETE_COMMENT_FAIL;
-  payload: object;
-}
-
-// general fail response
-export interface ICommentFailResponse {
-  response?: any;
-  message?: string;
+  payload: any;
 }
 
 export const fetchCommentsRequest = (): IFetchCommentsRequest => ({
@@ -77,13 +71,9 @@ export const fetchCommentsSuccess = (
   payload: result,
 });
 
-export const fetchCommentsFailure = (
-  result: ICommentFailResponse
-): IFetchCommentsFailure => ({
+export const fetchCommentsFailure = (result: any): IFetchCommentsFailure => ({
   type: actionTypes.FETCH_COMMENTS_FAIL,
-  payload: {
-    text: (result.response && result.response.text) || result.message,
-  },
+  payload: result,
 });
 
 export const addCommentRequest = (
@@ -98,13 +88,9 @@ export const addCommentSuccess = (result: IComment): IAddCommentSuccess => ({
   payload: result,
 });
 
-export const addCommentFailure = (
-  result: ICommentFailResponse
-): IAddCommentFailure => ({
+export const addCommentFailure = (result: any): IAddCommentFailure => ({
   type: actionTypes.ADD_COMMENT_FAIL,
-  payload: {
-    text: (result.response && result.response.text) || result.message,
-  },
+  payload: result,
 });
 
 export const updateCommentRequest = (
@@ -121,13 +107,9 @@ export const updateCommentSuccess = (
   payload: result,
 });
 
-export const updateCommentFailure = (
-  result: ICommentFailResponse
-): IUpdateCommentFailure => ({
+export const updateCommentFailure = (result: any): IUpdateCommentFailure => ({
   type: actionTypes.UPDATE_COMMENT_FAIL,
-  payload: {
-    text: (result.response && result.response.text) || result.message,
-  },
+  payload: result,
 });
 
 export const deleteCommentRequest = (id: string): IDeleteCommentRequest => ({
@@ -140,11 +122,7 @@ export const deleteCommentSuccess = (id: string): IDeleteCommentSuccess => ({
   payload: id,
 });
 
-export const deleteCommentFailure = (
-  result: ICommentFailResponse
-): IDeleteCommentFailure => ({
+export const deleteCommentFailure = (result: any): IDeleteCommentFailure => ({
   type: actionTypes.DELETE_COMMENT_FAIL,
-  payload: {
-    text: (result.response && result.response.text) || result.message,
-  },
+  payload: result,
 });

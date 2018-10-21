@@ -22,7 +22,7 @@ export interface ILoginUserRequest {
 
 export interface ILoginUserSuccess {
   type: actionTypes.LOGIN_USER_SUCCESS;
-  payload: any;
+  payload: IUser;
 }
 
 export interface ILoginUserFailure {
@@ -37,7 +37,7 @@ export interface IRegisterUserRequest {
 
 export interface IRegisterUserSuccess {
   type: actionTypes.REGISTER_USER_SUCCESS;
-  payload: any;
+  payload: IUser;
 }
 
 export interface IRegisterUserFailure {
@@ -64,7 +64,7 @@ export const loginUserRequest = (user: IUserAuth): ILoginUserRequest => ({
   payload: user,
 });
 
-export const loginUserSuccess = (result: any): ILoginUserSuccess => ({
+export const loginUserSuccess = (result: IUser): ILoginUserSuccess => ({
   type: actionTypes.LOGIN_USER_SUCCESS,
   payload: result,
 });
@@ -79,7 +79,7 @@ export const registerUserRequest = (user: IUserAuth): IRegisterUserRequest => ({
   payload: user,
 });
 
-export const registerUserSuccess = (result: any): IRegisterUserSuccess => ({
+export const registerUserSuccess = (result: IUser): IRegisterUserSuccess => ({
   type: actionTypes.REGISTER_USER_SUCCESS,
   payload: result,
 });

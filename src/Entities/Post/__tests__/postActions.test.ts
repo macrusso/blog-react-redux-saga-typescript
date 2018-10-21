@@ -15,7 +15,13 @@ describe('Post Actions', () => {
     body: 'string',
   };
   const testError = {
-    message: 'sample error message',
+    response: {
+      body: {
+        error: {
+          message: 'sample error message',
+        },
+      },
+    },
   };
 
   it(`Returns right action for ${actionTypes.FETCH_POSTS_REQUEST}`, () => {
@@ -34,7 +40,7 @@ describe('Post Actions', () => {
   it(`Returns right action for ${actionTypes.FETCH_POSTS_FAIL}`, () => {
     expect(actions.fetchPostsFailure(testError)).toEqual({
       type: actionTypes.FETCH_POSTS_FAIL,
-      payload: { text: testError.message },
+      payload: testError,
     });
   });
 
@@ -55,7 +61,7 @@ describe('Post Actions', () => {
   it(`Returns right action for ${actionTypes.ADD_POST_FAIL}`, () => {
     expect(actions.addPostFailure(testError)).toEqual({
       type: actionTypes.ADD_POST_FAIL,
-      payload: { text: testError.message },
+      payload: testError,
     });
   });
 
@@ -76,7 +82,7 @@ describe('Post Actions', () => {
   it(`Returns right action for ${actionTypes.UPDATE_POST_FAIL}`, () => {
     expect(actions.updatePostFailure(testError)).toEqual({
       type: actionTypes.UPDATE_POST_FAIL,
-      payload: { text: testError.message },
+      payload: testError,
     });
   });
 
@@ -96,7 +102,7 @@ describe('Post Actions', () => {
   it(`Returns right action for ${actionTypes.DELETE_POST_FAIL}`, () => {
     expect(actions.deletePostFailure(testError)).toEqual({
       type: actionTypes.DELETE_POST_FAIL,
-      payload: { text: testError.message },
+      payload: testError,
     });
   });
 });

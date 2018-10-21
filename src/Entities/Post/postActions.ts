@@ -12,7 +12,7 @@ export interface IFetchPostsSuccess {
 
 export interface IFetchPostsFailure {
   type: actionTypes.FETCH_POSTS_FAIL;
-  payload: object;
+  payload: any;
 }
 
 export interface IAddPostRequest {
@@ -27,7 +27,7 @@ export interface IAddPostSuccess {
 
 export interface IAddPostFailure {
   type: actionTypes.ADD_POST_FAIL;
-  payload: object;
+  payload: any;
 }
 
 export interface IUpdatePostRequest {
@@ -42,7 +42,7 @@ export interface IUpdatePostSuccess {
 
 export interface IUpdatePostFailure {
   type: actionTypes.UPDATE_POST_FAIL;
-  payload: object;
+  payload: any;
 }
 
 export interface IDeletePostRequest {
@@ -59,12 +59,6 @@ export interface IDeletePostFailure {
   payload: object;
 }
 
-// general fail response
-export interface IPostFailResponse {
-  response?: any;
-  message?: string;
-}
-
 export const fetchPostsRequest = (): IFetchPostsRequest => ({
   type: actionTypes.FETCH_POSTS_REQUEST,
 });
@@ -74,13 +68,9 @@ export const fetchPostsSuccess = (result: IPost[]): IFetchPostsSuccess => ({
   payload: result,
 });
 
-export const fetchPostsFailure = (
-  result: IPostFailResponse
-): IFetchPostsFailure => ({
+export const fetchPostsFailure = (result: any): IFetchPostsFailure => ({
   type: actionTypes.FETCH_POSTS_FAIL,
-  payload: {
-    text: (result.response && result.response.text) || result.message,
-  },
+  payload: result,
 });
 
 export const addPostRequest = (post: IPostPartial): IAddPostRequest => ({
@@ -93,11 +83,9 @@ export const addPostSuccess = (result: IPost): IAddPostSuccess => ({
   payload: result,
 });
 
-export const addPostFailure = (result: IPostFailResponse): IAddPostFailure => ({
+export const addPostFailure = (result: any): IAddPostFailure => ({
   type: actionTypes.ADD_POST_FAIL,
-  payload: {
-    text: (result.response && result.response.text) || result.message,
-  },
+  payload: result,
 });
 
 export const updatePostRequest = (post: IPost): IUpdatePostRequest => ({
@@ -110,13 +98,9 @@ export const updatePostSuccess = (result: IPost): IUpdatePostSuccess => ({
   payload: result,
 });
 
-export const updatePostFailure = (
-  result: IPostFailResponse
-): IUpdatePostFailure => ({
+export const updatePostFailure = (result: any): IUpdatePostFailure => ({
   type: actionTypes.UPDATE_POST_FAIL,
-  payload: {
-    text: (result.response && result.response.text) || result.message,
-  },
+  payload: result,
 });
 
 export const deletePostRequest = (id: string): IDeletePostRequest => ({
@@ -128,11 +112,7 @@ export const deletePostSuccess = (): IDeletePostSuccess => ({
   type: actionTypes.DELETE_POST_SUCCESS,
 });
 
-export const deletePostFailure = (
-  result: IPostFailResponse
-): IDeletePostFailure => ({
+export const deletePostFailure = (result: any): IDeletePostFailure => ({
   type: actionTypes.DELETE_POST_FAIL,
-  payload: {
-    text: (result.response && result.response.text) || result.message,
-  },
+  payload: result,
 });

@@ -35,7 +35,7 @@ const reducer = (state: IUsersState = initialState, action: IAction) => {
       return {
         ...state,
         loading: false,
-        error: action.payload.text,
+        error: action.payload.response.body.error.message,
       };
     }
     case actionTypes.LOGIN_USER_REQUEST: {
@@ -70,6 +70,7 @@ const reducer = (state: IUsersState = initialState, action: IAction) => {
     case actionTypes.REGISTER_USER_SUCCESS: {
       return {
         ...state,
+        items: action.payload,
         loading: false,
         error: undefined,
       };

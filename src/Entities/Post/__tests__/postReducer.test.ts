@@ -11,7 +11,13 @@ describe('postReducer', () => {
     body: 'string',
   };
   const testError = {
-    message: 'sample error message',
+    response: {
+      body: {
+        error: {
+          message: 'sample error message',
+        },
+      },
+    },
   };
   beforeEach(() => {
     testState = { ...initialState };
@@ -33,7 +39,7 @@ describe('postReducer', () => {
   }`, () => {
     const testAction = {
       type: actionTypes.FETCH_POSTS_SUCCESS,
-      payload: { data: testPost },
+      payload: testPost,
     };
     expect(reducer(testState, testAction)).toEqual({
       ...testState,
@@ -46,12 +52,12 @@ describe('postReducer', () => {
   it(`Should return correct state for ${actionTypes.FETCH_POSTS_FAIL}`, () => {
     const testAction = {
       type: actionTypes.FETCH_POSTS_FAIL,
-      payload: { text: testError.message },
+      payload: testError,
     };
     expect(reducer(testState, testAction)).toEqual({
       ...testState,
       loading: false,
-      error: testAction.payload.text,
+      error: testAction.payload.response.body.error.message,
     });
   });
 
@@ -83,12 +89,12 @@ describe('postReducer', () => {
   it(`Should return correct state for ${actionTypes.ADD_POST_FAIL}`, () => {
     const testAction = {
       type: actionTypes.ADD_POST_FAIL,
-      payload: { text: testError.message },
+      payload: testError,
     };
     expect(reducer(testState, testAction)).toEqual({
       ...testState,
       loading: false,
-      error: testAction.payload.text,
+      error: testAction.payload.response.body.error.message,
     });
   });
 
@@ -124,12 +130,12 @@ describe('postReducer', () => {
   it(`Should return correct state for ${actionTypes.UPDATE_POST_FAIL}`, () => {
     const testAction = {
       type: actionTypes.UPDATE_POST_FAIL,
-      payload: { text: testError.message },
+      payload: testError,
     };
     expect(reducer(testState, testAction)).toEqual({
       ...testState,
       loading: false,
-      error: testAction.payload.text,
+      error: testAction.payload.response.body.error.message,
     });
   });
 
@@ -163,12 +169,12 @@ describe('postReducer', () => {
   it(`Should return correct state for ${actionTypes.DELETE_POST_FAIL}`, () => {
     const testAction = {
       type: actionTypes.DELETE_POST_FAIL,
-      payload: { text: testError.message },
+      payload: testError,
     };
     expect(reducer(testState, testAction)).toEqual({
       ...testState,
       loading: false,
-      error: testAction.payload.text,
+      error: testAction.payload.response.body.error.message,
     });
   });
 });

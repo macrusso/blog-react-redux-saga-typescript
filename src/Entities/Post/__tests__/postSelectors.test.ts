@@ -29,8 +29,8 @@ describe('Post Selectors', () => {
 
   it('Should return Posts.items as object of objects', () => {
     expect(selectors.getAllPostsObject(testState)).toEqual({
-      1: testPost1,
-      2: testPost2,
+      '5bcc554259e0dbfda6ed1a55': testPost1,
+      '5bcc554259e0dbfda6ed1a66': testPost2,
     });
   });
 

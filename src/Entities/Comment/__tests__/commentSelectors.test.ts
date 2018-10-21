@@ -31,8 +31,8 @@ describe('Comment Selectors', () => {
 
   it('Should return Comments.items as object of objects', () => {
     expect(selectors.getAllCommentsObject(testState)).toEqual({
-      1: testComment1,
-      2: testComment2,
+      '5bcc554259e0dbfda6ed1a55': testComment1,
+      '5bcc554259e0dbfda6ed1a66': testComment2,
     });
   });
 

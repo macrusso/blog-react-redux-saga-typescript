@@ -15,7 +15,13 @@ describe('Comment Actions', () => {
     userId: '5bcc454259e0dbfda6ed1a45',
   };
   const testError = {
-    message: 'sample error message',
+    response: {
+      body: {
+        error: {
+          message: 'sample error message',
+        },
+      },
+    },
   };
   it(`Returns right action for ${actionTypes.FETCH_COMMENTS_REQUEST}`, () => {
     expect(actions.fetchCommentsRequest()).toEqual({
@@ -33,7 +39,7 @@ describe('Comment Actions', () => {
   it(`Returns right action for ${actionTypes.FETCH_COMMENTS_FAIL}`, () => {
     expect(actions.fetchCommentsFailure(testError)).toEqual({
       type: actionTypes.FETCH_COMMENTS_FAIL,
-      payload: { text: testError.message },
+      payload: testError,
     });
   });
 
@@ -54,7 +60,7 @@ describe('Comment Actions', () => {
   it(`Returns right action for ${actionTypes.ADD_COMMENT_FAIL}`, () => {
     expect(actions.addCommentFailure(testError)).toEqual({
       type: actionTypes.ADD_COMMENT_FAIL,
-      payload: { text: testError.message },
+      payload: testError,
     });
   });
 
@@ -75,7 +81,7 @@ describe('Comment Actions', () => {
   it(`Returns right action for ${actionTypes.UPDATE_COMMENT_FAIL}`, () => {
     expect(actions.updateCommentFailure(testError)).toEqual({
       type: actionTypes.UPDATE_COMMENT_FAIL,
-      payload: { text: testError.message },
+      payload: testError,
     });
   });
 
@@ -96,7 +102,7 @@ describe('Comment Actions', () => {
   it(`Returns right action for ${actionTypes.DELETE_COMMENT_FAIL}`, () => {
     expect(actions.deleteCommentFailure(testError)).toEqual({
       type: actionTypes.DELETE_COMMENT_FAIL,
-      payload: { text: testError.message },
+      payload: testError,
     });
   });
 });
