@@ -80,7 +80,7 @@ describe('userReducer', () => {
     };
     expect(reducer(testState, testAction)).toEqual({
       ...testState,
-      items: testAction.payload,
+      currentUser: testAction.payload,
       loading: false,
       error: undefined,
     });
@@ -118,7 +118,7 @@ describe('userReducer', () => {
     };
     expect(reducer(testState, testAction)).toEqual({
       ...testState,
-      items: testAction.payload,
+      currentUser: testAction.payload,
       loading: false,
       error: undefined,
     });

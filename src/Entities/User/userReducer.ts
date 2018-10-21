@@ -3,15 +3,17 @@ import { IAction } from '../../types';
 import { IUser } from '.';
 
 export const initialState = {
-  error: undefined,
   items: [],
   loading: true,
+  error: undefined,
+  currentUser: undefined,
 };
 
 export interface IUsersState {
   error?: string;
   items: IUser[];
   loading: boolean;
+  currentUser?: IUser;
 }
 
 const reducer = (state: IUsersState = initialState, action: IAction) => {
@@ -48,7 +50,7 @@ const reducer = (state: IUsersState = initialState, action: IAction) => {
     case actionTypes.LOGIN_USER_SUCCESS: {
       return {
         ...state,
-        items: action.payload,
+        currentUser: action.payload,
         loading: false,
         error: undefined,
       };
@@ -70,7 +72,7 @@ const reducer = (state: IUsersState = initialState, action: IAction) => {
     case actionTypes.REGISTER_USER_SUCCESS: {
       return {
         ...state,
-        items: action.payload,
+        currentUser: action.payload,
         loading: false,
         error: undefined,
       };
