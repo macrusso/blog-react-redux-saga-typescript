@@ -5,7 +5,7 @@ import { applyMiddleware, compose, createStore } from 'redux';
 import { createBrowserHistory } from 'history';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import createSagaMiddleware from 'redux-saga';
-import { App } from './App';
+import { AppContainer } from './App';
 import './index.css';
 import rootReducer from './rootReducer';
 import registerServiceWorker from './registerServiceWorker';
@@ -32,7 +32,7 @@ sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <Provider store={store}>
-    <App history={history} />
+    <AppContainer history={history} />
   </Provider>,
   document.getElementById('root') as HTMLElement
 );

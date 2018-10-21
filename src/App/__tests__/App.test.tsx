@@ -8,6 +8,7 @@ import createSagaMiddleware from 'redux-saga';
 import rootReducer from '../../rootReducer';
 import rootSagas from '../../rootSagas';
 import App from '../App';
+import { IUser } from '../../Entities';
 
 const history = createBrowserHistory();
 const sagaMiddleware = createSagaMiddleware();
@@ -26,10 +27,15 @@ const store = createStore(
 sagaMiddleware.run(rootSagas);
 
 it('renders without crashing', () => {
+  const user: IUser = {
+    _id: '5bcc554259e0dbfda6ed1a55',
+    name: 'string',
+    email: 'string',
+  };
   const div = document.createElement('div');
   ReactDOM.render(
     <Provider store={store}>
-      <App history={history} />
+      <App history={history} currentUser={user} classes={{}} />
     </Provider>,
     div
   );
