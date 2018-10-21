@@ -7,10 +7,10 @@ ShallowWrapper {
     <CommentEditForm
       comment={
         Object {
+          "_id": "5bcc554259e0dbfda6ed1a55",
           "body": "string",
-          "id": 1,
-          "postId": 1,
-          "userId": 1,
+          "postId": "5bcc554259e0dbfda6ed1a55",
+          "userId": "5bcc554259e0dbfda6ed1a55",
         }
       }
       handleCloseDialog={[MockFunction]}
@@ -33,10 +33,10 @@ ShallowWrapper {
       "children": <CommentEditForm
         comment={
           Object {
+            "_id": "5bcc554259e0dbfda6ed1a55",
             "body": "string",
-            "id": 1,
-            "postId": 1,
-            "userId": 1,
+            "postId": "5bcc554259e0dbfda6ed1a55",
+            "userId": "5bcc554259e0dbfda6ed1a55",
           }
         }
         handleCloseDialog={[MockFunction]}
@@ -68,10 +68,10 @@ ShallowWrapper {
       "nodeType": "function",
       "props": Object {
         "comment": Object {
+          "_id": "5bcc554259e0dbfda6ed1a55",
           "body": "string",
-          "id": 1,
-          "postId": 1,
-          "userId": 1,
+          "postId": "5bcc554259e0dbfda6ed1a55",
+          "userId": "5bcc554259e0dbfda6ed1a55",
         },
         "handleCloseDialog": [MockFunction],
         "updateComment": [MockFunction],
@@ -91,10 +91,10 @@ ShallowWrapper {
         "children": <CommentEditForm
           comment={
             Object {
+              "_id": "5bcc554259e0dbfda6ed1a55",
               "body": "string",
-              "id": 1,
-              "postId": 1,
-              "userId": 1,
+              "postId": "5bcc554259e0dbfda6ed1a55",
+              "userId": "5bcc554259e0dbfda6ed1a55",
             }
           }
           handleCloseDialog={[MockFunction]}
@@ -126,10 +126,10 @@ ShallowWrapper {
         "nodeType": "function",
         "props": Object {
           "comment": Object {
+            "_id": "5bcc554259e0dbfda6ed1a55",
             "body": "string",
-            "id": 1,
-            "postId": 1,
-            "userId": 1,
+            "postId": "5bcc554259e0dbfda6ed1a55",
+            "userId": "5bcc554259e0dbfda6ed1a55",
           },
           "handleCloseDialog": [MockFunction],
           "updateComment": [MockFunction],

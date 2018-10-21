@@ -23,7 +23,7 @@ class PostAddContainer extends Component<IPostAddContainerProps> {
 
 interface IStateToProps {
   error?: string;
-  userId: number;
+  userId: string;
 }
 
 interface IDispatchToProps {

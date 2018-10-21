@@ -5,10 +5,10 @@ import { IComment } from '..';
 describe('commentReducer', () => {
   let testState: ICommentsState;
   const testComment: IComment = {
-    id: 1,
+    _id: '5bcc554259e0dbfda6ed1a55',
     body: 'string',
-    postId: 1,
-    userId: 1,
+    postId: '5bcc554259e0dbfda6ed1a45',
+    userId: '5bcc454259e0dbfda6ed1a45',
   };
   const testError = {
     message: 'sample error message',
@@ -143,7 +143,7 @@ describe('commentReducer', () => {
   }`, () => {
     const testAction = {
       type: actionTypes.DELETE_COMMENT_REQUEST,
-      payload: testComment.id,
+      payload: testComment._id,
     };
     expect(reducer(testState, testAction)).toEqual({
       ...testState,

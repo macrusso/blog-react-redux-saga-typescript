@@ -65,7 +65,7 @@ const PostListItem: React.SFC<IPostListItemProps> = props => {
         !usersLoading &&
         posts.length > 0 &&
         posts.map(post => (
-          <Paper className={classes.root} elevation={1} key={post.id}>
+          <Paper className={classes.root} elevation={1} key={post._id}>
             {post.userId && (
               <Chip
                 avatar={
@@ -78,7 +78,7 @@ const PostListItem: React.SFC<IPostListItemProps> = props => {
             <Typography variant="h5" component="h3">
               <Link
                 className={classes.link}
-                to={selectedPost.replace(':postId', post.id.toString())}
+                to={selectedPost.replace(':postId', post._id.toString())}
               >
                 {post.title}
               </Link>
@@ -86,11 +86,11 @@ const PostListItem: React.SFC<IPostListItemProps> = props => {
             <Typography component="p">{post.body}</Typography>
 
             <IconButton className={classes.button} aria-label="Edit">
-              {comments.filter(comment => comment.postId === post.id).length >
+              {comments.filter(comment => comment.postId === post._id).length >
               0 ? (
                 <Badge
                   badgeContent={
-                    comments.filter(comment => comment.postId === post.id)
+                    comments.filter(comment => comment.postId === post._id)
                       .length
                   }
                   color="primary"

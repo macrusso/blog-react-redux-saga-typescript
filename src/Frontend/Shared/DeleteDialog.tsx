@@ -12,7 +12,7 @@ interface IDeleteDialog {
   object: any;
   open: boolean;
   handleCloseDialog: () => void;
-  deleteFn: (id: number) => void;
+  deleteFn: (id: string) => void;
 }
 
 const PostEditDialog: React.SFC<IDeleteDialog> = props => {
@@ -33,7 +33,7 @@ const PostEditDialog: React.SFC<IDeleteDialog> = props => {
         </Button>
         <Button
           onClick={() => {
-            deleteFn(object.id);
+            deleteFn(object._id);
             handleCloseDialog();
           }}
           color="primary"

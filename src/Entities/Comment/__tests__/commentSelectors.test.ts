@@ -4,15 +4,15 @@ import { IComment } from '..';
 
 describe('Comment Selectors', () => {
   const testComment1: IComment = {
-    id: 1,
+    _id: '5bcc554259e0dbfda6ed1a55',
     body: 'string',
-    postId: 1,
-    userId: 1,
+    postId: '5bcc554259e0dbfda6ed1a45',
+    userId: '5bcc454259e0dbfda6ed1a45',
   };
 
   const testComment2: IComment = {
     ...testComment1,
-    id: 2,
+    _id: '5bcc554259e0dbfda6ed1a66',
   };
 
   const testState: IStoreState = {

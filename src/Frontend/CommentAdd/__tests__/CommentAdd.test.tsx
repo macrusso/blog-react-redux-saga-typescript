@@ -7,7 +7,11 @@ describe('CommentAdd', () => {
   test('Snapshot matches', () => {
     const wrapper = shallow(
       <BrowserRouter>
-        <CommentAdd addComment={jest.fn()} userId={1} selectedPostId={1} />
+        <CommentAdd
+          userId={'5bcc034f84c005f985459b85'}
+          addComment={jest.fn()}
+          selectedPostId={'5bcc034f84c005f985459b85'}
+        />
       </BrowserRouter>
     );
     expect(wrapper).toMatchSnapshot();

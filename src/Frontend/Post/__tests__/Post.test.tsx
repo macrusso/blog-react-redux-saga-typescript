@@ -7,17 +7,16 @@ import { IPost, IUser } from '../../../Entities';
 describe('Post', () => {
   test('Snapshot matches', () => {
     const post: IPost = {
-      id: 1,
-      userId: 1,
+      _id: '5bcc554259e0dbfda6ed1a55',
+      userId: '5bcc554259e0dbfda6ed1a55',
       title: 'string',
       body: 'string',
     };
 
     const users: IUser[] = [
       {
-        id: 1,
+        _id: '5bcc554259e0dbfda6ed1a55',
         name: 'string',
-        username: 'string',
         email: 'string',
       },
     ];

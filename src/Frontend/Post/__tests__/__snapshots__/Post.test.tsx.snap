@@ -9,19 +9,18 @@ ShallowWrapper {
       handleOpenEditDialog={[MockFunction]}
       post={
         Object {
+          "_id": "5bcc554259e0dbfda6ed1a55",
           "body": "string",
-          "id": 1,
           "title": "string",
-          "userId": 1,
+          "userId": "5bcc554259e0dbfda6ed1a55",
         }
       }
       users={
         Array [
           Object {
+            "_id": "5bcc554259e0dbfda6ed1a55",
             "email": "string",
-            "id": 1,
             "name": "string",
-            "username": "string",
           },
         ]
       }
@@ -45,19 +44,18 @@ ShallowWrapper {
         handleOpenEditDialog={[MockFunction]}
         post={
           Object {
+            "_id": "5bcc554259e0dbfda6ed1a55",
             "body": "string",
-            "id": 1,
             "title": "string",
-            "userId": 1,
+            "userId": "5bcc554259e0dbfda6ed1a55",
           }
         }
         users={
           Array [
             Object {
+              "_id": "5bcc554259e0dbfda6ed1a55",
               "email": "string",
-              "id": 1,
               "name": "string",
-              "username": "string",
             },
           ]
         }
@@ -90,17 +88,16 @@ ShallowWrapper {
         "handleOpenDeleteDialog": [MockFunction],
         "handleOpenEditDialog": [MockFunction],
         "post": Object {
+          "_id": "5bcc554259e0dbfda6ed1a55",
           "body": "string",
-          "id": 1,
           "title": "string",
-          "userId": 1,
+          "userId": "5bcc554259e0dbfda6ed1a55",
         },
         "users": Array [
           Object {
+            "_id": "5bcc554259e0dbfda6ed1a55",
             "email": "string",
-            "id": 1,
             "name": "string",
-            "username": "string",
           },
         ],
       },
@@ -121,19 +118,18 @@ ShallowWrapper {
           handleOpenEditDialog={[MockFunction]}
           post={
             Object {
+              "_id": "5bcc554259e0dbfda6ed1a55",
               "body": "string",
-              "id": 1,
               "title": "string",
-              "userId": 1,
+              "userId": "5bcc554259e0dbfda6ed1a55",
             }
           }
           users={
             Array [
               Object {
+                "_id": "5bcc554259e0dbfda6ed1a55",
                 "email": "string",
-                "id": 1,
                 "name": "string",
-                "username": "string",
               },
             ]
           }
@@ -166,17 +162,16 @@ ShallowWrapper {
           "handleOpenDeleteDialog": [MockFunction],
           "handleOpenEditDialog": [MockFunction],
           "post": Object {
+            "_id": "5bcc554259e0dbfda6ed1a55",
             "body": "string",
-            "id": 1,
             "title": "string",
-            "userId": 1,
+            "userId": "5bcc554259e0dbfda6ed1a55",
           },
           "users": Array [
             Object {
+              "_id": "5bcc554259e0dbfda6ed1a55",
               "email": "string",
-              "id": 1,
               "name": "string",
-              "username": "string",
             },
           ],
         },

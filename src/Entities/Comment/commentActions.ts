@@ -47,12 +47,12 @@ export interface IUpdateCommentFailure {
 
 export interface IDeleteCommentRequest {
   type: actionTypes.DELETE_COMMENT_REQUEST;
-  payload: number;
+  payload: string;
 }
 
 export interface IDeleteCommentSuccess {
   type: actionTypes.DELETE_COMMENT_SUCCESS;
-  payload: number;
+  payload: string;
 }
 
 export interface IDeleteCommentFailure {
@@ -130,12 +130,12 @@ export const updateCommentFailure = (
   },
 });
 
-export const deleteCommentRequest = (id: number): IDeleteCommentRequest => ({
+export const deleteCommentRequest = (id: string): IDeleteCommentRequest => ({
   type: actionTypes.DELETE_COMMENT_REQUEST,
   payload: id,
 });
 
-export const deleteCommentSuccess = (id: number): IDeleteCommentSuccess => ({
+export const deleteCommentSuccess = (id: string): IDeleteCommentSuccess => ({
   type: actionTypes.DELETE_COMMENT_SUCCESS,
   payload: id,
 });

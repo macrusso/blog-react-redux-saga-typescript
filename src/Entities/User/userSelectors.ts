@@ -8,7 +8,7 @@ export const getError = (state: IStoreState) => state[NAME].error;
 
 export const getAllUsersObject = createSelector(getAllUsers, items =>
   items.reduce((acc: any, item: any) => {
-    acc[item.id] = item;
+    acc[item._id] = item;
     return acc;
   }, {})
 );

@@ -9,7 +9,7 @@ export const getSelectedPostId = (state: IStoreState) => state[NAME].selectedId;
 
 export const getAllPostsObject = createSelector(getAllPosts, items =>
   items.reduce((acc: any, item: any) => {
-    acc[item.id] = item;
+    acc[item._id] = item;
     return acc;
   }, {})
 );

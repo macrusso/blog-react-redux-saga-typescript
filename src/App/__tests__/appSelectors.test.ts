@@ -4,7 +4,7 @@ import { IStoreState } from '../../types';
 describe('User Selectors', () => {
   const testState: IStoreState = {
     App: {
-      userId: 1,
+      userId: '5bcc554259e0dbfda6ed1a55',
     },
   } as any;
 

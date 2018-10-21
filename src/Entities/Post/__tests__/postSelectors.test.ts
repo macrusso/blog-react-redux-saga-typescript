@@ -4,15 +4,15 @@ import { IPost } from '..';
 
 describe('Post Selectors', () => {
   const testPost1: IPost = {
-    id: 1,
-    userId: 1,
+    _id: '5bcc554259e0dbfda6ed1a55',
+    userId: '5bcc454259e0dbfda6ed1a45',
     title: 'string',
     body: 'string',
   };
 
   const testPost2: IPost = {
     ...testPost1,
-    id: 2,
+    _id: '5bcc554259e0dbfda6ed1a66',
   };
 
   const testState: IStoreState = {

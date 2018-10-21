@@ -27,9 +27,9 @@ class CommentAddContainer extends Component<ICommentAddContainerProps> {
 }
 
 interface IStateToProps {
-  selectedPostId?: number;
+  selectedPostId?: string;
   error?: string;
-  userId: number;
+  userId: string;
 }
 
 interface IDispatchToProps {

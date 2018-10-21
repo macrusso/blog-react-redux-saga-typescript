@@ -8,10 +8,10 @@ ShallowWrapper {
       handleCloseDialog={[MockFunction]}
       post={
         Object {
+          "_id": "5bcc554259e0dbfda6ed1a55",
           "body": "string",
-          "id": 1,
           "title": "string",
-          "userId": 1,
+          "userId": "5bcc554259e0dbfda6ed1a55",
         }
       }
       updatePost={[MockFunction]}
@@ -34,10 +34,10 @@ ShallowWrapper {
         handleCloseDialog={[MockFunction]}
         post={
           Object {
+            "_id": "5bcc554259e0dbfda6ed1a55",
             "body": "string",
-            "id": 1,
             "title": "string",
-            "userId": 1,
+            "userId": "5bcc554259e0dbfda6ed1a55",
           }
         }
         updatePost={[MockFunction]}
@@ -69,10 +69,10 @@ ShallowWrapper {
       "props": Object {
         "handleCloseDialog": [MockFunction],
         "post": Object {
+          "_id": "5bcc554259e0dbfda6ed1a55",
           "body": "string",
-          "id": 1,
           "title": "string",
-          "userId": 1,
+          "userId": "5bcc554259e0dbfda6ed1a55",
         },
         "updatePost": [MockFunction],
       },
@@ -92,10 +92,10 @@ ShallowWrapper {
           handleCloseDialog={[MockFunction]}
           post={
             Object {
+              "_id": "5bcc554259e0dbfda6ed1a55",
               "body": "string",
-              "id": 1,
               "title": "string",
-              "userId": 1,
+              "userId": "5bcc554259e0dbfda6ed1a55",
             }
           }
           updatePost={[MockFunction]}
@@ -127,10 +127,10 @@ ShallowWrapper {
         "props": Object {
           "handleCloseDialog": [MockFunction],
           "post": Object {
+            "_id": "5bcc554259e0dbfda6ed1a55",
             "body": "string",
-            "id": 1,
             "title": "string",
-            "userId": 1,
+            "userId": "5bcc554259e0dbfda6ed1a55",
           },
           "updatePost": [MockFunction],
         },

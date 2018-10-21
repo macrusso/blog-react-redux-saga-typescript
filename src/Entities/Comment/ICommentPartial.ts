@@ -1,5 +1,5 @@
 export default interface IComment {
-  userId: number;
+  userId: string;
   body: string;
-  postId: number;
+  postId: string;
 }

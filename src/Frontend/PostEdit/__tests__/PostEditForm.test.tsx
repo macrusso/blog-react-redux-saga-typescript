@@ -7,8 +7,8 @@ import { IPost } from 'src/Entities';
 describe('PostEditForm', () => {
   test('Snapshot matches', () => {
     const post: IPost = {
-      id: 1,
-      userId: 1,
+      _id: '5bcc554259e0dbfda6ed1a55',
+      userId: '5bcc554259e0dbfda6ed1a55',
       title: 'string',
       body: 'string',
     };

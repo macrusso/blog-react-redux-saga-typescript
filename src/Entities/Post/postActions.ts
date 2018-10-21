@@ -47,7 +47,7 @@ export interface IUpdatePostFailure {
 
 export interface IDeletePostRequest {
   type: actionTypes.DELETE_POST_REQUEST;
-  payload: number;
+  payload: string;
 }
 
 export interface IDeletePostSuccess {
@@ -119,7 +119,7 @@ export const updatePostFailure = (
   },
 });
 
-export const deletePostRequest = (id: number): IDeletePostRequest => ({
+export const deletePostRequest = (id: string): IDeletePostRequest => ({
   type: actionTypes.DELETE_POST_REQUEST,
   payload: id,
 });

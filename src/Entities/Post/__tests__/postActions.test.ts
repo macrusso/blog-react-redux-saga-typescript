@@ -4,13 +4,13 @@ import { IPost, IPostPartial } from '..';
 
 describe('Post Actions', () => {
   const testPost: IPost = {
-    id: 1,
-    userId: 1,
+    _id: '5bcc554259e0dbfda6ed1a55',
+    userId: '5bcc454259e0dbfda6ed1a45',
     title: 'string',
     body: 'string',
   };
   const testPostPartial: IPostPartial = {
-    userId: 1,
+    userId: '5bcc454259e0dbfda6ed1a45',
     title: 'string',
     body: 'string',
   };
@@ -81,9 +81,9 @@ describe('Post Actions', () => {
   });
 
   it(`Returns right action for ${actionTypes.DELETE_POST_REQUEST}`, () => {
-    expect(actions.deletePostRequest(testPost.id)).toEqual({
+    expect(actions.deletePostRequest(testPost._id)).toEqual({
       type: actionTypes.DELETE_POST_REQUEST,
-      payload: testPost.id,
+      payload: testPost._id,
     });
   });
 

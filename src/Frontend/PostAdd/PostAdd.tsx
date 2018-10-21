@@ -15,7 +15,7 @@ const StyledForm = styled.form`
 `;
 
 interface IPostAddProps {
-  userId: number;
+  userId: string;
   addPost: (post: IPostPartial) => void;
 }
 

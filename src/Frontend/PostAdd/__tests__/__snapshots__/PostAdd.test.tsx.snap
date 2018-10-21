@@ -6,7 +6,7 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <BrowserRouter>
     <PostAdd
       addPost={[MockFunction]}
-      userId={1}
+      userId="5bcc034f84c005f985459b85"
     />
   </BrowserRouter>,
   Symbol(enzyme.__renderer__): Object {
@@ -24,7 +24,7 @@ ShallowWrapper {
     "props": Object {
       "children": <PostAdd
         addPost={[MockFunction]}
-        userId={1}
+        userId="5bcc034f84c005f985459b85"
       />,
       "history": Object {
         "action": "POP",
@@ -52,7 +52,7 @@ ShallowWrapper {
       "nodeType": "function",
       "props": Object {
         "addPost": [MockFunction],
-        "userId": 1,
+        "userId": "5bcc034f84c005f985459b85",
       },
       "ref": null,
       "rendered": null,
@@ -68,7 +68,7 @@ ShallowWrapper {
       "props": Object {
         "children": <PostAdd
           addPost={[MockFunction]}
-          userId={1}
+          userId="5bcc034f84c005f985459b85"
         />,
         "history": Object {
           "action": "POP",
@@ -96,7 +96,7 @@ ShallowWrapper {
         "nodeType": "function",
         "props": Object {
           "addPost": [MockFunction],
-          "userId": 1,
+          "userId": "5bcc034f84c005f985459b85",
         },
         "ref": null,
         "rendered": null,

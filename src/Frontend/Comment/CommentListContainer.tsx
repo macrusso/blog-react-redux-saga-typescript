@@ -100,14 +100,14 @@ interface IStateToProps {
   loading: boolean;
   comments: IComment[];
   usersLoading: boolean;
-  selectedPostId?: number;
+  selectedPostId?: string;
 }
 
 interface IDispatchToProps {
   fetchComments: () => void;
   fetchUsers: () => void;
   updateComment: (comment: IComment) => void;
-  deleteComment: (id: number) => void;
+  deleteComment: (id: string) => void;
 }
 
 const mapStateToProps = (state: IStoreState) => ({
@@ -126,7 +126,7 @@ const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
   updateComment: (comment: IComment) => {
     dispatch(commentActions.updateCommentRequest(comment));
   },
-  deleteComment: (id: number) => {
+  deleteComment: (id: string) => {
     dispatch(commentActions.deleteCommentRequest(id));
     // dispatch(push(routes.selectedPost.replace(':postId', postId.toString())));
   },

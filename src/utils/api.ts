@@ -8,7 +8,7 @@ import {
   IUserPartial,
 } from '../Entities';
 
-const API_ROOT = `${process.env.REACT_APP_API_ROOT}/api/v1`;
+const API_ROOT = `${process.env.REACT_APP_API_ROOT}/api`;
 const responseBody = (res: any) => res.body;
 
 type URL = string;
@@ -19,11 +19,7 @@ interface IPatchPostRequest {
 }
 
 const requests = {
-  del: (url: URL) =>
-    superagent
-      .del(`${API_ROOT}${url}`)
-      .withCredentials()
-      .then(responseBody),
+  del: (url: URL) => superagent.del(`${API_ROOT}${url}`).then(responseBody),
   get: (url: URL) => superagent.get(`${API_ROOT}${url}`).then(responseBody),
   patch: ({ url, body }: IPatchPostRequest) =>
     superagent.patch(`${API_ROOT}${url}`, body).then(responseBody),
@@ -34,12 +30,12 @@ const requests = {
 export const Auth = {
   login: (user: IUserPartial) =>
     requests.post({
-      url: '/login',
+      url: '/auth/login',
       body: user,
     }),
   register: (user: IUser) =>
     requests.post({
-      url: '/register',
+      url: '/auth/register',
       body: user,
     }),
 };
@@ -48,7 +44,7 @@ export const Users = {
   all: () => requests.get(`/users`),
   update: (user: IUser) =>
     requests.patch({
-      url: `/users/${user.id}`,
+      url: `/users/${user._id}`,
       body: user,
     }),
   create: (user: IUser) =>
@@ -56,14 +52,14 @@ export const Users = {
       url: '/users',
       body: user,
     }),
-  del: (id: number) => requests.del(`/users/${id}`),
+  del: (id: string) => requests.del(`/users/${id}`),
 };
 
 export const Posts = {
   all: () => requests.get(`/posts`),
   update: (post: IPost) =>
     requests.patch({
-      url: `/posts/${post.id}`,
+      url: `/posts/${post._id}`,
       body: post,
     }),
   create: (post: IPostPartial) =>
@@ -71,14 +67,14 @@ export const Posts = {
       url: '/posts',
       body: post,
     }),
-  del: (id: number) => requests.del(`/posts/${id}`),
+  del: (id: string) => requests.del(`/posts/${id}`),
 };
 
 export const Comments = {
   all: () => requests.get(`/comments`),
   update: (comment: IComment) =>
     requests.patch({
-      url: `/comments/${comment.id}`,
+      url: `/comments/${comment._id}`,
       body: comment,
     }),
   create: (comment: ICommentPartial) =>
@@ -86,7 +82,7 @@ export const Comments = {
       url: '/comments',
       body: comment,
     }),
-  del: (id: number) => requests.del(`/comments/${id}`),
+  del: (id: string) => requests.del(`/comments/${id}`),
 };
 
 export default {

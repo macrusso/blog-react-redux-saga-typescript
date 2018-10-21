@@ -69,7 +69,7 @@ const reducer = (state: ICommentsState = initialState, action: IAction) => {
     }
     case actionTypes.UPDATE_COMMENT_SUCCESS: {
       const filteredItems = state.items.filter(
-        item => item.id !== action.payload.id
+        item => item._id !== action.payload._id
       );
       filteredItems.push(action.payload);
       return {
@@ -95,7 +95,7 @@ const reducer = (state: ICommentsState = initialState, action: IAction) => {
     }
     case actionTypes.DELETE_COMMENT_SUCCESS: {
       const filteredItems = state.items.filter(
-        item => item.id !== action.payload
+        item => item._id !== action.payload
       );
       return {
         ...state,

@@ -1,5 +1,5 @@
 export default interface IPostPartial {
-  userId: number;
+  userId: string;
   title: string;
   body: string;
 }

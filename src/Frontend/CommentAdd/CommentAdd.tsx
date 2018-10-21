@@ -3,8 +3,8 @@ import { Formik } from 'formik';
 import { ICommentPartial } from '../../Entities';
 
 interface ICommentAddProps {
-  userId: number;
-  selectedPostId?: number;
+  userId: string;
+  selectedPostId?: string;
   addComment: (comment: ICommentPartial) => void;
 }
 

@@ -5,8 +5,8 @@ import { IPost } from '..';
 describe('postReducer', () => {
   let testState: IPostsState;
   const testPost: IPost = {
-    id: 1,
-    userId: 1,
+    _id: '5bcc554259e0dbfda6ed1a55',
+    userId: '5bcc454259e0dbfda6ed1a45',
     title: 'string',
     body: 'string',
   };
@@ -138,7 +138,7 @@ describe('postReducer', () => {
   }`, () => {
     const testAction = {
       type: actionTypes.DELETE_POST_REQUEST,
-      payload: testPost.id,
+      payload: testPost._id,
     };
     expect(reducer(testState, testAction)).toEqual({
       ...testState,

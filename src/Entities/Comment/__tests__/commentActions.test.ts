@@ -4,15 +4,15 @@ import { IComment, ICommentPartial } from '..';
 
 describe('Comment Actions', () => {
   const testComment: IComment = {
-    id: 1,
+    _id: '5bcc554259e0dbfda6ed1a55',
     body: 'string',
-    postId: 1,
-    userId: 1,
+    postId: '5bcc554259e0dbfda6ed1a45',
+    userId: '5bcc454259e0dbfda6ed1a45',
   };
   const testCommentPartial: ICommentPartial = {
     body: 'string',
-    postId: 1,
-    userId: 1,
+    postId: '5bcc454259e0dbfda6ed1a45',
+    userId: '5bcc454259e0dbfda6ed1a45',
   };
   const testError = {
     message: 'sample error message',
@@ -80,16 +80,16 @@ describe('Comment Actions', () => {
   });
 
   it(`Returns right action for ${actionTypes.DELETE_COMMENT_REQUEST}`, () => {
-    expect(actions.deleteCommentRequest(testComment.id)).toEqual({
+    expect(actions.deleteCommentRequest(testComment._id)).toEqual({
       type: actionTypes.DELETE_COMMENT_REQUEST,
-      payload: testComment.id,
+      payload: testComment._id,
     });
   });
 
   it(`Returns right action for ${actionTypes.DELETE_COMMENT_SUCCESS}`, () => {
-    expect(actions.deleteCommentSuccess(testComment.id)).toEqual({
+    expect(actions.deleteCommentSuccess(testComment._id)).toEqual({
       type: actionTypes.DELETE_COMMENT_SUCCESS,
-      payload: testComment.id,
+      payload: testComment._id,
     });
   });
 

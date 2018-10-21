@@ -7,9 +7,9 @@ import { IComment } from 'src/Entities';
 describe('CommentEditForm', () => {
   test('Snapshot matches', () => {
     const comment: IComment = {
-      id: 1,
-      userId: 1,
-      postId: 1,
+      _id: '5bcc554259e0dbfda6ed1a55',
+      userId: '5bcc554259e0dbfda6ed1a55',
+      postId: '5bcc554259e0dbfda6ed1a55',
       body: 'string',
     };
 

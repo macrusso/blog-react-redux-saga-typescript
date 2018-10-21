@@ -4,15 +4,14 @@ import { IUser } from '..';
 
 describe('User Selectors', () => {
   const testUser1: IUser = {
-    id: 1,
+    _id: '5bcc554259e0dbfda6ed1a55',
     name: 'string',
-    username: 'string',
     email: 'string',
   };
 
   const testUser2: IUser = {
     ...testUser1,
-    id: 2,
+    _id: '5bcc554259e0dbfda6ed1a66',
   };
 
   const testState: IStoreState = {

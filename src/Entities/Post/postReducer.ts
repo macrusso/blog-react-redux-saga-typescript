@@ -16,7 +16,7 @@ export interface IPostsState {
   error?: string;
   items: IPost[];
   loading: boolean;
-  selectedId?: number;
+  selectedId?: string;
 }
 
 interface IRouteParams {
@@ -35,7 +35,7 @@ const reducer = (state: IPostsState = initialState, action: IAction) => {
         ...state,
         selectedId:
           match && match.params && match.params.postId
-            ? parseInt(match.params.postId, 10)
+            ? match.params.postId
             : undefined,
       };
     }
@@ -92,7 +92,7 @@ const reducer = (state: IPostsState = initialState, action: IAction) => {
     }
     case actionTypes.UPDATE_POST_SUCCESS: {
       const filteredItems = state.items.filter(
-        item => item.id !== action.payload.id
+        item => item._id !== action.payload._id
       );
       filteredItems.push(action.payload);
       return {

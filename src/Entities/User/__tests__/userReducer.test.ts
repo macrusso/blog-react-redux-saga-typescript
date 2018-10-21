@@ -5,9 +5,8 @@ import { IUser } from '..';
 describe('userReducer', () => {
   let testState: IUsersState;
   const testUser: IUser = {
-    id: 1,
+    _id: "5bcc554259e0dbfda6ed1a55",
     name: 'string',
-    username: 'string',
     email: 'string',
   };
   const testError = {

@@ -3,13 +3,13 @@ import { IAction } from '../types';
 
 export const initialState = {
   error: undefined,
-  userId: 1,
+  userId: '5bcc034f84c005f985459b85',
   loading: true,
 };
 
 export interface IAppState {
   error?: string;
-  userId: number;
+  userId: string;
   loading?: boolean;
 }
 

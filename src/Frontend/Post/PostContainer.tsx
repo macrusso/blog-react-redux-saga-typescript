@@ -103,13 +103,13 @@ interface IStateToProps {
   error?: string;
   loadingPosts: boolean;
   loadingUsers: boolean;
-  selectedPostId?: number;
+  selectedPostId?: string;
 }
 
 interface IDispatchToProps {
   fetchPosts: () => void;
   fetchUsers: () => void;
-  deletePost: (id: number) => void;
+  deletePost: (id: string) => void;
   updatePost: (post: IPost) => void;
 }
 
@@ -129,7 +129,7 @@ const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
   updatePost: (post: IPost) => {
     dispatch(postActions.updatePostRequest(post));
   },
-  deletePost: (id: number) => {
+  deletePost: (id: string) => {
     dispatch(postActions.deletePostRequest(id));
     dispatch(push(routes.posts));
   },

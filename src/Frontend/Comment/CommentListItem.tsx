@@ -14,7 +14,7 @@ export interface ICommentListItemProps {
   loading: boolean;
   comments: IComment[];
   usersLoading: boolean;
-  selectedPostId?: number;
+  selectedPostId?: string;
   handleOpenEditDialog: (comment: IComment) => void;
   handleOpenDeleteDialog: (comment: IComment) => void;
 }
@@ -34,7 +34,7 @@ const CommentListItem = ({
       selectedPostId &&
       comments.length > 0 &&
       comments.map(comment => (
-        <div key={comment.id}>
+        <div key={comment._id}>
           <h6>{comment.body}</h6>
           <p>by {comment.userId ? users[comment.userId].name : 'Guest'}</p>
           <IconButton
