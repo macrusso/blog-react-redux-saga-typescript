@@ -19,6 +19,7 @@ describe('User Selectors', () => {
       items: [testUser1, testUser2],
       error: undefined,
       loading: false,
+      currentUser: testUser1,
     },
   } as any;
 
@@ -41,5 +42,11 @@ describe('User Selectors', () => {
 
   it('Should Users.error', () => {
     expect(selectors.getError(testState)).toEqual(testState.Users.error);
+  });
+
+  it('Should Users.currentUser', () => {
+    expect(selectors.getCurrentUser(testState)).toEqual(
+      testState.Users.currentUser
+    );
   });
 });

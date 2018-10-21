@@ -137,4 +137,16 @@ describe('userReducer', () => {
       error: testAction.payload.response.body.error.message,
     });
   });
+
+  it(`Should return correct state for ${actionTypes.LOGOUT_USER}`, () => {
+    const testAction = {
+      type: actionTypes.LOGOUT_USER,
+    };
+    expect(reducer(testState, testAction)).toEqual({
+      ...testState,
+      loading: false,
+      error: undefined,
+      currentUser: undefined,
+    });
+  });
 });

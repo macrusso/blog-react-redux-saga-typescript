@@ -83,4 +83,10 @@ describe('User Actions', () => {
       payload: testError,
     });
   });
+
+  it(`Returns right action for ${actionTypes.LOGOUT_USER}`, () => {
+    expect(actions.logoutUser()).toEqual({
+      type: actionTypes.LOGOUT_USER,
+    });
+  });
 });
