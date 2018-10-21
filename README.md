@@ -22,7 +22,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### Back-end
 
-- fake API with [JSON Server](https://github.com/typicode/json-server).
+- [Node-Express RESTful API](https://github.com/macrusso/node-express-restful-api)
 
 # Installation
 
@@ -35,17 +35,7 @@ $ cd blog-react-redux-saga-typescript
 $ npm install
 ```
 
-Install JSON Server:
-
-```
-$ npm install -g json-server
-```
-
-And start it with:
-
-```
-$ json-server db.json --routes routes.json
-```
+And start server as described [here](https://github.com/macrusso/node-express-restful-api).
 
 To start the application, run:
 
@@ -58,3 +48,5 @@ To start the tests, run:
 ```
 $ npm test
 ```
+
+Aplication will be avalible on `localhost:3000`
