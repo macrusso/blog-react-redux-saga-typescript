@@ -38,6 +38,49 @@ const reducer = (state: IUsersState = initialState, action: IAction) => {
         error: action.payload.text,
       };
     }
+    case actionTypes.LOGIN_USER_REQUEST: {
+      return {
+        ...state,
+        loading: true,
+        error: undefined,
+      };
+    }
+    case actionTypes.LOGIN_USER_SUCCESS: {
+      return {
+        ...state,
+        items: action.payload,
+        loading: false,
+        error: undefined,
+      };
+    }
+    case actionTypes.LOGIN_USER_FAIL: {
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.response.body.error.message,
+      };
+    }
+    case actionTypes.REGISTER_USER_REQUEST: {
+      return {
+        ...state,
+        loading: true,
+        error: undefined,
+      };
+    }
+    case actionTypes.REGISTER_USER_SUCCESS: {
+      return {
+        ...state,
+        loading: false,
+        error: undefined,
+      };
+    }
+    case actionTypes.REGISTER_USER_FAIL: {
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.response.body.error.message,
+      };
+    }
     default: {
       return state;
     }

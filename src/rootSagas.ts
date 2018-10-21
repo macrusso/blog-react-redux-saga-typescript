@@ -8,6 +8,8 @@ export default function* rootSaga() {
     postSagas.watchUpdatePost(),
     postSagas.watchDeletePost(),
     userSagas.watchFetchUsers(),
+    userSagas.watchLoginUser(),
+    userSagas.watchRegisterUser(),
     commentSagas.watchAddComment(),
     commentSagas.watchFetchComments(),
     commentSagas.watchDeleteComment(),

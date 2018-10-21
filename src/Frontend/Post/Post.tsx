@@ -64,7 +64,7 @@ const Post: React.SFC<IPostProps> = props => {
               className={classes.chip}
             />
           )}
-          <Typography component="p">{post.body}</Typography>
+          <Typography variant="body2">{post.body}</Typography>
           <IconButton
             aria-label="Delete"
             onClick={() => handleOpenDeleteDialog()}

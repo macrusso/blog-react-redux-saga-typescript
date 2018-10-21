@@ -3,20 +3,23 @@ import { Route, Switch } from 'react-router';
 import { ConnectedRouter } from 'connected-react-router';
 import { History } from 'history';
 import * as routes from '../routes';
-import { NotFound, PostListContainer, PostContainer } from '../Frontend';
+import {
+  NotFound,
+  PostListContainer,
+  PostContainer,
+  AuthContainer,
+} from '../Frontend';
 import styled from 'styled-components';
 import {
   Button,
   Typography,
   Toolbar,
   AppBar,
-  IconButton,
   withStyles,
   CssBaseline,
   MuiThemeProvider,
   createMuiTheme,
 } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from 'react-router-dom';
 
 const Page = styled.main`
@@ -60,23 +63,33 @@ const App = ({ history, classes }: { history: History; classes: any }) => (
       <MuiThemeProvider theme={theme}>
         <AppBar position="static">
           <Toolbar>
-            <IconButton
-              className={classes.menuButton}
-              color="inherit"
-              aria-label="Menu"
-            >
-              <MenuIcon />
-            </IconButton>
             <Typography variant="h6" color="inherit" className={classes.grow}>
               <Link to={routes.posts} className={classes.link}>
                 Simple React Blog
               </Link>
             </Typography>
-            <Button color="inherit">Login</Button>
+
+            <Link to={routes.register} className={classes.link}>
+              <Button color="inherit">Register</Button>
+            </Link>
+
+            <Link to={routes.login} className={classes.link}>
+              <Button color="inherit">Login</Button>
+            </Link>
           </Toolbar>
         </AppBar>
         <Page>
           <Switch>
+            <Route
+              exact={true}
+              path={routes.login}
+              render={() => <AuthContainer register={false} />}
+            />
+            <Route
+              exact={true}
+              path={routes.register}
+              render={() => <AuthContainer register={true} />}
+            />
             <Route path={routes.selectedPost} component={PostContainer} />
             <Route path={routes.posts} component={PostListContainer} />
             <Route component={NotFound} />

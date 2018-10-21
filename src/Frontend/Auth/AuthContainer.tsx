@@ -3,10 +3,14 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { IAction, IStoreState } from '../../types';
 import { ErrorBoundary } from '../Shared';
-import { postSelectors, IPostPartial, postActions } from '../../Entities';
+import { IUserAuth, userSelectors, userActions } from '../../Entities';
 import { Auth } from '.';
 
-type IAuthContainerProps = IStateToProps & IDispatchToProps;
+type IAuthContainerProps = IStateToProps & IDispatchToProps & IOwnProps;
+
+interface IOwnProps {
+  register: boolean;
+}
 
 class AuthContainer extends Component<IAuthContainerProps> {
   public render() {
@@ -14,20 +18,33 @@ class AuthContainer extends Component<IAuthContainerProps> {
 
     return (
       <ErrorBoundary>
-        dfdfdfdf
-        {/* <Auth {...props} /> */}
+        <Auth {...props} />
       </ErrorBoundary>
     );
   }
 }
 
-interface IStateToProps {}
+interface IStateToProps {
+  error?: string;
+}
 
-interface IDispatchToProps {}
+interface IDispatchToProps {
+  loginUser: (user: IUserAuth) => void;
+  registerUser: (user: IUserAuth) => void;
+}
 
-const mapStateToProps = (state: IStoreState) => ({});
+const mapStateToProps = (state: IStoreState) => ({
+  error: userSelectors.getError(state),
+});
 
-const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({});
+const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
+  registerUser: (user: IUserAuth) => {
+    dispatch(userActions.registerUserRequest(user));
+  },
+  loginUser: (user: IUserAuth) => {
+    dispatch(userActions.loginUserRequest(user));
+  },
+});
 
 export default connect<IStateToProps, IDispatchToProps, any>(
   mapStateToProps,

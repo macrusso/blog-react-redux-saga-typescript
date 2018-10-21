@@ -83,7 +83,7 @@ const PostListItem: React.SFC<IPostListItemProps> = props => {
                 {post.title}
               </Link>
             </Typography>
-            <Typography component="p">{post.body}</Typography>
+            <Typography variant="body2">{post.body}</Typography>
 
             <IconButton className={classes.button} aria-label="Edit">
               {comments.filter(comment => comment.postId === post._id).length >

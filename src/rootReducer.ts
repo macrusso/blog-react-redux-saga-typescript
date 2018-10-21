@@ -3,8 +3,8 @@ import {
   commentConstants,
   commentReducer,
   postConstants,
-  postReducer,
   userConstants,
+  postReducer,
   userReducer,
 } from './Entities';
 import { appConstants, appReducer } from './App';

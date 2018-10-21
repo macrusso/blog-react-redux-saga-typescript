@@ -1,37 +1,58 @@
 import React from 'react';
 import { Formik } from 'formik';
-import { IUser } from '../../Entities';
 import {
   TextField,
   Button,
   DialogActions,
   DialogContent,
+  Typography,
 } from '@material-ui/core';
+import { IUserAuth } from '../../Entities';
 
 interface IAuthFormFormProps {
-  user?: IUser;
+  error?: string;
   register: boolean;
+  loginUser: (user: IUserAuth) => void;
+  registerUser: (user: IUserAuth) => void;
 }
 
 const AuthFormForm: React.SFC<IAuthFormFormProps> = props => {
-  const { user, register } = props;
-  const initialValues = register
-    ? { name: '', email: '', password: '' }
-    : { ...user };
+  const { error, register, loginUser, registerUser } = props;
+  const initialValues: IUserAuth = {
+    name: '',
+    email: '',
+    password: '',
+    profileImageUrl: '',
+  };
   return (
     <Formik
       initialValues={initialValues}
       onSubmit={values => {
-        console.log(values);
+        register ? registerUser(values) : loginUser(values);
       }}
     >
       {({ values, handleChange, handleBlur, handleSubmit }) => (
-        <form onSubmit={handleSubmit} autoComplete="off">
+        <form
+          onSubmit={handleSubmit}
+          autoComplete="off"
+          style={{ width: '500px' }}
+        >
           <DialogContent>
+            {error && (
+              <Typography
+                variant="body2"
+                color="error"
+                gutterBottom={true}
+                align="center"
+              >
+                {error}
+              </Typography>
+            )}
             <TextField
               id="email"
               label="Email"
               name="email"
+              required={true}
               fullWidth={true}
               margin="normal"
               variant="outlined"
@@ -46,6 +67,7 @@ const AuthFormForm: React.SFC<IAuthFormFormProps> = props => {
               id="password"
               label="Password"
               name="password"
+              required={true}
               fullWidth={true}
               margin="normal"
               variant="outlined"
@@ -62,11 +84,28 @@ const AuthFormForm: React.SFC<IAuthFormFormProps> = props => {
                 id="name"
                 label="Name"
                 name="name"
+                required={true}
                 fullWidth={true}
                 margin="normal"
                 variant="outlined"
                 onChange={handleChange}
-                value={values.email}
+                value={values.name}
+                onBlur={handleBlur}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+              />
+            )}
+            {register && (
+              <TextField
+                id="profileImageUrl"
+                label="Profile Image URL"
+                name="profileImageUrl"
+                fullWidth={true}
+                margin="normal"
+                variant="outlined"
+                onChange={handleChange}
+                value={values.profileImageUrl}
                 onBlur={handleBlur}
                 InputLabelProps={{
                   shrink: true,

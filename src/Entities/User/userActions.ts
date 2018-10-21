@@ -1,5 +1,5 @@
 import * as actionTypes from './userActionTypes';
-import { IUser } from '.';
+import { IUser, IUserAuth } from '.';
 
 export interface IFetchUsersRequest {
   type: actionTypes.FETCH_USERS_REQUEST;
@@ -12,13 +12,37 @@ export interface IFetchUsersSuccess {
 
 export interface IFetchUsersFailure {
   type: actionTypes.FETCH_USERS_FAIL;
-  payload: object;
+  payload: any;
 }
 
-// general fail response
-export interface IUserFailResponse {
-  response?: any;
-  message?: string;
+export interface ILoginUserRequest {
+  type: actionTypes.LOGIN_USER_REQUEST;
+  payload: IUserAuth;
+}
+
+export interface ILoginUserSuccess {
+  type: actionTypes.LOGIN_USER_SUCCESS;
+  payload: any;
+}
+
+export interface ILoginUserFailure {
+  type: actionTypes.LOGIN_USER_FAIL;
+  payload: any;
+}
+
+export interface IRegisterUserRequest {
+  type: actionTypes.REGISTER_USER_REQUEST;
+  payload: IUserAuth;
+}
+
+export interface IRegisterUserSuccess {
+  type: actionTypes.REGISTER_USER_SUCCESS;
+  payload: any;
+}
+
+export interface IRegisterUserFailure {
+  type: actionTypes.REGISTER_USER_FAIL;
+  payload: any;
 }
 
 export const fetchUsersRequest = (): IFetchUsersRequest => ({
@@ -30,11 +54,37 @@ export const fetchUsersSuccess = (result: IUser[]): IFetchUsersSuccess => ({
   payload: result,
 });
 
-export const fetchUsersFailure = (
-  result: IUserFailResponse
-): IFetchUsersFailure => ({
+export const fetchUsersFailure = (result: any): IFetchUsersFailure => ({
   type: actionTypes.FETCH_USERS_FAIL,
-  payload: {
-    text: (result.response && result.response.text) || result.message,
-  },
+  payload: result,
+});
+
+export const loginUserRequest = (user: IUserAuth): ILoginUserRequest => ({
+  type: actionTypes.LOGIN_USER_REQUEST,
+  payload: user,
+});
+
+export const loginUserSuccess = (result: any): ILoginUserSuccess => ({
+  type: actionTypes.LOGIN_USER_SUCCESS,
+  payload: result,
+});
+
+export const loginUserFailure = (result: any): ILoginUserFailure => ({
+  type: actionTypes.LOGIN_USER_FAIL,
+  payload: result,
+});
+
+export const registerUserRequest = (user: IUserAuth): IRegisterUserRequest => ({
+  type: actionTypes.REGISTER_USER_REQUEST,
+  payload: user,
+});
+
+export const registerUserSuccess = (result: any): IRegisterUserSuccess => ({
+  type: actionTypes.REGISTER_USER_SUCCESS,
+  payload: result,
+});
+
+export const registerUserFailure = (result: any): IRegisterUserFailure => ({
+  type: actionTypes.REGISTER_USER_FAIL,
+  payload: result,
 });
