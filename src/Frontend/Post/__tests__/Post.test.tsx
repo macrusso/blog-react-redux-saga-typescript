@@ -25,6 +25,7 @@ describe('Post', () => {
         <Post
           post={post}
           users={users}
+          currentUser={users[0]}
           handleOpenEditDialog={jest.fn()}
           handleOpenDeleteDialog={jest.fn()}
         />

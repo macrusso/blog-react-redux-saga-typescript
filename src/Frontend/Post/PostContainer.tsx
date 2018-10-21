@@ -101,6 +101,7 @@ interface IStateToProps {
   posts: IPost[];
   users: IUser[];
   error?: string;
+  currentUser?: IUser;
   loadingPosts: boolean;
   loadingUsers: boolean;
   selectedPostId?: string;
@@ -117,6 +118,7 @@ const mapStateToProps = (state: IStoreState) => ({
   error: postSelectors.getError(state),
   posts: postSelectors.getAllPostsObject(state),
   users: userSelectors.getAllUsersObject(state),
+  currentUser: userSelectors.getCurrentUser(state),
   loadingPosts: postSelectors.getLoadingStatus(state),
   loadingUsers: userSelectors.getLoadingStatus(state),
   selectedPostId: postSelectors.getSelectedPostId(state),
