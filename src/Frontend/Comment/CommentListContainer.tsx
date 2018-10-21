@@ -98,21 +98,23 @@ interface IStateToProps {
   users: IUser[];
   error?: string;
   loading: boolean;
+  currentUser?: IUser;
   comments: IComment[];
   usersLoading: boolean;
   selectedPostId?: string;
 }
 
 interface IDispatchToProps {
-  fetchComments: () => void;
   fetchUsers: () => void;
-  updateComment: (comment: IComment) => void;
+  fetchComments: () => void;
   deleteComment: (id: string) => void;
+  updateComment: (comment: IComment) => void;
 }
 
 const mapStateToProps = (state: IStoreState) => ({
   error: commentSelectors.getError(state),
   users: userSelectors.getAllUsersObject(state),
+  currentUser: userSelectors.getCurrentUser(state),
   comments: commentSelectors.getAllComments(state),
   loading: commentSelectors.getLoadingStatus(state),
   selectedPostId: postSelectors.getSelectedPostId(state),
