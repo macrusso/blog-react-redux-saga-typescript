@@ -7,6 +7,7 @@ ShallowWrapper {
     <WithStyles(PostListItem)
       comments={Array []}
       loading={false}
+      onAddCommentClick={[MockFunction]}
       posts={Array []}
       users={Array []}
       usersLoading={false}
@@ -28,6 +29,7 @@ ShallowWrapper {
       "children": <WithStyles(PostListItem)
         comments={Array []}
         loading={false}
+        onAddCommentClick={[MockFunction]}
         posts={Array []}
         users={Array []}
         usersLoading={false}
@@ -59,6 +61,7 @@ ShallowWrapper {
       "props": Object {
         "comments": Array [],
         "loading": false,
+        "onAddCommentClick": [MockFunction],
         "posts": Array [],
         "users": Array [],
         "usersLoading": false,
@@ -78,6 +81,7 @@ ShallowWrapper {
         "children": <WithStyles(PostListItem)
           comments={Array []}
           loading={false}
+          onAddCommentClick={[MockFunction]}
           posts={Array []}
           users={Array []}
           usersLoading={false}
@@ -109,6 +113,7 @@ ShallowWrapper {
         "props": Object {
           "comments": Array [],
           "loading": false,
+          "onAddCommentClick": [MockFunction],
           "posts": Array [],
           "users": Array [],
           "usersLoading": false,

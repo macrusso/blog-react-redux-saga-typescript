@@ -5,6 +5,13 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <BrowserRouter>
     <WithStyles(Post)
+      currentUser={
+        Object {
+          "_id": "5bcc554259e0dbfda6ed1a55",
+          "email": "string",
+          "name": "string",
+        }
+      }
       handleOpenDeleteDialog={[MockFunction]}
       handleOpenEditDialog={[MockFunction]}
       post={
@@ -40,6 +47,13 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "children": <WithStyles(Post)
+        currentUser={
+          Object {
+            "_id": "5bcc554259e0dbfda6ed1a55",
+            "email": "string",
+            "name": "string",
+          }
+        }
         handleOpenDeleteDialog={[MockFunction]}
         handleOpenEditDialog={[MockFunction]}
         post={
@@ -85,6 +99,11 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
+        "currentUser": Object {
+          "_id": "5bcc554259e0dbfda6ed1a55",
+          "email": "string",
+          "name": "string",
+        },
         "handleOpenDeleteDialog": [MockFunction],
         "handleOpenEditDialog": [MockFunction],
         "post": Object {
@@ -114,6 +133,13 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "children": <WithStyles(Post)
+          currentUser={
+            Object {
+              "_id": "5bcc554259e0dbfda6ed1a55",
+              "email": "string",
+              "name": "string",
+            }
+          }
           handleOpenDeleteDialog={[MockFunction]}
           handleOpenEditDialog={[MockFunction]}
           post={
@@ -159,6 +185,11 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
+          "currentUser": Object {
+            "_id": "5bcc554259e0dbfda6ed1a55",
+            "email": "string",
+            "name": "string",
+          },
           "handleOpenDeleteDialog": [MockFunction],
           "handleOpenEditDialog": [MockFunction],
           "post": Object {

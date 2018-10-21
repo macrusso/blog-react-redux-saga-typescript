@@ -4,12 +4,30 @@ exports[`CommentListItem Snapshot matches 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <BrowserRouter>
-    <CommentListItem
-      comments={Array []}
+    <WithStyles(CommentListItem)
+      comments={
+        Array [
+          Object {
+            "_id": "5bcc554259e0dbfda6ed1a55",
+            "body": "string",
+            "postId": "5bcc554259e0dbfda6ed1a55",
+            "userId": "5bcc554259e0dbfda6ed1a55",
+          },
+        ]
+      }
+      currentUser={undefined}
       handleOpenDeleteDialog={[MockFunction]}
       handleOpenEditDialog={[MockFunction]}
       loading={false}
-      users={Array []}
+      users={
+        Array [
+          Object {
+            "_id": "5bcc554259e0dbfda6ed1a55",
+            "email": "string",
+            "name": "string",
+          },
+        ]
+      }
       usersLoading={false}
     />
   </BrowserRouter>,
@@ -26,12 +44,30 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "children": <CommentListItem
-        comments={Array []}
+      "children": <WithStyles(CommentListItem)
+        comments={
+          Array [
+            Object {
+              "_id": "5bcc554259e0dbfda6ed1a55",
+              "body": "string",
+              "postId": "5bcc554259e0dbfda6ed1a55",
+              "userId": "5bcc554259e0dbfda6ed1a55",
+            },
+          ]
+        }
+        currentUser={undefined}
         handleOpenDeleteDialog={[MockFunction]}
         handleOpenEditDialog={[MockFunction]}
         loading={false}
-        users={Array []}
+        users={
+          Array [
+            Object {
+              "_id": "5bcc554259e0dbfda6ed1a55",
+              "email": "string",
+              "name": "string",
+            },
+          ]
+        }
         usersLoading={false}
       />,
       "history": Object {
@@ -57,13 +93,27 @@ ShallowWrapper {
     "rendered": Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "function",
+      "nodeType": "class",
       "props": Object {
-        "comments": Array [],
+        "comments": Array [
+          Object {
+            "_id": "5bcc554259e0dbfda6ed1a55",
+            "body": "string",
+            "postId": "5bcc554259e0dbfda6ed1a55",
+            "userId": "5bcc554259e0dbfda6ed1a55",
+          },
+        ],
+        "currentUser": undefined,
         "handleOpenDeleteDialog": [MockFunction],
         "handleOpenEditDialog": [MockFunction],
         "loading": false,
-        "users": Array [],
+        "users": Array [
+          Object {
+            "_id": "5bcc554259e0dbfda6ed1a55",
+            "email": "string",
+            "name": "string",
+          },
+        ],
         "usersLoading": false,
       },
       "ref": null,
@@ -78,12 +128,30 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "children": <CommentListItem
-          comments={Array []}
+        "children": <WithStyles(CommentListItem)
+          comments={
+            Array [
+              Object {
+                "_id": "5bcc554259e0dbfda6ed1a55",
+                "body": "string",
+                "postId": "5bcc554259e0dbfda6ed1a55",
+                "userId": "5bcc554259e0dbfda6ed1a55",
+              },
+            ]
+          }
+          currentUser={undefined}
           handleOpenDeleteDialog={[MockFunction]}
           handleOpenEditDialog={[MockFunction]}
           loading={false}
-          users={Array []}
+          users={
+            Array [
+              Object {
+                "_id": "5bcc554259e0dbfda6ed1a55",
+                "email": "string",
+                "name": "string",
+              },
+            ]
+          }
           usersLoading={false}
         />,
         "history": Object {
@@ -109,13 +177,27 @@ ShallowWrapper {
       "rendered": Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "function",
+        "nodeType": "class",
         "props": Object {
-          "comments": Array [],
+          "comments": Array [
+            Object {
+              "_id": "5bcc554259e0dbfda6ed1a55",
+              "body": "string",
+              "postId": "5bcc554259e0dbfda6ed1a55",
+              "userId": "5bcc554259e0dbfda6ed1a55",
+            },
+          ],
+          "currentUser": undefined,
           "handleOpenDeleteDialog": [MockFunction],
           "handleOpenEditDialog": [MockFunction],
           "loading": false,
-          "users": Array [],
+          "users": Array [
+            Object {
+              "_id": "5bcc554259e0dbfda6ed1a55",
+              "email": "string",
+              "name": "string",
+            },
+          ],
           "usersLoading": false,
         },
         "ref": null,
