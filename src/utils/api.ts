@@ -9,7 +9,14 @@ import {
 } from '../Entities';
 
 const API_ROOT = `${process.env.REACT_APP_API_ROOT}/api`;
+const BEARER_TOKEN = localStorage.token;
+
 const responseBody = (res: any) => res.body;
+const tokenPlugin = (req: any) => {
+  req
+    .set('Authorization', `Bearer ${BEARER_TOKEN}`)
+    .set('Content-Type', 'application/json');
+};
 
 type URL = string;
 
@@ -19,12 +26,26 @@ interface IPatchPostRequest {
 }
 
 const requests = {
-  del: (url: URL) => superagent.del(`${API_ROOT}${url}`).then(responseBody),
-  get: (url: URL) => superagent.get(`${API_ROOT}${url}`).then(responseBody),
+  del: (url: URL) =>
+    superagent
+      .del(`${API_ROOT}${url}`)
+      .use(tokenPlugin)
+      .then(responseBody),
+  get: (url: URL) =>
+    superagent
+      .get(`${API_ROOT}${url}`)
+      .use(tokenPlugin)
+      .then(responseBody),
   patch: ({ url, body }: IPatchPostRequest) =>
-    superagent.patch(`${API_ROOT}${url}`, body).then(responseBody),
+    superagent
+      .patch(`${API_ROOT}${url}`, body)
+      .use(tokenPlugin)
+      .then(responseBody),
   post: ({ url, body }: IPatchPostRequest) =>
-    superagent.post(`${API_ROOT}${url}`, body).then(responseBody),
+    superagent
+      .post(`${API_ROOT}${url}`, body)
+      .use(tokenPlugin)
+      .then(responseBody),
 };
 
 export const Auth = {

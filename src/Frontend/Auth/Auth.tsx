@@ -38,6 +38,9 @@ const AuthFormForm: React.SFC<IAuthFormFormProps> = props => {
           style={{ width: '500px' }}
         >
           <DialogContent>
+            <Typography variant="h5" gutterBottom={true} align="center">
+              Please login or register
+            </Typography>
             {error && (
               <Typography
                 variant="body2"
