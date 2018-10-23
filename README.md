@@ -2,6 +2,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Overly complicated and overengineered blog
 
+[![Build Status](https://travis-ci.com/macrusso/blog-react-redux-saga-typescript.svg?branch=master)](https://travis-ci.com/macrusso/blog-react-redux-saga-typescript)
+
 ### Basics
 
 - react
