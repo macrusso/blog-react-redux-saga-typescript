@@ -26,27 +26,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Installation
 
-Before start, clone the repository.
+- Clone the repo and `cd blog-react-redux-saga-typescript`
+- Run `npm install`
+- Start server as described [here](https://github.com/macrusso/node-express-restful-api).
+- Run `npm start`
 
-Then in the command line, run:
-
-```
-$ cd blog-react-redux-saga-typescript
-$ npm install
-```
-
-And start server as described [here](https://github.com/macrusso/node-express-restful-api).
-
-To start the application, run:
-
-```
-$ npm start
-```
-
-To start the tests, run:
-
-```
-$ npm test
-```
-
-Aplication will be avalible on `localhost:3000`
+Application will be available on `localhost:3000`
