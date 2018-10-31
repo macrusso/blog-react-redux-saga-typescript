@@ -69,9 +69,9 @@ const reducer = (state: IPostsState = initialState, action: IAction) => {
       };
     }
     case actionTypes.ADD_POST_SUCCESS: {
-      state.items.push(action.payload);
       return {
         ...state,
+        items: [...state.items, action.payload],
         loading: false,
         error: undefined,
       };
@@ -94,10 +94,9 @@ const reducer = (state: IPostsState = initialState, action: IAction) => {
       const filteredItems = state.items.filter(
         item => item._id !== action.payload._id
       );
-      filteredItems.push(action.payload);
       return {
         ...state,
-        items: filteredItems,
+        items: [...filteredItems, action.payload],
         loading: false,
         error: undefined,
       };
