@@ -5,13 +5,7 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <BrowserRouter>
     <WithStyles(Post)
-      currentUser={
-        Object {
-          "_id": "5bcc554259e0dbfda6ed1a55",
-          "email": "string",
-          "name": "string",
-        }
-      }
+      currentUser={undefined}
       handleOpenDeleteDialog={[MockFunction]}
       handleOpenEditDialog={[MockFunction]}
       post={
@@ -23,13 +17,13 @@ ShallowWrapper {
         }
       }
       users={
-        Array [
-          Object {
+        Object {
+          "5bcc554259e0dbfda6ed1a55": Object {
             "_id": "5bcc554259e0dbfda6ed1a55",
             "email": "string",
             "name": "string",
           },
-        ]
+        }
       }
     />
   </BrowserRouter>,
@@ -47,13 +41,7 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "children": <WithStyles(Post)
-        currentUser={
-          Object {
-            "_id": "5bcc554259e0dbfda6ed1a55",
-            "email": "string",
-            "name": "string",
-          }
-        }
+        currentUser={undefined}
         handleOpenDeleteDialog={[MockFunction]}
         handleOpenEditDialog={[MockFunction]}
         post={
@@ -65,13 +53,13 @@ ShallowWrapper {
           }
         }
         users={
-          Array [
-            Object {
+          Object {
+            "5bcc554259e0dbfda6ed1a55": Object {
               "_id": "5bcc554259e0dbfda6ed1a55",
               "email": "string",
               "name": "string",
             },
-          ]
+          }
         }
       />,
       "history": Object {
@@ -99,11 +87,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "currentUser": Object {
-          "_id": "5bcc554259e0dbfda6ed1a55",
-          "email": "string",
-          "name": "string",
-        },
+        "currentUser": undefined,
         "handleOpenDeleteDialog": [MockFunction],
         "handleOpenEditDialog": [MockFunction],
         "post": Object {
@@ -112,13 +96,13 @@ ShallowWrapper {
           "title": "string",
           "userId": "5bcc554259e0dbfda6ed1a55",
         },
-        "users": Array [
-          Object {
+        "users": Object {
+          "5bcc554259e0dbfda6ed1a55": Object {
             "_id": "5bcc554259e0dbfda6ed1a55",
             "email": "string",
             "name": "string",
           },
-        ],
+        },
       },
       "ref": null,
       "rendered": null,
@@ -133,13 +117,7 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "children": <WithStyles(Post)
-          currentUser={
-            Object {
-              "_id": "5bcc554259e0dbfda6ed1a55",
-              "email": "string",
-              "name": "string",
-            }
-          }
+          currentUser={undefined}
           handleOpenDeleteDialog={[MockFunction]}
           handleOpenEditDialog={[MockFunction]}
           post={
@@ -151,13 +129,13 @@ ShallowWrapper {
             }
           }
           users={
-            Array [
-              Object {
+            Object {
+              "5bcc554259e0dbfda6ed1a55": Object {
                 "_id": "5bcc554259e0dbfda6ed1a55",
                 "email": "string",
                 "name": "string",
               },
-            ]
+            }
           }
         />,
         "history": Object {
@@ -185,11 +163,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "currentUser": Object {
-            "_id": "5bcc554259e0dbfda6ed1a55",
-            "email": "string",
-            "name": "string",
-          },
+          "currentUser": undefined,
           "handleOpenDeleteDialog": [MockFunction],
           "handleOpenEditDialog": [MockFunction],
           "post": Object {
@@ -198,13 +172,13 @@ ShallowWrapper {
             "title": "string",
             "userId": "5bcc554259e0dbfda6ed1a55",
           },
-          "users": Array [
-            Object {
+          "users": Object {
+            "5bcc554259e0dbfda6ed1a55": Object {
               "_id": "5bcc554259e0dbfda6ed1a55",
               "email": "string",
               "name": "string",
             },
-          ],
+          },
         },
         "ref": null,
         "rendered": null,

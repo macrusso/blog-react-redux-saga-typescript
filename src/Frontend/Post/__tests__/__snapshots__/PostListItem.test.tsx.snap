@@ -5,11 +5,37 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <BrowserRouter>
     <WithStyles(PostListItem)
-      comments={Array []}
+      comments={
+        Array [
+          Object {
+            "_id": "5bcc554259e0dbfda6ed1a55",
+            "body": "string",
+            "postId": "5bcc554259e0dbfda6ed1a55",
+            "userId": "5bcc554259e0dbfda6ed1a55",
+          },
+        ]
+      }
       loading={false}
       onAddCommentClick={[MockFunction]}
-      posts={Array []}
-      users={Array []}
+      posts={
+        Array [
+          Object {
+            "_id": "5bcc554259e0dbfda6ed1a55",
+            "body": "string",
+            "title": "string",
+            "userId": "5bcc554259e0dbfda6ed1a55",
+          },
+        ]
+      }
+      users={
+        Object {
+          "5bcc554259e0dbfda6ed1a55": Object {
+            "_id": "5bcc554259e0dbfda6ed1a55",
+            "email": "string",
+            "name": "string",
+          },
+        }
+      }
       usersLoading={false}
     />
   </BrowserRouter>,
@@ -27,11 +53,37 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "children": <WithStyles(PostListItem)
-        comments={Array []}
+        comments={
+          Array [
+            Object {
+              "_id": "5bcc554259e0dbfda6ed1a55",
+              "body": "string",
+              "postId": "5bcc554259e0dbfda6ed1a55",
+              "userId": "5bcc554259e0dbfda6ed1a55",
+            },
+          ]
+        }
         loading={false}
         onAddCommentClick={[MockFunction]}
-        posts={Array []}
-        users={Array []}
+        posts={
+          Array [
+            Object {
+              "_id": "5bcc554259e0dbfda6ed1a55",
+              "body": "string",
+              "title": "string",
+              "userId": "5bcc554259e0dbfda6ed1a55",
+            },
+          ]
+        }
+        users={
+          Object {
+            "5bcc554259e0dbfda6ed1a55": Object {
+              "_id": "5bcc554259e0dbfda6ed1a55",
+              "email": "string",
+              "name": "string",
+            },
+          }
+        }
         usersLoading={false}
       />,
       "history": Object {
@@ -59,11 +111,31 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "class",
       "props": Object {
-        "comments": Array [],
+        "comments": Array [
+          Object {
+            "_id": "5bcc554259e0dbfda6ed1a55",
+            "body": "string",
+            "postId": "5bcc554259e0dbfda6ed1a55",
+            "userId": "5bcc554259e0dbfda6ed1a55",
+          },
+        ],
         "loading": false,
         "onAddCommentClick": [MockFunction],
-        "posts": Array [],
-        "users": Array [],
+        "posts": Array [
+          Object {
+            "_id": "5bcc554259e0dbfda6ed1a55",
+            "body": "string",
+            "title": "string",
+            "userId": "5bcc554259e0dbfda6ed1a55",
+          },
+        ],
+        "users": Object {
+          "5bcc554259e0dbfda6ed1a55": Object {
+            "_id": "5bcc554259e0dbfda6ed1a55",
+            "email": "string",
+            "name": "string",
+          },
+        },
         "usersLoading": false,
       },
       "ref": null,
@@ -79,11 +151,37 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "children": <WithStyles(PostListItem)
-          comments={Array []}
+          comments={
+            Array [
+              Object {
+                "_id": "5bcc554259e0dbfda6ed1a55",
+                "body": "string",
+                "postId": "5bcc554259e0dbfda6ed1a55",
+                "userId": "5bcc554259e0dbfda6ed1a55",
+              },
+            ]
+          }
           loading={false}
           onAddCommentClick={[MockFunction]}
-          posts={Array []}
-          users={Array []}
+          posts={
+            Array [
+              Object {
+                "_id": "5bcc554259e0dbfda6ed1a55",
+                "body": "string",
+                "title": "string",
+                "userId": "5bcc554259e0dbfda6ed1a55",
+              },
+            ]
+          }
+          users={
+            Object {
+              "5bcc554259e0dbfda6ed1a55": Object {
+                "_id": "5bcc554259e0dbfda6ed1a55",
+                "email": "string",
+                "name": "string",
+              },
+            }
+          }
           usersLoading={false}
         />,
         "history": Object {
@@ -111,11 +209,31 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "comments": Array [],
+          "comments": Array [
+            Object {
+              "_id": "5bcc554259e0dbfda6ed1a55",
+              "body": "string",
+              "postId": "5bcc554259e0dbfda6ed1a55",
+              "userId": "5bcc554259e0dbfda6ed1a55",
+            },
+          ],
           "loading": false,
           "onAddCommentClick": [MockFunction],
-          "posts": Array [],
-          "users": Array [],
+          "posts": Array [
+            Object {
+              "_id": "5bcc554259e0dbfda6ed1a55",
+              "body": "string",
+              "title": "string",
+              "userId": "5bcc554259e0dbfda6ed1a55",
+            },
+          ],
+          "users": Object {
+            "5bcc554259e0dbfda6ed1a55": Object {
+              "_id": "5bcc554259e0dbfda6ed1a55",
+              "email": "string",
+              "name": "string",
+            },
+          },
           "usersLoading": false,
         },
         "ref": null,

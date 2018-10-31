@@ -13,13 +13,13 @@ describe('Post', () => {
       body: 'string',
     };
 
-    const users: IUser[] = [
-      {
-        _id: '5bcc554259e0dbfda6ed1a55',
+    const users: { [key: string]: IUser } = {
+      '5bcc554259e0dbfda6ed1a55': {
         name: 'string',
         email: 'string',
+        _id: '5bcc554259e0dbfda6ed1a55',
       },
-    ];
+    };
     const wrapper = shallow(
       <BrowserRouter>
         <Post

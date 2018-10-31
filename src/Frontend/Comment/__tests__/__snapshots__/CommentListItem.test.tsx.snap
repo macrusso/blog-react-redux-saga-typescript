@@ -20,13 +20,13 @@ ShallowWrapper {
       handleOpenEditDialog={[MockFunction]}
       loading={false}
       users={
-        Array [
-          Object {
+        Object {
+          "5bcc554259e0dbfda6ed1a55": Object {
             "_id": "5bcc554259e0dbfda6ed1a55",
             "email": "string",
             "name": "string",
           },
-        ]
+        }
       }
       usersLoading={false}
     />
@@ -60,13 +60,13 @@ ShallowWrapper {
         handleOpenEditDialog={[MockFunction]}
         loading={false}
         users={
-          Array [
-            Object {
+          Object {
+            "5bcc554259e0dbfda6ed1a55": Object {
               "_id": "5bcc554259e0dbfda6ed1a55",
               "email": "string",
               "name": "string",
             },
-          ]
+          }
         }
         usersLoading={false}
       />,
@@ -107,13 +107,13 @@ ShallowWrapper {
         "handleOpenDeleteDialog": [MockFunction],
         "handleOpenEditDialog": [MockFunction],
         "loading": false,
-        "users": Array [
-          Object {
+        "users": Object {
+          "5bcc554259e0dbfda6ed1a55": Object {
             "_id": "5bcc554259e0dbfda6ed1a55",
             "email": "string",
             "name": "string",
           },
-        ],
+        },
         "usersLoading": false,
       },
       "ref": null,
@@ -144,13 +144,13 @@ ShallowWrapper {
           handleOpenEditDialog={[MockFunction]}
           loading={false}
           users={
-            Array [
-              Object {
+            Object {
+              "5bcc554259e0dbfda6ed1a55": Object {
                 "_id": "5bcc554259e0dbfda6ed1a55",
                 "email": "string",
                 "name": "string",
               },
-            ]
+            }
           }
           usersLoading={false}
         />,
@@ -191,13 +191,13 @@ ShallowWrapper {
           "handleOpenDeleteDialog": [MockFunction],
           "handleOpenEditDialog": [MockFunction],
           "loading": false,
-          "users": Array [
-            Object {
+          "users": Object {
+            "5bcc554259e0dbfda6ed1a55": Object {
               "_id": "5bcc554259e0dbfda6ed1a55",
               "email": "string",
               "name": "string",
             },
-          ],
+          },
           "usersLoading": false,
         },
         "ref": null,
