@@ -98,13 +98,13 @@ class PostContainer extends Component<
 }
 
 interface IStateToProps {
-  posts: IPost[];
-  users: IUser[];
   error?: string;
   currentUser?: IUser;
   loadingPosts: boolean;
   loadingUsers: boolean;
   selectedPostId?: string;
+  users: { [key: string]: IUser };
+  posts: { [key: string]: IPost };
 }
 
 interface IDispatchToProps {

@@ -95,13 +95,13 @@ class CommentListContainer extends Component<
 }
 
 interface IStateToProps {
-  users: IUser[];
   error?: string;
   loading: boolean;
   currentUser?: IUser;
   comments: IComment[];
   usersLoading: boolean;
   selectedPostId?: string;
+  users: { [key: string]: IUser };
 }
 
 interface IDispatchToProps {

@@ -28,8 +28,8 @@ const styles = {
 interface IPostProps {
   post?: IPost;
   classes: any;
-  users: IUser[];
   currentUser?: IUser;
+  users: { [key: string]: IUser };
   handleOpenEditDialog: () => void;
   handleOpenDeleteDialog: () => void;
 }

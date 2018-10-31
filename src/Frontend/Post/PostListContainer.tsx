@@ -44,10 +44,10 @@ class PostListContainer extends Component<IPostListContainerProps> {
 interface IStateToProps {
   error?: string;
   posts: IPost[];
-  users: IUser[];
   loading: boolean;
   comments: IComment[];
   usersLoading: boolean;
+  users: { [key: string]: IUser };
 }
 
 interface IDispatchToProps {

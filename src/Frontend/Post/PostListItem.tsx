@@ -44,10 +44,10 @@ const styles = {
 export interface IPostListItemProps {
   classes: any;
   posts: IPost[];
-  users: IUser[];
   loading: boolean;
   comments: IComment[];
   usersLoading: boolean;
+  users: { [key: string]: IUser };
   onAddCommentClick: (id: string) => void;
 }
 

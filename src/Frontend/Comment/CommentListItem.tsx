@@ -27,12 +27,12 @@ const styles = {
 
 interface ICommentListItemProps {
   classes: any;
-  users: IUser[];
   loading: boolean;
   currentUser?: IUser;
   comments: IComment[];
   usersLoading: boolean;
   selectedPostId?: string;
+  users: { [key: string]: IUser };
   handleOpenEditDialog: (comment: IComment) => void;
   handleOpenDeleteDialog: (comment: IComment) => void;
 }
