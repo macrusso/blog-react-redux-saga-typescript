@@ -17,10 +17,8 @@ import {
   Toolbar,
   AppBar,
   withStyles,
-  CssBaseline,
-  MuiThemeProvider,
-  createMuiTheme,
 } from '@material-ui/core';
+import { AppNavbar } from '.';
 
 const Page = styled.main`
   min-height: 100%;
@@ -32,16 +30,6 @@ const Page = styled.main`
 `;
 
 const styles = {
-  root: {
-    flexGrow: 1,
-  },
-  grow: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20,
-  },
   footer: {
     backgroundColor: '#3f51b5',
     marginTop: '100px',
@@ -60,98 +48,68 @@ interface IAppProps {
   onRegisterClick: () => void;
 }
 
-const App = ({
-  history,
-  classes,
-  currentUser,
-  onLogoClick,
-  onLoginClick,
-  onLogoutClick,
-  onRegisterClick,
-}: IAppProps) => (
-  <ConnectedRouter history={history}>
-    <>
-      <AppBar position="static">
-        <Toolbar>
+const App: React.SFC<IAppProps> = props => {
+  const { history, classes, currentUser } = props;
+  return (
+    <ConnectedRouter history={history}>
+      <>
+        <AppNavbar {...props} />
+        <Page>
+          <Switch>
+            <Route
+              exact={true}
+              path={routes.login}
+              render={() => <AuthContainer register={false} />}
+            />
+            <Route
+              exact={true}
+              path={routes.register}
+              render={() => <AuthContainer register={true} />}
+            />
+            <Route
+              path={routes.selectedPost}
+              render={() =>
+                (currentUser && currentUser.token) || localStorage.token ? (
+                  <PostContainer />
+                ) : (
+                  <Redirect to={routes.login} />
+                )
+              }
+            />
+            <Route
+              path={routes.posts}
+              render={() =>
+                (currentUser && currentUser.token) || localStorage.token ? (
+                  <PostListContainer />
+                ) : (
+                  <Redirect to={routes.login} />
+                )
+              }
+            />
+            <Route component={NotFound} />
+          </Switch>
+        </Page>
+        <footer className={classes.footer}>
           <Typography
             variant="h6"
+            align="center"
+            gutterBottom={true}
             color="inherit"
-            className={classes.grow}
-            onClick={() => onLogoClick()}
           >
             Simple React Blog
           </Typography>
-          {(currentUser && currentUser.token) || localStorage.token ? (
-            <Button color="inherit" onClick={() => onLogoutClick()}>
-              Logout
-            </Button>
-          ) : (
-            <>
-              <Button color="inherit" onClick={() => onRegisterClick()}>
-                Register
-              </Button>
-              <Button color="inherit" onClick={() => onLoginClick()}>
-                Login
-              </Button>
-            </>
-          )}
-        </Toolbar>
-      </AppBar>
-      <Page>
-        <Switch>
-          <Route
-            exact={true}
-            path={routes.login}
-            render={() => <AuthContainer register={false} />}
-          />
-          <Route
-            exact={true}
-            path={routes.register}
-            render={() => <AuthContainer register={true} />}
-          />
-          <Route
-            path={routes.selectedPost}
-            render={() =>
-              (currentUser && currentUser.token) || localStorage.token ? (
-                <PostContainer />
-              ) : (
-                <Redirect to={routes.login} />
-              )
-            }
-          />
-          <Route
-            path={routes.posts}
-            render={() =>
-              (currentUser && currentUser.token) || localStorage.token ? (
-                <PostListContainer />
-              ) : (
-                <Redirect to={routes.login} />
-              )
-            }
-          />
-          <Route component={NotFound} />
-        </Switch>
-      </Page>
-      <footer className={classes.footer}>
-        <Typography
-          variant="h6"
-          align="center"
-          gutterBottom={true}
-          color="inherit"
-        >
-          Simple React Blog
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          align="center"
-          component="p"
-          color="inherit"
-        >
-          TypeScript, React, Redux and some ☕
-        </Typography>
-      </footer>
-    </>
-  </ConnectedRouter>
-);
+          <Typography
+            variant="subtitle1"
+            align="center"
+            component="p"
+            color="inherit"
+          >
+            TypeScript, React, Redux and some ☕
+          </Typography>
+        </footer>
+      </>
+    </ConnectedRouter>
+  );
+};
 
 export default withStyles(styles)(App);
