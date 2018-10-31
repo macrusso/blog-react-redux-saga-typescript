@@ -39,7 +39,10 @@ it('renders without crashing', () => {
         classes={{}}
         history={history}
         currentUser={user}
-        logoutUser={jest.fn()}
+        onLogoClick={jest.fn()}
+        onLoginClick={jest.fn()}
+        onLogoutClick={jest.fn()}
+        onRegisterClick={jest.fn()}
       />
     </Provider>,
     div

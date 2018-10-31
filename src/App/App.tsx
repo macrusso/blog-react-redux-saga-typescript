@@ -21,7 +21,6 @@ import {
   MuiThemeProvider,
   createMuiTheme,
 } from '@material-ui/core';
-import { Link } from 'react-router-dom';
 
 const Page = styled.main`
   min-height: 100%;
@@ -49,42 +48,51 @@ const styles = {
     padding: `20px 0`,
     color: 'white',
   },
-  link: {
-    textDecoration: 'none',
-    color: 'white',
-  },
 };
 
 interface IAppProps {
   classes: any;
   history: History;
   currentUser?: IUser;
-  logoutUser: () => void;
+  onLogoClick: () => void;
+  onLoginClick: () => void;
+  onLogoutClick: () => void;
+  onRegisterClick: () => void;
 }
 
-const App = ({ history, classes, logoutUser, currentUser }: IAppProps) => (
+const App = ({
+  history,
+  classes,
+  currentUser,
+  onLogoClick,
+  onLoginClick,
+  onLogoutClick,
+  onRegisterClick,
+}: IAppProps) => (
   <ConnectedRouter history={history}>
     <>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" color="inherit" className={classes.grow}>
-            <Link to={routes.posts} className={classes.link}>
-              Simple React Blog
-            </Link>
+          <Typography
+            variant="h6"
+            color="inherit"
+            className={classes.grow}
+            onClick={() => onLogoClick()}
+          >
+            Simple React Blog
           </Typography>
           {(currentUser && currentUser.token) || localStorage.token ? (
-            <Button color="inherit" onClick={() => logoutUser()}>
+            <Button color="inherit" onClick={() => onLogoutClick()}>
               Logout
             </Button>
           ) : (
             <>
-              <Link to={routes.register} className={classes.link}>
-                <Button color="inherit">Register</Button>
-              </Link>
-
-              <Link to={routes.login} className={classes.link}>
-                <Button color="inherit">Login</Button>
-              </Link>
+              <Button color="inherit" onClick={() => onRegisterClick()}>
+                Register
+              </Button>
+              <Button color="inherit" onClick={() => onLoginClick()}>
+                Login
+              </Button>
             </>
           )}
         </Toolbar>

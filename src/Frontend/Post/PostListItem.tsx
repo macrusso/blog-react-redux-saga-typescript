@@ -1,8 +1,6 @@
 import React from 'react';
 import { IPost } from '../../Entities/Post';
 import { IUser } from '../../Entities/User';
-import { Link } from 'react-router-dom';
-import { selectedPost } from '../../routes';
 import moment from 'moment';
 import { ModeComment, AddComment } from '@material-ui/icons';
 import {
@@ -23,10 +21,6 @@ const styles = {
     minWidth: '100%',
     padding: 20,
     margin: '5px 0',
-  },
-  link: {
-    textDecoration: 'none',
-    color: 'black',
   },
   badge: {
     top: 1,
@@ -70,13 +64,12 @@ const PostListItem: React.SFC<IPostListItemProps> = props => {
         posts.map(post => (
           <Paper className={classes.root} elevation={1} key={post._id}>
             <CardContent>
-              <Typography variant="h5" component="h3">
-                <Link
-                  className={classes.link}
-                  to={selectedPost.replace(':postId', post._id)}
-                >
-                  {post.title}
-                </Link>
+              <Typography
+                variant="h5"
+                component="h3"
+                onClick={() => onAddCommentClick(post._id)}
+              >
+                {post.title}
               </Typography>
               <Typography variant="caption">
                 {moment(post.createdAt).format('dddd, Do MMMM YYYY')}

@@ -38,7 +38,10 @@ interface IStateToProps {
 }
 
 interface IDispatchToProps {
-  logoutUser: () => void;
+  onLogoClick: () => void;
+  onLoginClick: () => void;
+  onLogoutClick: () => void;
+  onRegisterClick: () => void;
 }
 
 const mapStateToProps = (state: IStoreState) => ({
@@ -46,9 +49,18 @@ const mapStateToProps = (state: IStoreState) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
-  logoutUser: () => {
+  onLogoutClick: () => {
     dispatch(userActions.logoutUser());
     localStorage.removeItem('token');
+    dispatch(push(routes.posts));
+  },
+  onLogoClick: () => {
+    dispatch(push(routes.posts));
+  },
+  onRegisterClick: () => {
+    dispatch(push(routes.posts));
+  },
+  onLoginClick: () => {
     dispatch(push(routes.posts));
   },
 });
