@@ -1,7 +1,7 @@
-import React from 'react';
-import { Dialog, DialogTitle } from '@material-ui/core';
-import { IComment } from '../../Entities';
-import CommentEditForm from './CommentEditForm';
+import React from "react";
+import { Dialog, DialogTitle } from "@material-ui/core";
+import { IComment } from "../../Entities";
+import CommentEditForm from "./CommentEditForm";
 
 interface ICommentEditDialog {
   open: boolean;

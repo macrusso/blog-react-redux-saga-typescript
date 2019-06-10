@@ -1,10 +1,10 @@
-import reducer, { initialState, IAppState } from '../appReducer';
-import * as actionTypes from '../appActionTypes';
+import reducer, { initialState, IAppState } from "../appReducer";
+import * as actionTypes from "../appActionTypes";
 
-describe('appReducer', () => {
+describe("appReducer", () => {
   let testState: IAppState;
   const testError = {
-    message: 'sample error message',
+    message: "sample error message",
   };
   beforeEach(() => {
     testState = { ...initialState };

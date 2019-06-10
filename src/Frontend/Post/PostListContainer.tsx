@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
-import { IAction, IStoreState } from '../../types';
-import { ErrorBoundary } from '../Shared';
-import * as routes from '../../routes';
-import { PostAddContainer, PostListItem } from '../../Frontend';
-import { push } from 'connected-react-router';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Dispatch } from "redux";
+import { IAction, IStoreState } from "../../types";
+import { ErrorBoundary } from "../Shared";
+import * as routes from "../../routes";
+import { PostAddContainer, PostListItem } from "../../Frontend";
+import { push } from "connected-react-router";
 import {
   commentActions,
   commentSelectors,
@@ -16,7 +16,7 @@ import {
   userActions,
   userSelectors,
   IUser,
-} from '../../Entities';
+} from "../../Entities";
 
 type IPostListContainerProps = IStateToProps & IDispatchToProps;
 
@@ -77,11 +77,11 @@ const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
     dispatch(commentActions.fetchCommentsRequest());
   },
   onAddCommentClick: (id: string) => {
-    dispatch(push(routes.selectedPost.replace(':postId', id)));
+    dispatch(push(routes.selectedPost.replace(":postId", id)));
   },
 });
 
 export default connect<IStateToProps, IDispatchToProps, any>(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(PostListContainer);

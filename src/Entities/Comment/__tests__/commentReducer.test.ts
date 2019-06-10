@@ -1,20 +1,20 @@
-import reducer, { initialState, ICommentsState } from '../commentReducer';
-import * as actionTypes from '../commentActionTypes';
-import { IComment } from '..';
+import reducer, { initialState, ICommentsState } from "../commentReducer";
+import * as actionTypes from "../commentActionTypes";
+import { IComment } from "..";
 
-describe('commentReducer', () => {
+describe("commentReducer", () => {
   let testState: ICommentsState;
   const testComment: IComment = {
-    _id: '5bcc554259e0dbfda6ed1a55',
-    body: 'string',
-    postId: '5bcc554259e0dbfda6ed1a45',
-    userId: '5bcc454259e0dbfda6ed1a45',
+    _id: "5bcc554259e0dbfda6ed1a55",
+    body: "string",
+    postId: "5bcc554259e0dbfda6ed1a45",
+    userId: "5bcc454259e0dbfda6ed1a45",
   };
   const testError = {
     response: {
       body: {
         error: {
-          message: 'sample error message',
+          message: "sample error message",
         },
       },
     },
@@ -23,9 +23,7 @@ describe('commentReducer', () => {
     testState = { ...initialState };
   });
 
-  it(`Should return correct state for ${
-    actionTypes.FETCH_COMMENTS_REQUEST
-  }`, () => {
+  it(`Should return correct state for ${actionTypes.FETCH_COMMENTS_REQUEST}`, () => {
     const testAction = { type: actionTypes.FETCH_COMMENTS_REQUEST };
     expect(reducer(testState, testAction)).toEqual({
       ...testState,
@@ -34,9 +32,7 @@ describe('commentReducer', () => {
     });
   });
 
-  it(`Should return correct state for ${
-    actionTypes.FETCH_COMMENTS_SUCCESS
-  }`, () => {
+  it(`Should return correct state for ${actionTypes.FETCH_COMMENTS_SUCCESS}`, () => {
     const testAction = {
       type: actionTypes.FETCH_COMMENTS_SUCCESS,
       payload: testComment,
@@ -49,9 +45,7 @@ describe('commentReducer', () => {
     });
   });
 
-  it(`Should return correct state for ${
-    actionTypes.FETCH_COMMENTS_FAIL
-  }`, () => {
+  it(`Should return correct state for ${actionTypes.FETCH_COMMENTS_FAIL}`, () => {
     const testAction = {
       type: actionTypes.FETCH_COMMENTS_FAIL,
       payload: testError,
@@ -63,9 +57,7 @@ describe('commentReducer', () => {
     });
   });
 
-  it(`Should return correct state for ${
-    actionTypes.ADD_COMMENT_REQUEST
-  }`, () => {
+  it(`Should return correct state for ${actionTypes.ADD_COMMENT_REQUEST}`, () => {
     const testAction = { type: actionTypes.ADD_COMMENT_REQUEST };
     expect(reducer(testState, testAction)).toEqual({
       ...testState,
@@ -74,9 +66,7 @@ describe('commentReducer', () => {
     });
   });
 
-  it(`Should return correct state for ${
-    actionTypes.ADD_COMMENT_SUCCESS
-  }`, () => {
+  it(`Should return correct state for ${actionTypes.ADD_COMMENT_SUCCESS}`, () => {
     const testAction = {
       type: actionTypes.ADD_COMMENT_SUCCESS,
       payload: testComment,
@@ -101,9 +91,7 @@ describe('commentReducer', () => {
     });
   });
 
-  it(`Should return correct state for ${
-    actionTypes.UPDATE_COMMENT_REQUEST
-  }`, () => {
+  it(`Should return correct state for ${actionTypes.UPDATE_COMMENT_REQUEST}`, () => {
     const testAction = {
       type: actionTypes.UPDATE_COMMENT_REQUEST,
       payload: testComment,
@@ -115,9 +103,7 @@ describe('commentReducer', () => {
     });
   });
 
-  it(`Should return correct state for ${
-    actionTypes.UPDATE_COMMENT_SUCCESS
-  }`, () => {
+  it(`Should return correct state for ${actionTypes.UPDATE_COMMENT_SUCCESS}`, () => {
     const testAction = {
       type: actionTypes.UPDATE_COMMENT_SUCCESS,
       payload: testComment,
@@ -130,9 +116,7 @@ describe('commentReducer', () => {
     });
   });
 
-  it(`Should return correct state for ${
-    actionTypes.UPDATE_COMMENT_FAIL
-  }`, () => {
+  it(`Should return correct state for ${actionTypes.UPDATE_COMMENT_FAIL}`, () => {
     const testAction = {
       type: actionTypes.UPDATE_COMMENT_FAIL,
       payload: testError,
@@ -144,9 +128,7 @@ describe('commentReducer', () => {
     });
   });
 
-  it(`Should return correct state for ${
-    actionTypes.DELETE_COMMENT_REQUEST
-  }`, () => {
+  it(`Should return correct state for ${actionTypes.DELETE_COMMENT_REQUEST}`, () => {
     const testAction = {
       type: actionTypes.DELETE_COMMENT_REQUEST,
       payload: testComment._id,
@@ -158,9 +140,7 @@ describe('commentReducer', () => {
     });
   });
 
-  it(`Should return correct state for ${
-    actionTypes.DELETE_COMMENT_SUCCESS
-  }`, () => {
+  it(`Should return correct state for ${actionTypes.DELETE_COMMENT_SUCCESS}`, () => {
     const testAction = {
       type: actionTypes.DELETE_COMMENT_SUCCESS,
     };
@@ -171,9 +151,7 @@ describe('commentReducer', () => {
     });
   });
 
-  it(`Should return correct state for ${
-    actionTypes.DELETE_COMMENT_FAIL
-  }`, () => {
+  it(`Should return correct state for ${actionTypes.DELETE_COMMENT_FAIL}`, () => {
     const testAction = {
       type: actionTypes.DELETE_COMMENT_FAIL,
       payload: testError,

@@ -1,16 +1,16 @@
-import React from 'react';
-import { Button, Typography, Toolbar, AppBar } from '@material-ui/core';
-import AppNavbar from '../AppNavbar';
-import { shallow } from 'enzyme';
-import { IUser } from '../../Entities';
-import { BrowserRouter } from 'react-router-dom';
+import React from "react";
+import { Button, Typography, Toolbar, AppBar } from "@material-ui/core";
+import AppNavbar from "../AppNavbar";
+import { shallow } from "enzyme";
+import { IUser } from "../../Entities";
+import { BrowserRouter } from "react-router-dom";
 
-describe('AppNavbar', () => {
-  test('Snapshot matches', () => {
+describe("AppNavbar", () => {
+  test("Snapshot matches", () => {
     const user: IUser = {
-      name: 'string',
-      email: 'string',
-      _id: '5bcc554259e0dbfda6ed1a55',
+      name: "string",
+      email: "string",
+      _id: "5bcc554259e0dbfda6ed1a55",
     };
 
     const wrapper = shallow(
@@ -22,7 +22,7 @@ describe('AppNavbar', () => {
           onLogoutClick={jest.fn()}
           onRegisterClick={jest.fn()}
         />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
     expect(wrapper).toMatchSnapshot();
   });

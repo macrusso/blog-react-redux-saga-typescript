@@ -1,24 +1,24 @@
-import * as actions from '../postActions';
-import * as actionTypes from '../postActionTypes';
-import { IPost, IPostPartial } from '..';
+import * as actions from "../postActions";
+import * as actionTypes from "../postActionTypes";
+import { IPost, IPostPartial } from "..";
 
-describe('Post Actions', () => {
+describe("Post Actions", () => {
   const testPost: IPost = {
-    _id: '5bcc554259e0dbfda6ed1a55',
-    userId: '5bcc454259e0dbfda6ed1a45',
-    title: 'string',
-    body: 'string',
+    _id: "5bcc554259e0dbfda6ed1a55",
+    userId: "5bcc454259e0dbfda6ed1a45",
+    title: "string",
+    body: "string",
   };
   const testPostPartial: IPostPartial = {
-    userId: '5bcc454259e0dbfda6ed1a45',
-    title: 'string',
-    body: 'string',
+    userId: "5bcc454259e0dbfda6ed1a45",
+    title: "string",
+    body: "string",
   };
   const testError = {
     response: {
       body: {
         error: {
-          message: 'sample error message',
+          message: "sample error message",
         },
       },
     },

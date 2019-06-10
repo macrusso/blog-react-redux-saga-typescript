@@ -1,5 +1,5 @@
-import * as actionTypes from './userActionTypes';
-import { IUser, IUserAuth } from '.';
+import * as actionTypes from "./userActionTypes";
+import { IUser, IUserAuth } from ".";
 
 export interface IFetchUsersRequest {
   type: actionTypes.FETCH_USERS_REQUEST;

@@ -1,8 +1,8 @@
-import React from 'react';
-import { Formik } from 'formik';
-import { IPostPartial } from '../../Entities';
-import { TextField, Button, Typography } from '@material-ui/core';
-import styled from 'styled-components';
+import React from "react";
+import { Formik } from "formik";
+import { IPostPartial } from "../../Entities";
+import { TextField, Button, Typography } from "@material-ui/core";
+import styled from "styled-components";
 
 const ButtonGroup = styled.div`
   display: flex;
@@ -27,7 +27,7 @@ const PostAdd: React.SFC<IPostAddProps> = props => {
         Add your post
       </Typography>
       <Formik
-        initialValues={{ title: '', body: '' }}
+        initialValues={{ title: "", body: "" }}
         onSubmit={values => {
           addPost({ ...values, userId });
         }}

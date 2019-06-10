@@ -1,4 +1,4 @@
-import { NAME } from './postConstants';
+import { NAME } from "./postConstants";
 
 export const FETCH_POSTS_REQUEST = `${NAME}/FETCH_POSTS_REQUEST`;
 export type FETCH_POSTS_REQUEST = typeof FETCH_POSTS_REQUEST;

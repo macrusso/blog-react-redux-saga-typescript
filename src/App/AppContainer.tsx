@@ -1,19 +1,13 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
-import { IAction, IStoreState } from '../types';
-import { ErrorBoundary } from '../Frontend/Shared';
-import { History } from 'history';
-import * as routes from '../routes';
-import { push } from 'connected-react-router';
-import {
-  IUser,
-  userActions,
-  IPostPartial,
-  userSelectors,
-  postSelectors,
-} from '../Entities';
-import { App } from '.';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Dispatch } from "redux";
+import { IAction, IStoreState } from "../types";
+import { ErrorBoundary } from "../Frontend/Shared";
+import { History } from "history";
+import * as routes from "../routes";
+import { push } from "connected-react-router";
+import { IUser, userActions, IPostPartial, userSelectors, postSelectors } from "../Entities";
+import { App } from ".";
 
 type IAppContainerProps = IStateToProps & IDispatchToProps & IOwnProps;
 
@@ -51,7 +45,7 @@ const mapStateToProps = (state: IStoreState) => ({
 const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
   onLogoutClick: () => {
     dispatch(userActions.logoutUser());
-    localStorage.removeItem('token');
+    localStorage.removeItem("token");
     dispatch(push(routes.posts));
   },
   onLogoClick: () => {
@@ -67,5 +61,5 @@ const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
 
 export default connect<IStateToProps, IDispatchToProps, any>(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(AppContainer);

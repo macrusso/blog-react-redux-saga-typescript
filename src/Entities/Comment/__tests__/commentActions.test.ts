@@ -1,24 +1,24 @@
-import * as actions from '../commentActions';
-import * as actionTypes from '../commentActionTypes';
-import { IComment, ICommentPartial } from '..';
+import * as actions from "../commentActions";
+import * as actionTypes from "../commentActionTypes";
+import { IComment, ICommentPartial } from "..";
 
-describe('Comment Actions', () => {
+describe("Comment Actions", () => {
   const testComment: IComment = {
-    _id: '5bcc554259e0dbfda6ed1a55',
-    body: 'string',
-    postId: '5bcc554259e0dbfda6ed1a45',
-    userId: '5bcc454259e0dbfda6ed1a45',
+    _id: "5bcc554259e0dbfda6ed1a55",
+    body: "string",
+    postId: "5bcc554259e0dbfda6ed1a45",
+    userId: "5bcc454259e0dbfda6ed1a45",
   };
   const testCommentPartial: ICommentPartial = {
-    body: 'string',
-    postId: '5bcc454259e0dbfda6ed1a45',
-    userId: '5bcc454259e0dbfda6ed1a45',
+    body: "string",
+    postId: "5bcc454259e0dbfda6ed1a45",
+    userId: "5bcc454259e0dbfda6ed1a45",
   };
   const testError = {
     response: {
       body: {
         error: {
-          message: 'sample error message',
+          message: "sample error message",
         },
       },
     },

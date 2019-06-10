@@ -1,23 +1,23 @@
-import * as actions from '../userActions';
-import * as actionTypes from '../userActionTypes';
-import { IUser, IUserAuth } from '..';
+import * as actions from "../userActions";
+import * as actionTypes from "../userActionTypes";
+import { IUser, IUserAuth } from "..";
 
-describe('User Actions', () => {
+describe("User Actions", () => {
   const testUser: IUser = {
-    _id: '5bcc554259e0dbfda6ed1a55',
-    name: 'name',
-    email: 'email@test.com',
+    _id: "5bcc554259e0dbfda6ed1a55",
+    name: "name",
+    email: "email@test.com",
   };
   const testUserAuth: IUserAuth = {
-    name: 'name',
-    password: 'password'
-    email: 'email@test.com',
+    name: "name",
+    password: "password",
+    email: "email@test.com",
   };
   const testError = {
     response: {
       body: {
         error: {
-          message: 'sample error message',
+          message: "sample error message",
         },
       },
     },

@@ -1,9 +1,9 @@
-import * as actionTypes from './postActionTypes';
-import { IAction } from '../../types';
-import { IPost } from '.';
-import { LOCATION_CHANGE } from '../../App/appActionTypes';
-import { matchPath } from 'react-router';
-import { selectedPost } from '../../routes';
+import * as actionTypes from "./postActionTypes";
+import { IAction } from "../../types";
+import { IPost } from ".";
+import { LOCATION_CHANGE } from "../../App/appActionTypes";
+import { matchPath } from "react-router";
+import { selectedPost } from "../../routes";
 
 export const initialState = {
   error: undefined,
@@ -33,10 +33,7 @@ const reducer = (state: IPostsState = initialState, action: IAction) => {
       });
       return {
         ...state,
-        selectedId:
-          match && match.params && match.params.postId
-            ? match.params.postId
-            : undefined,
+        selectedId: match && match.params && match.params.postId ? match.params.postId : undefined,
       };
     }
     case actionTypes.FETCH_POSTS_REQUEST: {
@@ -91,9 +88,7 @@ const reducer = (state: IPostsState = initialState, action: IAction) => {
       };
     }
     case actionTypes.UPDATE_POST_SUCCESS: {
-      const filteredItems = state.items.filter(
-        item => item._id !== action.payload._id
-      );
+      const filteredItems = state.items.filter(item => item._id !== action.payload._id);
       return {
         ...state,
         items: [...filteredItems, action.payload],

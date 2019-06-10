@@ -1,20 +1,20 @@
-import reducer, { initialState, IPostsState } from '../postReducer';
-import * as actionTypes from '../postActionTypes';
-import { IPost } from '..';
+import reducer, { initialState, IPostsState } from "../postReducer";
+import * as actionTypes from "../postActionTypes";
+import { IPost } from "..";
 
-describe('postReducer', () => {
+describe("postReducer", () => {
   let testState: IPostsState;
   const testPost: IPost = {
-    _id: '5bcc554259e0dbfda6ed1a55',
-    userId: '5bcc454259e0dbfda6ed1a45',
-    title: 'string',
-    body: 'string',
+    _id: "5bcc554259e0dbfda6ed1a55",
+    userId: "5bcc454259e0dbfda6ed1a45",
+    title: "string",
+    body: "string",
   };
   const testError = {
     response: {
       body: {
         error: {
-          message: 'sample error message',
+          message: "sample error message",
         },
       },
     },
@@ -23,9 +23,7 @@ describe('postReducer', () => {
     testState = { ...initialState };
   });
 
-  it(`Should return correct state for ${
-    actionTypes.FETCH_POSTS_REQUEST
-  }`, () => {
+  it(`Should return correct state for ${actionTypes.FETCH_POSTS_REQUEST}`, () => {
     const testAction = { type: actionTypes.FETCH_POSTS_REQUEST };
     expect(reducer(testState, testAction)).toEqual({
       ...testState,
@@ -34,9 +32,7 @@ describe('postReducer', () => {
     });
   });
 
-  it(`Should return correct state for ${
-    actionTypes.FETCH_POSTS_SUCCESS
-  }`, () => {
+  it(`Should return correct state for ${actionTypes.FETCH_POSTS_SUCCESS}`, () => {
     const testAction = {
       type: actionTypes.FETCH_POSTS_SUCCESS,
       payload: testPost,
@@ -98,9 +94,7 @@ describe('postReducer', () => {
     });
   });
 
-  it(`Should return correct state for ${
-    actionTypes.UPDATE_POST_REQUEST
-  }`, () => {
+  it(`Should return correct state for ${actionTypes.UPDATE_POST_REQUEST}`, () => {
     const testAction = {
       type: actionTypes.UPDATE_POST_REQUEST,
       payload: testPost,
@@ -112,9 +106,7 @@ describe('postReducer', () => {
     });
   });
 
-  it(`Should return correct state for ${
-    actionTypes.UPDATE_POST_SUCCESS
-  }`, () => {
+  it(`Should return correct state for ${actionTypes.UPDATE_POST_SUCCESS}`, () => {
     const testAction = {
       type: actionTypes.UPDATE_POST_SUCCESS,
       payload: testPost,
@@ -139,9 +131,7 @@ describe('postReducer', () => {
     });
   });
 
-  it(`Should return correct state for ${
-    actionTypes.DELETE_POST_REQUEST
-  }`, () => {
+  it(`Should return correct state for ${actionTypes.DELETE_POST_REQUEST}`, () => {
     const testAction = {
       type: actionTypes.DELETE_POST_REQUEST,
       payload: testPost._id,
@@ -153,9 +143,7 @@ describe('postReducer', () => {
     });
   });
 
-  it(`Should return correct state for ${
-    actionTypes.DELETE_POST_SUCCESS
-  }`, () => {
+  it(`Should return correct state for ${actionTypes.DELETE_POST_SUCCESS}`, () => {
     const testAction = {
       type: actionTypes.DELETE_POST_SUCCESS,
     };

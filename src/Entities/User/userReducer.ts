@@ -1,6 +1,6 @@
-import * as actionTypes from './userActionTypes';
-import { IAction } from '../../types';
-import { IUser } from '.';
+import * as actionTypes from "./userActionTypes";
+import { IAction } from "../../types";
+import { IUser } from ".";
 
 export const initialState = {
   items: [],

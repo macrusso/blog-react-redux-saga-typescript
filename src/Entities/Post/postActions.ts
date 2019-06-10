@@ -1,5 +1,5 @@
-import * as actionTypes from './postActionTypes';
-import { IPost, IPostPartial } from '.';
+import * as actionTypes from "./postActionTypes";
+import { IPost, IPostPartial } from ".";
 
 export interface IFetchPostsRequest {
   type: actionTypes.FETCH_POSTS_REQUEST;

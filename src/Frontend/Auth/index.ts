@@ -1,4 +1,4 @@
-import Auth from './Auth';
-import AuthContainer from './AuthContainer';
+import Auth from "./Auth";
+import AuthContainer from "./AuthContainer";
 
 export { Auth, AuthContainer };

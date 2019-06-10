@@ -1,7 +1,7 @@
-import { call, put, takeLatest } from 'redux-saga/effects';
-import { IAction } from '../../types';
-import api from '../../utils/api';
-import * as actionTypes from './commentActionTypes';
+import { call, put, takeLatest } from "redux-saga/effects";
+import { IAction } from "../../types";
+import api from "../../utils/api";
+import * as actionTypes from "./commentActionTypes";
 
 export function* watchFetchComments(): Generator {
   yield takeLatest(actionTypes.FETCH_COMMENTS_REQUEST, fetchCommentsSaga);

@@ -1,4 +1,4 @@
-import { NAME } from './userConstants';
+import { NAME } from "./userConstants";
 
 export const FETCH_USERS_REQUEST = `${NAME}/FETCH_USERS_REQUEST`;
 export type FETCH_USERS_REQUEST = typeof FETCH_USERS_REQUEST;

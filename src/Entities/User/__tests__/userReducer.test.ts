@@ -1,19 +1,19 @@
-import reducer, { initialState, IUsersState } from '../userReducer';
-import * as actionTypes from '../userActionTypes';
-import { IUser } from '..';
+import reducer, { initialState, IUsersState } from "../userReducer";
+import * as actionTypes from "../userActionTypes";
+import { IUser } from "..";
 
-describe('userReducer', () => {
+describe("userReducer", () => {
   let testState: IUsersState;
   const testUser: IUser = {
-    _id: '5bcc554259e0dbfda6ed1a55',
-    name: 'string',
-    email: 'string',
+    _id: "5bcc554259e0dbfda6ed1a55",
+    name: "string",
+    email: "string",
   };
   const testError = {
     response: {
       body: {
         error: {
-          message: 'sample error message',
+          message: "sample error message",
         },
       },
     },
@@ -22,9 +22,7 @@ describe('userReducer', () => {
     testState = { ...initialState };
   });
 
-  it(`Should return correct state for ${
-    actionTypes.FETCH_USERS_REQUEST
-  }`, () => {
+  it(`Should return correct state for ${actionTypes.FETCH_USERS_REQUEST}`, () => {
     const testAction = { type: actionTypes.FETCH_USERS_REQUEST };
     expect(reducer(testState, testAction)).toEqual({
       ...testState,
@@ -33,9 +31,7 @@ describe('userReducer', () => {
     });
   });
 
-  it(`Should return correct state for ${
-    actionTypes.FETCH_USERS_SUCCESS
-  }`, () => {
+  it(`Should return correct state for ${actionTypes.FETCH_USERS_SUCCESS}`, () => {
     const testAction = {
       type: actionTypes.FETCH_USERS_SUCCESS,
       payload: testUser,
@@ -60,9 +56,7 @@ describe('userReducer', () => {
     });
   });
 
-  it(`Should return correct state for ${
-    actionTypes.LOGIN_USER_REQUEST
-  }`, () => {
+  it(`Should return correct state for ${actionTypes.LOGIN_USER_REQUEST}`, () => {
     const testAction = { type: actionTypes.LOGIN_USER_REQUEST };
     expect(reducer(testState, testAction)).toEqual({
       ...testState,
@@ -71,9 +65,7 @@ describe('userReducer', () => {
     });
   });
 
-  it(`Should return correct state for ${
-    actionTypes.LOGIN_USER_SUCCESS
-  }`, () => {
+  it(`Should return correct state for ${actionTypes.LOGIN_USER_SUCCESS}`, () => {
     const testAction = {
       type: actionTypes.LOGIN_USER_SUCCESS,
       payload: testUser,
@@ -98,9 +90,7 @@ describe('userReducer', () => {
     });
   });
 
-  it(`Should return correct state for ${
-    actionTypes.REGISTER_USER_REQUEST
-  }`, () => {
+  it(`Should return correct state for ${actionTypes.REGISTER_USER_REQUEST}`, () => {
     const testAction = { type: actionTypes.REGISTER_USER_REQUEST };
     expect(reducer(testState, testAction)).toEqual({
       ...testState,
@@ -109,9 +99,7 @@ describe('userReducer', () => {
     });
   });
 
-  it(`Should return correct state for ${
-    actionTypes.REGISTER_USER_SUCCESS
-  }`, () => {
+  it(`Should return correct state for ${actionTypes.REGISTER_USER_SUCCESS}`, () => {
     const testAction = {
       type: actionTypes.REGISTER_USER_SUCCESS,
       payload: testUser,
@@ -124,9 +112,7 @@ describe('userReducer', () => {
     });
   });
 
-  it(`Should return correct state for ${
-    actionTypes.REGISTER_USER_FAIL
-  }`, () => {
+  it(`Should return correct state for ${actionTypes.REGISTER_USER_FAIL}`, () => {
     const testAction = {
       type: actionTypes.REGISTER_USER_FAIL,
       payload: testError,

@@ -1,8 +1,8 @@
-import React from 'react';
-import { IPost } from '../../Entities/Post';
-import { IUser } from '../../Entities/User';
-import moment from 'moment';
-import { ModeComment, AddComment } from '@material-ui/icons';
+import React from "react";
+import { IPost } from "../../Entities/Post";
+import { IUser } from "../../Entities/User";
+import moment from "moment";
+import { ModeComment, AddComment } from "@material-ui/icons";
 import {
   Typography,
   withStyles,
@@ -13,25 +13,25 @@ import {
   IconButton,
   CardActions,
   CardContent,
-} from '@material-ui/core';
-import { IComment } from '../../Entities';
+} from "@material-ui/core";
+import { IComment } from "../../Entities";
 
 const styles = {
   root: {
-    minWidth: '100%',
+    minWidth: "100%",
     padding: 20,
-    margin: '5px 0',
+    margin: "5px 0",
   },
   badge: {
     top: 1,
     left: -10,
-    border: '2px solid white',
+    border: "2px solid white",
   },
   icon: {
-    color: '#757575',
+    color: "#757575",
   },
   actions: {
-    justifyContent: 'space-between',
+    justifyContent: "space-between",
   },
 };
 
@@ -46,15 +46,7 @@ export interface IPostListItemProps {
 }
 
 const PostListItem: React.SFC<IPostListItemProps> = props => {
-  const {
-    users,
-    posts,
-    classes,
-    loading,
-    comments,
-    usersLoading,
-    onAddCommentClick,
-  } = props;
+  const { users, posts, classes, loading, comments, usersLoading, onAddCommentClick } = props;
 
   return (
     <>
@@ -64,40 +56,24 @@ const PostListItem: React.SFC<IPostListItemProps> = props => {
         posts.map(post => (
           <Paper className={classes.root} elevation={1} key={post._id}>
             <CardContent>
-              <Typography
-                variant="h5"
-                component="h3"
-                onClick={() => onAddCommentClick(post._id)}
-              >
+              <Typography variant="h5" component="h3" onClick={() => onAddCommentClick(post._id)}>
                 {post.title}
               </Typography>
-              <Typography variant="caption">
-                {moment(post.createdAt).format('dddd, Do MMMM YYYY')}
-              </Typography>
+              <Typography variant="caption">{moment(post.createdAt).format("dddd, Do MMMM YYYY")}</Typography>
               <Typography variant="body2">{post.body}</Typography>
             </CardContent>
             <CardActions className={classes.actions}>
               {post.userId && (
                 <Chip
-                  avatar={
-                    <Avatar>{users[post.userId].name[0].toUpperCase()}</Avatar>
-                  }
+                  avatar={<Avatar>{users[post.userId].name[0].toUpperCase()}</Avatar>}
                   label={users[post.userId].name}
                   className={classes.chip}
                 />
               )}
-              <IconButton
-                aria-label="Edit"
-                className={classes.button}
-                onClick={() => onAddCommentClick(post._id)}
-              >
-                {comments.filter(comment => comment.postId === post._id)
-                  .length > 0 ? (
+              <IconButton aria-label="Edit" className={classes.button} onClick={() => onAddCommentClick(post._id)}>
+                {comments.filter(comment => comment.postId === post._id).length > 0 ? (
                   <Badge
-                    badgeContent={
-                      comments.filter(comment => comment.postId === post._id)
-                        .length
-                    }
+                    badgeContent={comments.filter(comment => comment.postId === post._id).length}
                     color="primary"
                     classes={{ badge: classes.badge }}
                   >

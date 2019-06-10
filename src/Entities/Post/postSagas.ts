@@ -1,7 +1,7 @@
-import { call, put, takeLatest } from 'redux-saga/effects';
-import { IAction } from '../../types';
-import api from '../../utils/api';
-import * as actionTypes from './postActionTypes';
+import { call, put, takeLatest } from "redux-saga/effects";
+import { IAction } from "../../types";
+import api from "../../utils/api";
+import * as actionTypes from "./postActionTypes";
 
 export function* watchFetchPosts(): Generator {
   yield takeLatest(actionTypes.FETCH_POSTS_REQUEST, fetchPostsSaga);

@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
-import { IAction, IStoreState } from '../../types';
-import { ErrorBoundary } from '../Shared';
-import { postSelectors, IPostPartial, postActions } from '../../Entities';
-import { PostAdd } from '.';
-import { appSelectors } from '../../App';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Dispatch } from "redux";
+import { IAction, IStoreState } from "../../types";
+import { ErrorBoundary } from "../Shared";
+import { postSelectors, IPostPartial, postActions } from "../../Entities";
+import { PostAdd } from ".";
+import { appSelectors } from "../../App";
 
 type IPostAddContainerProps = IStateToProps & IDispatchToProps;
 
@@ -43,5 +43,5 @@ const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
 
 export default connect<IStateToProps, IDispatchToProps, any>(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(PostAddContainer);

@@ -1,16 +1,11 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
-import { IAction, IStoreState } from '../../types';
-import { ErrorBoundary } from '../Shared';
-import {
-  commentSelectors,
-  ICommentPartial,
-  commentActions,
-  postSelectors,
-} from '../../Entities';
-import { CommentAdd } from '.';
-import { appSelectors } from '../../App';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Dispatch } from "redux";
+import { IAction, IStoreState } from "../../types";
+import { ErrorBoundary } from "../Shared";
+import { commentSelectors, ICommentPartial, commentActions, postSelectors } from "../../Entities";
+import { CommentAdd } from ".";
+import { appSelectors } from "../../App";
 
 type ICommentAddContainerProps = IStateToProps & IDispatchToProps;
 
@@ -50,5 +45,5 @@ const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
 
 export default connect<IStateToProps, IDispatchToProps, any>(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(CommentAddContainer);

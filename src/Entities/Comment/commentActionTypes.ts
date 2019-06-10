@@ -1,4 +1,4 @@
-import { NAME } from './commentConstants';
+import { NAME } from "./commentConstants";
 
 export const FETCH_COMMENTS_REQUEST = `${NAME}/FETCH_COMMENTS_REQUEST`;
 export type FETCH_COMMENTS_REQUEST = typeof FETCH_COMMENTS_REQUEST;

@@ -1,8 +1,8 @@
-import React from 'react';
-import { Formik } from 'formik';
-import { ICommentPartial } from '../../Entities';
-import { TextField, Button, Typography } from '@material-ui/core';
-import styled from 'styled-components';
+import React from "react";
+import { Formik } from "formik";
+import { ICommentPartial } from "../../Entities";
+import { TextField, Button, Typography } from "@material-ui/core";
+import styled from "styled-components";
 
 const ButtonGroup = styled.div`
   display: flex;
@@ -30,7 +30,7 @@ const CommentAdd: React.SFC<ICommentAddProps> = props => {
       </Typography>
       {selectedPostId && (
         <Formik
-          initialValues={{ body: '' }}
+          initialValues={{ body: "" }}
           onSubmit={values => {
             addComment({ ...values, userId, postId: selectedPostId });
           }}

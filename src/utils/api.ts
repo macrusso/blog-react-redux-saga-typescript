@@ -1,21 +1,12 @@
-import superagent from 'superagent';
-import {
-  IUser,
-  IComment,
-  IPost,
-  IPostPartial,
-  ICommentPartial,
-  IUserPartial,
-} from '../Entities';
+import superagent from "superagent";
+import { IUser, IComment, IPost, IPostPartial, ICommentPartial, IUserPartial } from "../Entities";
 
 const API_ROOT = `${process.env.REACT_APP_API_ROOT}/api`;
 const BEARER_TOKEN = localStorage.token;
 
 const responseBody = (res: any) => res.body;
 const tokenPlugin = (req: any) => {
-  req
-    .set('Authorization', `Bearer ${BEARER_TOKEN}`)
-    .set('Content-Type', 'application/json');
+  req.set("Authorization", `Bearer ${BEARER_TOKEN}`).set("Content-Type", "application/json");
 };
 
 type URL = string;
@@ -51,12 +42,12 @@ const requests = {
 export const Auth = {
   login: (user: IUserPartial) =>
     requests.post({
-      url: '/auth/login',
+      url: "/auth/login",
       body: user,
     }),
   register: (user: IUser) =>
     requests.post({
-      url: '/auth/register',
+      url: "/auth/register",
       body: user,
     }),
 };
@@ -70,7 +61,7 @@ export const Users = {
     }),
   create: (user: IUser) =>
     requests.post({
-      url: '/users',
+      url: "/users",
       body: user,
     }),
   del: (id: string) => requests.del(`/users/${id}`),
@@ -85,7 +76,7 @@ export const Posts = {
     }),
   create: (post: IPostPartial) =>
     requests.post({
-      url: '/posts',
+      url: "/posts",
       body: post,
     }),
   del: (id: string) => requests.del(`/posts/${id}`),
@@ -100,7 +91,7 @@ export const Comments = {
     }),
   create: (comment: ICommentPartial) =>
     requests.post({
-      url: '/comments',
+      url: "/comments",
       body: comment,
     }),
   del: (id: string) => requests.del(`/comments/${id}`),

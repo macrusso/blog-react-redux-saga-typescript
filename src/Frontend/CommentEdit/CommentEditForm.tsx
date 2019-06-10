@@ -1,12 +1,7 @@
-import React from 'react';
-import { Formik } from 'formik';
-import { IComment } from '../../Entities';
-import {
-  TextField,
-  Button,
-  DialogActions,
-  DialogContent,
-} from '@material-ui/core';
+import React from "react";
+import { Formik } from "formik";
+import { IComment } from "../../Entities";
+import { TextField, Button, DialogActions, DialogContent } from "@material-ui/core";
 
 interface ICommentEditFormProps {
   comment: IComment;
@@ -43,11 +38,7 @@ const CommentEditForm: React.SFC<ICommentEditFormProps> = props => {
             />
           </DialogContent>
           <DialogActions>
-            <Button
-              onClick={handleCloseDialog}
-              color="primary"
-              variant="outlined"
-            >
+            <Button onClick={handleCloseDialog} color="primary" variant="outlined">
               Cancel
             </Button>
             <Button type="submit" color="primary" variant="contained">

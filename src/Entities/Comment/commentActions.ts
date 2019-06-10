@@ -1,5 +1,5 @@
-import * as actionTypes from './commentActionTypes';
-import { IComment, ICommentPartial } from '.';
+import * as actionTypes from "./commentActionTypes";
+import { IComment, ICommentPartial } from ".";
 
 export interface IFetchCommentsRequest {
   type: actionTypes.FETCH_COMMENTS_REQUEST;
@@ -64,9 +64,7 @@ export const fetchCommentsRequest = (): IFetchCommentsRequest => ({
   type: actionTypes.FETCH_COMMENTS_REQUEST,
 });
 
-export const fetchCommentsSuccess = (
-  result: IComment[]
-): IFetchCommentsSuccess => ({
+export const fetchCommentsSuccess = (result: IComment[]): IFetchCommentsSuccess => ({
   type: actionTypes.FETCH_COMMENTS_SUCCESS,
   payload: result,
 });
@@ -76,9 +74,7 @@ export const fetchCommentsFailure = (result: any): IFetchCommentsFailure => ({
   payload: result,
 });
 
-export const addCommentRequest = (
-  post: ICommentPartial
-): IAddCommentRequest => ({
+export const addCommentRequest = (post: ICommentPartial): IAddCommentRequest => ({
   type: actionTypes.ADD_COMMENT_REQUEST,
   payload: post,
 });
@@ -93,16 +89,12 @@ export const addCommentFailure = (result: any): IAddCommentFailure => ({
   payload: result,
 });
 
-export const updateCommentRequest = (
-  post: IComment
-): IUpdateCommentRequest => ({
+export const updateCommentRequest = (post: IComment): IUpdateCommentRequest => ({
   type: actionTypes.UPDATE_COMMENT_REQUEST,
   payload: post,
 });
 
-export const updateCommentSuccess = (
-  result: IComment
-): IUpdateCommentSuccess => ({
+export const updateCommentSuccess = (result: IComment): IUpdateCommentSuccess => ({
   type: actionTypes.UPDATE_COMMENT_SUCCESS,
   payload: result,
 });

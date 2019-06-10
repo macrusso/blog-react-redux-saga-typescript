@@ -1,12 +1,5 @@
-import React from 'react';
-import {
-  Dialog,
-  DialogTitle,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  Button,
-} from '@material-ui/core';
+import React from "react";
+import { Dialog, DialogTitle, DialogActions, DialogContent, DialogContentText, Button } from "@material-ui/core";
 
 interface IDeleteDialog {
   object: any;
@@ -18,14 +11,12 @@ interface IDeleteDialog {
 const PostEditDialog: React.SFC<IDeleteDialog> = props => {
   const { object, open, handleCloseDialog, deleteFn } = props;
 
-  const itemType = object.postId ? 'comment' : 'post';
+  const itemType = object.postId ? "comment" : "post";
   return (
     <Dialog open={open} onClose={handleCloseDialog}>
       <DialogTitle>{`Delete ${itemType}`}</DialogTitle>
       <DialogContent>
-        <DialogContentText>
-          {`Do you really want to delete this ${itemType}?`}
-        </DialogContentText>
+        <DialogContentText>{`Do you really want to delete this ${itemType}?`}</DialogContentText>
       </DialogContent>
       <DialogActions>
         <Button onClick={handleCloseDialog} color="primary" variant="outlined">

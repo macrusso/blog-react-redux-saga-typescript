@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
-import { IAction, IStoreState } from '../../types';
-import { CommentListItem } from '.';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Dispatch } from "redux";
+import { IAction, IStoreState } from "../../types";
+import { CommentListItem } from ".";
 import {
   postSelectors,
   commentActions,
@@ -11,9 +11,9 @@ import {
   userActions,
   userSelectors,
   IUser,
-} from '../../Entities';
-import { CommentEditDialog } from '../../Frontend';
-import { DeleteDialog, ErrorBoundary } from '../Shared';
+} from "../../Entities";
+import { CommentEditDialog } from "../../Frontend";
+import { DeleteDialog, ErrorBoundary } from "../Shared";
 
 type ICommentListContainerProps = IStateToProps & IDispatchToProps;
 
@@ -23,10 +23,7 @@ interface ICommentListContainerState {
   selectedComment?: IComment;
 }
 
-class CommentListContainer extends Component<
-  ICommentListContainerProps,
-  ICommentListContainerState
-> {
+class CommentListContainer extends Component<ICommentListContainerProps, ICommentListContainerState> {
   constructor(props: ICommentListContainerProps) {
     super(props);
     this.state = {
@@ -44,17 +41,10 @@ class CommentListContainer extends Component<
   }
 
   public render() {
-    const {
-      comments,
-      updateComment,
-      deleteComment,
-      selectedPostId,
-    } = this.props;
+    const { comments, updateComment, deleteComment, selectedPostId } = this.props;
     const { openEditDialog, openDeleteDialog, selectedComment } = this.state;
 
-    const filteredComments = comments.filter(
-      comment => comment.postId === selectedPostId
-    );
+    const filteredComments = comments.filter(comment => comment.postId === selectedPostId);
 
     return (
       <ErrorBoundary>
@@ -86,12 +76,10 @@ class CommentListContainer extends Component<
 
   private handleOpenEditDialog = (comment: IComment) =>
     this.setState({ openEditDialog: true, selectedComment: comment });
-  private handleCloseEditDialog = () =>
-    this.setState({ openEditDialog: false, selectedComment: undefined });
+  private handleCloseEditDialog = () => this.setState({ openEditDialog: false, selectedComment: undefined });
   private handleOpenDeleteDialog = (comment: IComment) =>
     this.setState({ openDeleteDialog: true, selectedComment: comment });
-  private handleCloseDeleteDialog = () =>
-    this.setState({ openDeleteDialog: false, selectedComment: undefined });
+  private handleCloseDeleteDialog = () => this.setState({ openDeleteDialog: false, selectedComment: undefined });
 }
 
 interface IStateToProps {
@@ -139,5 +127,5 @@ const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
 
 export default connect<IStateToProps, IDispatchToProps, any>(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(CommentListContainer);

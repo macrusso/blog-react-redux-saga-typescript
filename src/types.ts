@@ -1,5 +1,5 @@
-import * as entities from './Entities';
-import { IAppState } from './App';
+import * as entities from "./Entities";
+import { IAppState } from "./App";
 
 export interface IAction {
   type: string;

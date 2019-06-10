@@ -1,6 +1,6 @@
-import * as actionTypes from './commentActionTypes';
-import { IAction } from '../../types';
-import { IComment } from '.';
+import * as actionTypes from "./commentActionTypes";
+import { IAction } from "../../types";
+import { IComment } from ".";
 
 export const initialState = {
   error: undefined,
@@ -68,9 +68,7 @@ const reducer = (state: ICommentsState = initialState, action: IAction) => {
       };
     }
     case actionTypes.UPDATE_COMMENT_SUCCESS: {
-      const filteredItems = state.items.filter(
-        item => item._id !== action.payload._id
-      );
+      const filteredItems = state.items.filter(item => item._id !== action.payload._id);
       return {
         ...state,
         items: [...filteredItems, action.payload],
@@ -93,9 +91,7 @@ const reducer = (state: ICommentsState = initialState, action: IAction) => {
       };
     }
     case actionTypes.DELETE_COMMENT_SUCCESS: {
-      const filteredItems = state.items.filter(
-        item => item._id !== action.payload
-      );
+      const filteredItems = state.items.filter(item => item._id !== action.payload);
       return {
         ...state,
         items: filteredItems,

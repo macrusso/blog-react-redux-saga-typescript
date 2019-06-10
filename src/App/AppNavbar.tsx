@@ -1,6 +1,6 @@
-import React from 'react';
-import { Button, Typography, Toolbar, AppBar } from '@material-ui/core';
-import { IUser } from '../Entities';
+import React from "react";
+import { Button, Typography, Toolbar, AppBar } from "@material-ui/core";
+import { IUser } from "../Entities";
 
 interface IAppNavbarProps {
   currentUser?: IUser;
@@ -11,13 +11,7 @@ interface IAppNavbarProps {
 }
 
 const AppNavbar: React.SFC<IAppNavbarProps> = props => {
-  const {
-    currentUser,
-    onLogoClick,
-    onLoginClick,
-    onLogoutClick,
-    onRegisterClick,
-  } = props;
+  const { currentUser, onLogoClick, onLoginClick, onLogoutClick, onRegisterClick } = props;
   return (
     <AppBar position="static">
       <Toolbar>

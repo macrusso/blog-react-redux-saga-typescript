@@ -1,13 +1,7 @@
-import React from 'react';
-import { Formik } from 'formik';
-import {
-  TextField,
-  Button,
-  DialogActions,
-  DialogContent,
-  Typography,
-} from '@material-ui/core';
-import { IUserAuth } from '../../Entities';
+import React from "react";
+import { Formik } from "formik";
+import { TextField, Button, DialogActions, DialogContent, Typography } from "@material-ui/core";
+import { IUserAuth } from "../../Entities";
 
 interface IAuthFormFormProps {
   error?: string;
@@ -19,10 +13,10 @@ interface IAuthFormFormProps {
 const AuthFormForm: React.SFC<IAuthFormFormProps> = props => {
   const { error, register, loginUser, registerUser } = props;
   const initialValues: IUserAuth = {
-    name: '',
-    email: '',
-    password: '',
-    profileImageUrl: '',
+    name: "",
+    email: "",
+    password: "",
+    profileImageUrl: "",
   };
   return (
     <Formik
@@ -32,22 +26,13 @@ const AuthFormForm: React.SFC<IAuthFormFormProps> = props => {
       }}
     >
       {({ values, handleChange, handleBlur, handleSubmit }) => (
-        <form
-          onSubmit={handleSubmit}
-          autoComplete="off"
-          style={{ width: '500px' }}
-        >
+        <form onSubmit={handleSubmit} autoComplete="off" style={{ width: "500px" }}>
           <DialogContent>
             <Typography variant="h5" gutterBottom={true} align="center">
               Please login or register
             </Typography>
             {error && (
-              <Typography
-                variant="body2"
-                color="error"
-                gutterBottom={true}
-                align="center"
-              >
+              <Typography variant="body2" color="error" gutterBottom={true} align="center">
                 {error}
               </Typography>
             )}
@@ -118,7 +103,7 @@ const AuthFormForm: React.SFC<IAuthFormFormProps> = props => {
           </DialogContent>
           <DialogActions>
             <Button type="submit" color="primary" variant="contained">
-              {register ? 'Register' : 'Login'}
+              {register ? "Register" : "Login"}
             </Button>
           </DialogActions>
         </form>
