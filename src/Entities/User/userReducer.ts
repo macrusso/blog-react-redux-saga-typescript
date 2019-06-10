@@ -1,6 +1,6 @@
 import * as actionTypes from "./userActionTypes";
 import { IAction } from "../../types";
-import { IUser } from ".";
+import IUsersState from "./IUsersState";
 
 export const initialState = {
   items: [],
@@ -8,13 +8,6 @@ export const initialState = {
   error: undefined,
   currentUser: undefined,
 };
-
-export interface IUsersState {
-  error?: string;
-  items: IUser[];
-  loading: boolean;
-  currentUser?: IUser;
-}
 
 const reducer = (state: IUsersState = initialState, action: IAction) => {
   switch (action.type) {

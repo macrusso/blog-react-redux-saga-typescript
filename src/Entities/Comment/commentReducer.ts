@@ -1,18 +1,12 @@
 import * as actionTypes from "./commentActionTypes";
 import { IAction } from "../../types";
-import { IComment } from ".";
+import { ICommentsState } from ".";
 
 export const initialState = {
   error: undefined,
   items: [],
   loading: true,
 };
-
-export interface ICommentsState {
-  error?: string;
-  items: IComment[];
-  loading: boolean;
-}
 
 const reducer = (state: ICommentsState = initialState, action: IAction) => {
   switch (action.type) {

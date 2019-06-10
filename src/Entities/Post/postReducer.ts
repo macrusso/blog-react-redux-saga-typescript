@@ -4,6 +4,7 @@ import { IPost } from ".";
 import { LOCATION_CHANGE } from "../../App/appActionTypes";
 import { matchPath } from "react-router";
 import { selectedPost } from "../../routes";
+import IPostsState from "./IPostsState";
 
 export const initialState = {
   error: undefined,
@@ -11,13 +12,6 @@ export const initialState = {
   loading: true,
   selectedId: undefined,
 };
-
-export interface IPostsState {
-  error?: string;
-  items: IPost[];
-  loading: boolean;
-  selectedId?: string;
-}
 
 interface IRouteParams {
   postId: string;
