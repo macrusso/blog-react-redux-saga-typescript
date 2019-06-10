@@ -1,6 +1,6 @@
-import reducer, { initialState, IUsersState } from "../userReducer";
+import reducer, { initialState } from "../userReducer";
 import * as actionTypes from "../userActionTypes";
-import { IUser } from "..";
+import { IUser, IUsersState } from "..";
 
 describe("userReducer", () => {
   let testState: IUsersState;
