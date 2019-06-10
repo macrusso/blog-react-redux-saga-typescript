@@ -1,6 +1,6 @@
-import reducer, { initialState, IPostsState } from "../postReducer";
+import reducer, { initialState } from "../postReducer";
 import * as actionTypes from "../postActionTypes";
-import { IPost } from "..";
+import { IPost, IPostsState } from "..";
 
 describe("postReducer", () => {
   let testState: IPostsState;

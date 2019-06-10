@@ -1,6 +1,6 @@
-import reducer, { initialState, ICommentsState } from "../commentReducer";
+import reducer, { initialState } from "../commentReducer";
 import * as actionTypes from "../commentActionTypes";
-import { IComment } from "..";
+import { IComment, ICommentsState } from "..";
 
 describe("commentReducer", () => {
   let testState: ICommentsState;

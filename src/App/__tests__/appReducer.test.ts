@@ -1,5 +1,6 @@
-import reducer, { initialState, IAppState } from "../appReducer";
+import reducer, { initialState } from "../appReducer";
 import * as actionTypes from "../appActionTypes";
+import { IAppState } from "..";
 
 describe("appReducer", () => {
   let testState: IAppState;

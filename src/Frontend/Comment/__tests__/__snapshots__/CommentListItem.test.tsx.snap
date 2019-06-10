@@ -15,7 +15,6 @@ ShallowWrapper {
           },
         ]
       }
-      currentUser={undefined}
       handleOpenDeleteDialog={[MockFunction]}
       handleOpenEditDialog={[MockFunction]}
       loading={false}
@@ -55,7 +54,6 @@ ShallowWrapper {
             },
           ]
         }
-        currentUser={undefined}
         handleOpenDeleteDialog={[MockFunction]}
         handleOpenEditDialog={[MockFunction]}
         loading={false}
@@ -139,7 +137,6 @@ ShallowWrapper {
               },
             ]
           }
-          currentUser={undefined}
           handleOpenDeleteDialog={[MockFunction]}
           handleOpenEditDialog={[MockFunction]}
           loading={false}
