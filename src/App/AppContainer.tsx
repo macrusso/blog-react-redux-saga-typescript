@@ -52,10 +52,10 @@ const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
     dispatch(push(routes.posts));
   },
   onRegisterClick: () => {
-    dispatch(push(routes.posts));
+    dispatch(push(routes.register));
   },
   onLoginClick: () => {
-    dispatch(push(routes.posts));
+    dispatch(push(routes.login));
   },
 });
 
