@@ -1,6 +1,6 @@
 import * as actionTypes from "./userActionTypes";
 import { IAction } from "../../types";
-import IUsersState from "./IUsersState";
+import {IUsersState} from "./userTypes";
 
 export const initialState = {
   items: [],

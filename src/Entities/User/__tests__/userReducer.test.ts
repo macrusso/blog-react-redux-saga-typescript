@@ -1,6 +1,6 @@
 import reducer, { initialState } from "../userReducer";
 import * as actionTypes from "../userActionTypes";
-import { IUser, IUsersState } from "..";
+import { IUser, IUsersState } from "../userTypes";
 
 describe("userReducer", () => {
   let testState: IUsersState;
@@ -8,6 +8,7 @@ describe("userReducer", () => {
     _id: "5bcc554259e0dbfda6ed1a55",
     name: "string",
     email: "string",
+    password: "some password",
   };
   const testError = {
     response: {

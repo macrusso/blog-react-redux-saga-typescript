@@ -1,15 +1,17 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+import { connect, ConnectedProps } from "react-redux";
 import { Dispatch } from "redux";
 import { IAction, IStoreState } from "../types";
 import { ErrorBoundary } from "../Frontend/Shared";
 import { History } from "history";
 import * as routes from "../routes";
 import { push } from "connected-react-router";
-import { IUser, userActions, IPostPartial, userSelectors, postSelectors } from "../Entities";
+import { IUser, userActions, userSelectors } from "../Entities";
 import { App } from ".";
 
-type IAppContainerProps = IStateToProps & IDispatchToProps & IOwnProps;
+type IPropsFromRedux = ConnectedProps<typeof connector>;
+
+type IAppContainerProps = IStateToProps & IDispatchToProps & IOwnProps & IPropsFromRedux;
 
 interface IOwnProps {
   history: History;
@@ -59,7 +61,6 @@ const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
   },
 });
 
-export default connect<IStateToProps, IDispatchToProps, any>(
-  mapStateToProps,
-  mapDispatchToProps,
-)(AppContainer);
+const connector = connect(mapStateToProps, mapDispatchToProps);
+
+export default connector(AppContainer);

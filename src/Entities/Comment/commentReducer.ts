@@ -1,6 +1,6 @@
 import * as actionTypes from "./commentActionTypes";
 import { IAction } from "../../types";
-import { ICommentsState } from ".";
+import { ICommentsState } from "./commentTypes";
 
 export const initialState = {
   error: undefined,

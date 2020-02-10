@@ -1,12 +1,13 @@
 import * as actions from "../userActions";
 import * as actionTypes from "../userActionTypes";
-import { IUser, IUserAuth } from "..";
+import { IUser, IUserAuth } from "../userTypes";
 
 describe("User Actions", () => {
   const testUser: IUser = {
     _id: "5bcc554259e0dbfda6ed1a55",
     name: "name",
     email: "email@test.com",
+    password: "some password",
   };
   const testUserAuth: IUserAuth = {
     name: "name",

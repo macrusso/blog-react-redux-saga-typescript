@@ -1,6 +1,6 @@
 import * as selectors from "../postSelectors";
 import { IStoreState } from "../../../types";
-import { IPost } from "..";
+import { IPost } from "../postTypes";
 
 describe("Post Selectors", () => {
   const testPost1: IPost = {

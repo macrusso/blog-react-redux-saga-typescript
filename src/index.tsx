@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { applyMiddleware, compose, createStore } from "redux";
+import { applyMiddleware, compose, createStore, combineReducers } from "redux";
 import { createBrowserHistory } from "history";
 import { connectRouter, routerMiddleware } from "connected-react-router";
 import createSagaMiddleware from "redux-saga";
@@ -22,7 +22,10 @@ const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ||
 (window as any).__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true;
 /* eslint-enable */
 
-const store = createStore(connectRouter(history)(rootReducer), composeEnhancers(middleware));
+const store = createStore(combineReducers({
+  router: connectRouter(history),
+  rootReducer,
+}), composeEnhancers(middleware));
 
 sagaMiddleware.run(rootSaga);
 

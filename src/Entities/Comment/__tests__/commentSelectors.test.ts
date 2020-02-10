@@ -1,6 +1,6 @@
 import * as selectors from "../commentSelectors";
 import { IStoreState } from "../../../types";
-import { IComment } from "..";
+import { IComment } from "../commentTypes";
 
 describe("Comment Selectors", () => {
   const testComment1: IComment = {

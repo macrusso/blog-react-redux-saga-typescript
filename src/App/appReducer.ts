@@ -1,6 +1,6 @@
 import * as actionTypes from "./appActionTypes";
 import { IAction } from "../types";
-import { IAppState } from ".";
+import { IAppState } from "./appTypes";
 
 export const initialState = {
   error: undefined,

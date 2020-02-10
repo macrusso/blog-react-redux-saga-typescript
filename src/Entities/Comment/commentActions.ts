@@ -1,5 +1,5 @@
 import * as actionTypes from "./commentActionTypes";
-import { IComment, ICommentPartial } from ".";
+import { IComment, ICommentPartial } from "./commentTypes";
 
 export interface IFetchCommentsRequest {
   type: actionTypes.FETCH_COMMENTS_REQUEST;

@@ -1,12 +1,12 @@
 import reducer, { initialState } from "../appReducer";
 import * as actionTypes from "../appActionTypes";
-import { IAppState } from "..";
+import { IAppState } from "../appTypes";
 
 describe("appReducer", () => {
   let testState: IAppState;
-  const testError = {
-    message: "sample error message",
-  };
+  // const testError = {
+  //   message: "sample error message",
+  // };
   beforeEach(() => {
     testState = { ...initialState };
   });

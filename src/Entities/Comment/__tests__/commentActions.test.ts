@@ -1,6 +1,6 @@
 import * as actions from "../commentActions";
 import * as actionTypes from "../commentActionTypes";
-import { IComment, ICommentPartial } from "..";
+import { IComment, ICommentPartial } from "../commentTypes";
 
 describe("Comment Actions", () => {
   const testComment: IComment = {

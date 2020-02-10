@@ -1,5 +1,7 @@
-import * as entities from "./Entities";
-import { IAppState } from "./App";
+import { IAppState } from "./App/appTypes";
+import { ICommentsState } from "./Entities/Comment/commentTypes";
+import { IPostsState } from "./Entities/Post/postTypes";
+import { IUsersState } from "./Entities/User/userTypes";
 
 export interface IAction {
   type: string;
@@ -9,8 +11,8 @@ export interface IAction {
 
 export interface IStoreState {
   readonly App: IAppState;
-  readonly Posts: entities.IPostsState;
-  readonly Users: entities.IUsersState;
-  readonly Comments: entities.ICommentsState;
+  readonly Posts: IPostsState;
+  readonly Users: IUsersState;
+  readonly Comments: ICommentsState;
   router: any;
 }

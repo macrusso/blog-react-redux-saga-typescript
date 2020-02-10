@@ -1,6 +1,6 @@
 import * as actions from "../postActions";
 import * as actionTypes from "../postActionTypes";
-import { IPost, IPostPartial } from "..";
+import {IPost, IPostPartial} from "../postTypes";
 
 describe("Post Actions", () => {
   const testPost: IPost = {

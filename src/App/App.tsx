@@ -7,18 +7,15 @@ import {
   NotFound,
   PostListContainer,
   PostContainer,
-  AuthContainer
+  AuthContainer,
 } from "../Frontend";
-import { IUser } from "../Entities";
 import styled from "styled-components";
 import {
-  Button,
   Typography,
-  Toolbar,
-  AppBar,
-  withStyles
+  withStyles,
 } from "@material-ui/core";
 import { AppNavbar } from ".";
+import { IUser } from "../Entities/User/userTypes";
 
 const Page = styled.main`
   min-height: 100%;
@@ -34,8 +31,8 @@ const styles = {
     backgroundColor: "#3f51b5",
     marginTop: "100px",
     padding: `20px 0`,
-    color: "white"
-  }
+    color: "white",
+  },
 };
 
 interface IAppProps {
@@ -104,7 +101,7 @@ const App: React.SFC<IAppProps> = props => {
             component="p"
             color="inherit"
           >
-            TypeScript, React, Redux and some ☕
+            TypeScript, React, Redux
           </Typography>
         </footer>
       </>
