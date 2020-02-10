@@ -1,7 +1,7 @@
 import React from "react";
 import { Formik } from "formik";
 import { TextField, Button, DialogActions, DialogContent, Typography } from "@material-ui/core";
-import { IUserAuth } from "../../Entities";
+import { IUserAuth } from "../../Entities/User/userTypes";
 
 interface IAuthFormFormProps {
   error?: string;

@@ -1,12 +1,15 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+import { connect, ConnectedProps } from "react-redux";
 import { Dispatch } from "redux";
 import { IAction, IStoreState } from "../../types";
 import { ErrorBoundary } from "../Shared";
-import { IUserAuth, userSelectors, userActions } from "../../Entities";
+import { userSelectors, userActions } from "../../Entities";
 import { Auth } from ".";
+import { IUserAuth } from "../../Entities/User/userTypes";
 
-type IAuthContainerProps = IStateToProps & IDispatchToProps & IOwnProps;
+type IPropsFromRedux = ConnectedProps<typeof connector>;
+
+type IAuthContainerProps = IStateToProps & IDispatchToProps & IOwnProps & IPropsFromRedux;
 
 interface IOwnProps {
   register: boolean;
@@ -46,7 +49,6 @@ const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
   },
 });
 
-export default connect<IStateToProps, IDispatchToProps, any>(
-  mapStateToProps,
-  mapDispatchToProps,
-)(AuthContainer);
+const connector = connect(mapStateToProps, mapDispatchToProps);
+
+export default connector(AuthContainer);
