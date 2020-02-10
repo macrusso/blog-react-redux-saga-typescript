@@ -5,7 +5,7 @@ import { IAction, IStoreState } from "../../types";
 import { ErrorBoundary } from "../Shared";
 import { userSelectors, userActions } from "../../Entities";
 import { Auth } from ".";
-import { IUserAuth } from "../../Entities/User/userTypes";
+import { userTypes } from "../../Entities";
 
 type IPropsFromRedux = ConnectedProps<typeof connector>;
 
@@ -32,8 +32,8 @@ interface IStateToProps {
 }
 
 interface IDispatchToProps {
-  loginUser: (user: IUserAuth) => void;
-  registerUser: (user: IUserAuth) => void;
+  loginUser: (user: userTypes.IUserAuth) => void;
+  registerUser: (user: userTypes.IUserAuth) => void;
 }
 
 const mapStateToProps = (state: IStoreState) => ({
@@ -41,10 +41,10 @@ const mapStateToProps = (state: IStoreState) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
-  registerUser: (user: IUserAuth) => {
+  registerUser: (user: userTypes.IUserAuth) => {
     dispatch(userActions.registerUserRequest(user));
   },
-  loginUser: (user: IUserAuth) => {
+  loginUser: (user: userTypes.IUserAuth) => {
     dispatch(userActions.loginUserRequest(user));
   },
 });

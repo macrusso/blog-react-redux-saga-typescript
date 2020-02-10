@@ -1,18 +1,18 @@
 import React from "react";
 import { Formik } from "formik";
 import { TextField, Button, DialogActions, DialogContent, Typography } from "@material-ui/core";
-import { IUserAuth } from "../../Entities/User/userTypes";
+import { userTypes } from "../../Entities";
 
 interface IAuthFormFormProps {
   error?: string;
   register: boolean;
-  loginUser: (user: IUserAuth) => void;
-  registerUser: (user: IUserAuth) => void;
+  loginUser: (user: userTypes.IUserAuth) => void;
+  registerUser: (user: userTypes.IUserAuth) => void;
 }
 
 const AuthFormForm: React.SFC<IAuthFormFormProps> = props => {
   const { error, register, loginUser, registerUser } = props;
-  const initialValues: IUserAuth = {
+  const initialValues: userTypes.IUserAuth = {
     name: "",
     email: "",
     password: "",
