@@ -8,7 +8,6 @@ describe("userReducer", () => {
     _id: "5bcc554259e0dbfda6ed1a55",
     name: "string",
     email: "string",
-    password: "some password",
   };
   const testError = {
     response: {

@@ -7,7 +7,6 @@ describe("User Actions", () => {
     _id: "5bcc554259e0dbfda6ed1a55",
     name: "name",
     email: "email@test.com",
-    password: "some password",
   };
   const testUserAuth: IUserAuth = {
     name: "name",
