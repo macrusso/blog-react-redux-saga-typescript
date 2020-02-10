@@ -6,8 +6,9 @@ import { ErrorBoundary } from "../Frontend/Shared";
 import { History } from "history";
 import * as routes from "../routes";
 import { push } from "connected-react-router";
-import { IUser, userActions, userSelectors } from "../Entities";
+import { userActions, userSelectors } from "../Entities";
 import { App } from ".";
+import { IUser } from "../Entities/User/userTypes";
 
 type IPropsFromRedux = ConnectedProps<typeof connector>;
 

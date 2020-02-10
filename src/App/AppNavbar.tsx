@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Typography, Toolbar, AppBar } from "@material-ui/core";
-import { IUser } from "../Entities";
+import { IUser } from "../Entities/User/userTypes";
 
 interface IAppNavbarProps {
   currentUser?: IUser;
@@ -18,7 +18,7 @@ const AppNavbar: React.SFC<IAppNavbarProps> = props => {
         <Typography variant="h6" color="inherit" onClick={() => onLogoClick()}>
           Simple React Blog
         </Typography>
-        {(currentUser && currentUser.token) || localStorage.token ? (
+        {currentUser?.token || localStorage.token ? (
           <Button color="inherit" onClick={() => onLogoutClick()}>
             Logout
           </Button>

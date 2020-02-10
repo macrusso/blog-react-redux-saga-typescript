@@ -3,7 +3,6 @@ export interface IUser {
   name: string;
   email: string;
   token?: string;
-  password: string;
   profileImageUrl?: string;
 }
 
@@ -14,7 +13,7 @@ export interface IUserAuth {
   profileImageUrl?: string;
 }
 
-export interface IUser {
+export interface IUserPartial {
   email: string;
   password: string;
 }

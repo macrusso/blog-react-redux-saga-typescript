@@ -1,8 +1,8 @@
 import React from "react";
 import AppNavbar from "../AppNavbar";
 import { shallow } from "enzyme";
-import { IUser } from "../../Entities";
 import { BrowserRouter } from "react-router-dom";
+import { IUser } from "../../Entities/User/userTypes";
 
 describe("AppNavbar", () => {
   test("Snapshot matches", () => {

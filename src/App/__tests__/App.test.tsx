@@ -8,7 +8,7 @@ import createSagaMiddleware from "redux-saga";
 import rootReducer from "../../rootReducer";
 import rootSagas from "../../rootSagas";
 import App from "../App";
-import { IUser } from "../../Entities";
+import { IUser } from "../../Entities/User/userTypes";
 
 const history = createBrowserHistory();
 const sagaMiddleware = createSagaMiddleware();
