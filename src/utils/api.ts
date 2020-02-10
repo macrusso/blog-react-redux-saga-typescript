@@ -1,12 +1,14 @@
 import superagent from "superagent";
-import { IUser, IComment, IPost, IPostPartial, ICommentPartial, IUserPartial } from "../Entities";
+import { userTypes, commentTypes, postTypes } from "../Entities";
 
 const API_ROOT = `${process.env.REACT_APP_API_ROOT}/api`;
 const BEARER_TOKEN = localStorage.token;
 
 const responseBody = (res: any) => res.body;
 const tokenPlugin = (req: any) => {
-  req.set("Authorization", `Bearer ${BEARER_TOKEN}`).set("Content-Type", "application/json");
+  req
+    .set("Authorization", `Bearer ${BEARER_TOKEN}`)
+    .set("Content-Type", "application/json");
 };
 
 type URL = string;
@@ -36,70 +38,70 @@ const requests = {
     superagent
       .post(`${API_ROOT}${url}`, body)
       .use(tokenPlugin)
-      .then(responseBody),
+      .then(responseBody)
 };
 
 export const Auth = {
-  login: (user: IUserPartial) =>
+  login: (user: userTypes.IUserPartial) =>
     requests.post({
       url: "/auth/login",
-      body: user,
+      body: user
     }),
-  register: (user: IUser) =>
+  register: (user: userTypes.IUser) =>
     requests.post({
       url: "/auth/register",
-      body: user,
-    }),
+      body: user
+    })
 };
 
 export const Users = {
   all: () => requests.get(`/users`),
-  update: (user: IUser) =>
+  update: (user: userTypes.IUser) =>
     requests.patch({
       url: `/users/${user._id}`,
-      body: user,
+      body: user
     }),
-  create: (user: IUser) =>
+  create: (user: userTypes.IUser) =>
     requests.post({
       url: "/users",
-      body: user,
+      body: user
     }),
-  del: (id: string) => requests.del(`/users/${id}`),
+  del: (id: string) => requests.del(`/users/${id}`)
 };
 
 export const Posts = {
   all: () => requests.get(`/posts`),
-  update: (post: IPost) =>
+  update: (post: postTypes.IPost) =>
     requests.patch({
       url: `/posts/${post._id}`,
-      body: post,
+      body: post
     }),
-  create: (post: IPostPartial) =>
+  create: (post: postTypes.IPostPartial) =>
     requests.post({
       url: "/posts",
-      body: post,
+      body: post
     }),
-  del: (id: string) => requests.del(`/posts/${id}`),
+  del: (id: string) => requests.del(`/posts/${id}`)
 };
 
 export const Comments = {
   all: () => requests.get(`/comments`),
-  update: (comment: IComment) =>
+  update: (comment: commentTypes.IComment) =>
     requests.patch({
       url: `/comments/${comment._id}`,
-      body: comment,
+      body: comment
     }),
-  create: (comment: ICommentPartial) =>
+  create: (comment: commentTypes.ICommentPartial) =>
     requests.post({
       url: "/comments",
-      body: comment,
+      body: comment
     }),
-  del: (id: string) => requests.del(`/comments/${id}`),
+  del: (id: string) => requests.del(`/comments/${id}`)
 };
 
 export default {
   Auth,
   Users,
   Posts,
-  Comments,
+  Comments
 };
