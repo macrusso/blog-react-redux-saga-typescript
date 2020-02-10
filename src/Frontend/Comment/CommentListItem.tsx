@@ -57,7 +57,7 @@ const CommentListItem: React.SFC<ICommentListItemProps> = props => {
                   className={classes.chip}
                 />
               )}
-              {currentUser && currentUser._id === comment.userId && (
+              {currentUser?._id === comment.userId && (
                 <div>
                   <IconButton aria-label="Delete" onClick={() => handleOpenDeleteDialog(comment)}>
                     <Delete />

@@ -47,7 +47,7 @@ const Post: React.SFC<IPostProps> = props => {
                 className={classes.chip}
               />
             )}
-            {currentUser && currentUser._id === post.userId && (
+            {currentUser?._id === post.userId && (
               <div>
                 <IconButton aria-label="Delete" onClick={() => handleOpenDeleteDialog()}>
                   <Delete />
