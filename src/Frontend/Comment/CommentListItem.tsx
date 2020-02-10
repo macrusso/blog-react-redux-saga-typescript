@@ -1,8 +1,8 @@
 import React from "react";
-import { IComment, IUser } from "../../Entities/";
 import { Edit, Delete } from "@material-ui/icons";
 import moment from "moment";
 import { Typography, withStyles, Chip, Divider, Avatar, CardContent, CardActions, IconButton } from "@material-ui/core";
+import { userTypes, commentTypes } from "../../Entities";
 
 const styles = {
   root: {
@@ -19,13 +19,13 @@ const styles = {
 interface ICommentListItemProps {
   classes: any;
   loading: boolean;
-  currentUser?: IUser;
-  comments: IComment[];
+  currentUser?: userTypes.IUser;
+  comments: commentTypes.IComment[];
   usersLoading: boolean;
   selectedPostId?: string;
-  users: { [key: string]: IUser };
-  handleOpenEditDialog: (comment: IComment) => void;
-  handleOpenDeleteDialog: (comment: IComment) => void;
+  users: { [key: string]: userTypes.IUser };
+  handleOpenEditDialog: (comment: commentTypes.IComment) => void;
+  handleOpenDeleteDialog: (comment: commentTypes.IComment) => void;
 }
 
 const CommentListItem: React.SFC<ICommentListItemProps> = props => {

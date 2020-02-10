@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+import { connect, ConnectedProps } from "react-redux";
 import { Dispatch } from "redux";
 import { IAction, IStoreState } from "../../types";
 import { CommentListItem } from ".";
@@ -7,20 +7,22 @@ import {
   postSelectors,
   commentActions,
   commentSelectors,
-  IComment,
   userActions,
   userSelectors,
-  IUser,
+  commentTypes,
+  userTypes,
 } from "../../Entities";
 import { CommentEditDialog } from "../../Frontend";
 import { DeleteDialog, ErrorBoundary } from "../Shared";
 
-type ICommentListContainerProps = IStateToProps & IDispatchToProps;
+type IPropsFromRedux = ConnectedProps<typeof connector>;
+
+type ICommentListContainerProps = IStateToProps & IDispatchToProps & IPropsFromRedux;
 
 interface ICommentListContainerState {
   openEditDialog: boolean;
   openDeleteDialog: boolean;
-  selectedComment?: IComment;
+  selectedComment?: commentTypes.IComment;
 }
 
 class CommentListContainer extends Component<ICommentListContainerProps, ICommentListContainerState> {
@@ -74,10 +76,10 @@ class CommentListContainer extends Component<ICommentListContainerProps, ICommen
     );
   }
 
-  private handleOpenEditDialog = (comment: IComment) =>
+  private handleOpenEditDialog = (comment: commentTypes.IComment) =>
     this.setState({ openEditDialog: true, selectedComment: comment });
   private handleCloseEditDialog = () => this.setState({ openEditDialog: false, selectedComment: undefined });
-  private handleOpenDeleteDialog = (comment: IComment) =>
+  private handleOpenDeleteDialog = (comment: commentTypes.IComment) =>
     this.setState({ openDeleteDialog: true, selectedComment: comment });
   private handleCloseDeleteDialog = () => this.setState({ openDeleteDialog: false, selectedComment: undefined });
 }
@@ -85,18 +87,18 @@ class CommentListContainer extends Component<ICommentListContainerProps, ICommen
 interface IStateToProps {
   error?: string;
   loading: boolean;
-  currentUser?: IUser;
-  comments: IComment[];
+  currentUser?: userTypes.IUser;
+  comments: commentTypes.IComment[];
   usersLoading: boolean;
   selectedPostId?: string;
-  users: { [key: string]: IUser };
+  users: { [key: string]: userTypes.IUser };
 }
 
 interface IDispatchToProps {
   fetchUsers: () => void;
   fetchComments: () => void;
   deleteComment: (id: string) => void;
-  updateComment: (comment: IComment) => void;
+  updateComment: (comment: commentTypes.IComment) => void;
 }
 
 const mapStateToProps = (state: IStoreState) => ({
@@ -113,7 +115,7 @@ const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
   fetchComments: () => {
     dispatch(commentActions.fetchCommentsRequest());
   },
-  updateComment: (comment: IComment) => {
+  updateComment: (comment: commentTypes.IComment) => {
     dispatch(commentActions.updateCommentRequest(comment));
   },
   deleteComment: (id: string) => {
@@ -125,7 +127,6 @@ const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
   },
 });
 
-export default connect<IStateToProps, IDispatchToProps, any>(
-  mapStateToProps,
-  mapDispatchToProps,
-)(CommentListContainer);
+const connector = connect(mapStateToProps, mapDispatchToProps);
+
+export default connector(CommentListContainer);
