@@ -24,7 +24,7 @@ export function* watchLoginUser(): Generator {
 
 export function* loginUserSaga(action: IAction): Generator {
   try {
-    const result = yield call(api.Auth.login, action.payload);
+    const result: any = yield call(api.Auth.login, action.payload);
     yield put({ type: actionTypes.LOGIN_USER_SUCCESS, payload: result });
     yield put(push(posts));
     localStorage.setItem("token", result.token);
@@ -39,7 +39,7 @@ export function* watchRegisterUser(): Generator {
 
 export function* registerUserSaga(action: IAction): Generator {
   try {
-    const result = yield call(api.Auth.register, action.payload);
+    const result: any = yield call(api.Auth.register, action.payload);
     yield put({ type: actionTypes.REGISTER_USER_SUCCESS, payload: result });
     yield put(push(posts));
     localStorage.setItem("token", result.token);
