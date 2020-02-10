@@ -1,5 +1,5 @@
-import { appTypes } from "./App";
-import { postTypes, userTypes, commentTypes } from "./Entities";
+import { appTypes, appConstants } from "./App";
+import { postTypes, userTypes, commentTypes, postConstants, userConstants, commentConstants } from "./Entities";
 
 
 export interface IAction {
@@ -9,9 +9,9 @@ export interface IAction {
 }
 
 export interface IStoreState {
-  readonly App: appTypes.IAppState;
-  readonly Posts: postTypes.IPostsState;
-  readonly Users: userTypes.IUsersState;
-  readonly Comments: commentTypes.ICommentsState;
+  [appConstants.NAME]: appTypes.IAppState;
+  [postConstants.NAME]: postTypes.IPostsState;
+  [userConstants.NAME]: userTypes.IUsersState;
+  [commentConstants.NAME]: commentTypes.ICommentsState;
   router: any;
 }

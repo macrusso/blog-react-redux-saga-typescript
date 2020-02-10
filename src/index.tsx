@@ -24,7 +24,7 @@ const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ||
 
 const store = createStore(combineReducers({
   router: connectRouter(history),
-  rootReducer,
+  ...rootReducer,
 }), composeEnhancers(middleware));
 
 sagaMiddleware.run(rootSaga);
