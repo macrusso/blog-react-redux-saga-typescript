@@ -1,13 +1,15 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+import { connect, ConnectedProps } from "react-redux";
 import { Dispatch } from "redux";
 import { IAction, IStoreState } from "../../types";
 import { ErrorBoundary } from "../Shared";
-import { postSelectors, IPostPartial, postActions } from "../../Entities";
+import { postSelectors, postTypes, postActions } from "../../Entities";
 import { PostAdd } from ".";
 import { appSelectors } from "../../App";
 
-type IPostAddContainerProps = IStateToProps & IDispatchToProps;
+type IPropsFromRedux = ConnectedProps<typeof connector>;
+
+type IPostAddContainerProps = IStateToProps & IDispatchToProps & IPropsFromRedux;
 
 class PostAddContainer extends Component<IPostAddContainerProps> {
   public render() {
@@ -27,7 +29,7 @@ interface IStateToProps {
 }
 
 interface IDispatchToProps {
-  addPost: (post: IPostPartial) => void;
+  addPost: (post: postTypes.IPostPartial) => void;
 }
 
 const mapStateToProps = (state: IStoreState) => ({
@@ -36,12 +38,11 @@ const mapStateToProps = (state: IStoreState) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
-  addPost: (post: IPostPartial) => {
+  addPost: (post: postTypes.IPostPartial) => {
     dispatch(postActions.addPostRequest(post));
   },
 });
 
-export default connect<IStateToProps, IDispatchToProps, any>(
-  mapStateToProps,
-  mapDispatchToProps,
-)(PostAddContainer);
+const connector = connect(mapStateToProps, mapDispatchToProps);
+
+export default connector(PostAddContainer);

@@ -1,5 +1,5 @@
 import React from "react";
-import { IPost, IUser } from "../../Entities";
+import { postTypes, userTypes } from "../../Entities";
 import { Edit, Delete } from "@material-ui/icons";
 import moment from "moment";
 import { Typography, withStyles, Chip, Paper, Avatar, IconButton, CardContent, CardActions } from "@material-ui/core";
@@ -17,10 +17,10 @@ const styles = {
 };
 
 interface IPostProps {
-  post?: IPost;
+  post?: postTypes.IPost;
   classes: any;
-  currentUser?: IUser;
-  users: { [key: string]: IUser };
+  currentUser?: userTypes.IUser;
+  users: { [key: string]: userTypes.IUser };
   handleOpenEditDialog: () => void;
   handleOpenDeleteDialog: () => void;
 }

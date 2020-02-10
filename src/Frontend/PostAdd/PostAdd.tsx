@@ -1,6 +1,6 @@
 import React from "react";
 import { Formik } from "formik";
-import { IPostPartial } from "../../Entities";
+import { postTypes } from "../../Entities";
 import { TextField, Button, Typography } from "@material-ui/core";
 import styled from "styled-components";
 
@@ -16,7 +16,7 @@ const StyledForm = styled.form`
 
 interface IPostAddProps {
   userId: string;
-  addPost: (post: IPostPartial) => void;
+  addPost: (post: postTypes.IPostPartial) => void;
 }
 
 const PostAdd: React.SFC<IPostAddProps> = props => {

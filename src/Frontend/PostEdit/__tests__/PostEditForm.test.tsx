@@ -2,11 +2,11 @@ import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { shallow } from "enzyme";
 import PostEditForm from "../PostEditForm";
-import { IPost } from "src/Entities";
+import { postTypes } from "../../../Entities";
 
 describe("PostEditForm", () => {
   test("Snapshot matches", () => {
-    const post: IPost = {
+    const post: postTypes.IPost = {
       _id: "5bcc554259e0dbfda6ed1a55",
       userId: "5bcc554259e0dbfda6ed1a55",
       title: "string",

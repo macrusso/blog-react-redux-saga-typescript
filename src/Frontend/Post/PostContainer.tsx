@@ -1,28 +1,30 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+import { connect, ConnectedProps} from "react-redux";
 import { Dispatch } from "redux";
 import { IAction, IStoreState } from "../../types";
 import { ErrorBoundary } from "../Shared";
 import {
   userActions,
   userSelectors,
-  IUser,
+  userTypes,
   postSelectors,
-  IPost,
-  postActions
+  postTypes,
+  postActions,
 } from "../../Entities";
 import {
   CommentListContainer,
   CommentAddContainer,
   PostEditDialog,
   Post,
-  DeleteDialog
+  DeleteDialog,
 } from "../../Frontend";
 import { Route } from "react-router-dom";
 import * as routes from "../../routes";
 import { push } from "connected-react-router";
 
-type IPostContainerProps = IStateToProps & IDispatchToProps;
+type IPropsFromRedux = ConnectedProps<typeof connector>;
+
+type IPostContainerProps = IStateToProps & IDispatchToProps & IPropsFromRedux;
 
 interface IPostContainerState {
   openEditDialog: boolean;
@@ -37,7 +39,7 @@ class PostContainer extends Component<
     super(props);
     this.state = {
       openEditDialog: false,
-      openDeleteDialog: false
+      openDeleteDialog: false,
     };
   }
 
@@ -53,7 +55,7 @@ class PostContainer extends Component<
       selectedPostId,
       loadingUsers,
       updatePost,
-      deletePost
+      deletePost,
     } = this.props;
     return (
       <ErrorBoundary>
@@ -98,19 +100,19 @@ class PostContainer extends Component<
 
 interface IStateToProps {
   error?: string;
-  currentUser?: IUser;
+  currentUser?: userTypes.IUser;
   loadingPosts: boolean;
   loadingUsers: boolean;
   selectedPostId?: string;
-  users: { [key: string]: IUser };
-  posts: { [key: string]: IPost };
+  users: { [key: string]: userTypes.IUser };
+  posts: { [key: string]: postTypes.IPost };
 }
 
 interface IDispatchToProps {
   fetchPosts: () => void;
   fetchUsers: () => void;
   deletePost: (id: string) => void;
-  updatePost: (post: IPost) => void;
+  updatePost: (post: postTypes.IPost) => void;
 }
 
 const mapStateToProps = (state: IStoreState) => ({
@@ -120,14 +122,14 @@ const mapStateToProps = (state: IStoreState) => ({
   currentUser: userSelectors.getCurrentUser(state),
   loadingPosts: postSelectors.getLoadingStatus(state),
   loadingUsers: userSelectors.getLoadingStatus(state),
-  selectedPostId: postSelectors.getSelectedPostId(state)
+  selectedPostId: postSelectors.getSelectedPostId(state),
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
   fetchPosts: () => {
     dispatch(postActions.fetchPostsRequest());
   },
-  updatePost: (post: IPost) => {
+  updatePost: (post: postTypes.IPost) => {
     dispatch(postActions.updatePostRequest(post));
   },
   deletePost: (id: string) => {
@@ -136,10 +138,9 @@ const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
   },
   fetchUsers: () => {
     dispatch(userActions.fetchUsersRequest());
-  }
+  },
 });
 
-export default connect<IStateToProps, IDispatchToProps, any>(
-  mapStateToProps,
-  mapDispatchToProps
-)(PostContainer);
+const connector = connect(mapStateToProps, mapDispatchToProps);
+
+export default connector(PostContainer);

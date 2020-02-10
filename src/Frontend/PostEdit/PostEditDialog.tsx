@@ -1,13 +1,13 @@
 import React from "react";
 import { Dialog, DialogTitle } from "@material-ui/core";
-import { IPost } from "../../Entities";
+import { postTypes } from "../../Entities";
 import PostEditForm from "./PostEditForm";
 
 interface IPostEditDialog {
-  post: IPost;
+  post: postTypes.IPost;
   open: boolean;
   handleCloseDialog: () => void;
-  updatePost: (post: IPost) => void;
+  updatePost: (post: postTypes.IPost) => void;
 }
 
 const PostEditDialog: React.SFC<IPostEditDialog> = props => {

@@ -1,12 +1,12 @@
 import React from "react";
 import { Formik } from "formik";
-import { IPost } from "../../Entities";
+import { postTypes } from "../../Entities";
 import { TextField, Button, DialogActions, DialogContent } from "@material-ui/core";
 
 interface IPostEditFormProps {
-  post: IPost;
+  post: postTypes.IPost;
   handleCloseDialog: () => void;
-  updatePost: (post: IPost) => void;
+  updatePost: (post: postTypes.IPost) => void;
 }
 
 const PostEditForm: React.SFC<IPostEditFormProps> = props => {

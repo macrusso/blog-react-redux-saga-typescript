@@ -1,6 +1,4 @@
 import React from "react";
-import { IPost } from "../../Entities/Post";
-import { IUser } from "../../Entities/User";
 import moment from "moment";
 import { ModeComment, AddComment } from "@material-ui/icons";
 import {
@@ -14,7 +12,7 @@ import {
   CardActions,
   CardContent,
 } from "@material-ui/core";
-import { IComment } from "../../Entities";
+import { commentTypes, postTypes, userTypes } from "../../Entities";
 
 const styles = {
   root: {
@@ -37,11 +35,11 @@ const styles = {
 
 export interface IPostListItemProps {
   classes: any;
-  posts: IPost[];
+  posts: postTypes.IPost[];
   loading: boolean;
-  comments: IComment[];
+  comments: commentTypes.IComment[];
   usersLoading: boolean;
-  users: { [key: string]: IUser };
+  users: { [key: string]: userTypes.IUser };
   onAddCommentClick: (id: string) => void;
 }
 

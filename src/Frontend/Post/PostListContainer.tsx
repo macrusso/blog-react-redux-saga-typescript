@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+import { connect, ConnectedProps } from "react-redux";
 import { Dispatch } from "redux";
 import { IAction, IStoreState } from "../../types";
 import { ErrorBoundary } from "../Shared";
@@ -9,16 +9,18 @@ import { push } from "connected-react-router";
 import {
   commentActions,
   commentSelectors,
-  IComment,
+  commentTypes,
   postActions,
   postSelectors,
-  IPost,
+  postTypes,
   userActions,
   userSelectors,
-  IUser,
+  userTypes,
 } from "../../Entities";
 
-type IPostListContainerProps = IStateToProps & IDispatchToProps;
+type IPropsFromRedux = ConnectedProps<typeof connector>;
+
+type IPostListContainerProps = IStateToProps & IDispatchToProps & IPropsFromRedux;
 
 class PostListContainer extends Component<IPostListContainerProps> {
   public componentDidMount() {
@@ -43,11 +45,11 @@ class PostListContainer extends Component<IPostListContainerProps> {
 
 interface IStateToProps {
   error?: string;
-  posts: IPost[];
+  posts: postTypes.IPost[];
   loading: boolean;
-  comments: IComment[];
+  comments: commentTypes.IComment[];
   usersLoading: boolean;
-  users: { [key: string]: IUser };
+  users: { [key: string]: userTypes.IUser };
 }
 
 interface IDispatchToProps {
@@ -81,7 +83,6 @@ const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
   },
 });
 
-export default connect<IStateToProps, IDispatchToProps, any>(
-  mapStateToProps,
-  mapDispatchToProps,
-)(PostListContainer);
+const connector = connect(mapStateToProps, mapDispatchToProps);
+
+export default connector(PostListContainer);
