@@ -1,9 +1,9 @@
 import React from "react";
 import { Button, Typography, Toolbar, AppBar } from "@material-ui/core";
-import { IUser } from "../Entities/User/userTypes";
+import { userTypes } from "../Entities";
 
 interface IAppNavbarProps {
-  currentUser?: IUser;
+  currentUser?: userTypes.IUser;
   onLogoClick: () => void;
   onLoginClick: () => void;
   onLogoutClick: () => void;

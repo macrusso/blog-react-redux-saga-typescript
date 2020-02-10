@@ -8,7 +8,7 @@ import createSagaMiddleware from "redux-saga";
 import rootReducer from "../../rootReducer";
 import rootSagas from "../../rootSagas";
 import App from "../App";
-import { IUser } from "../../Entities/User/userTypes";
+import { userTypes } from "../../Entities";
 
 const history = createBrowserHistory();
 const sagaMiddleware = createSagaMiddleware();
@@ -26,7 +26,7 @@ const store = createStore(combineReducers({
 sagaMiddleware.run(rootSagas);
 
 it("renders without crashing", () => {
-  const user: IUser = {
+  const user: userTypes.IUser = {
     _id: "5bcc554259e0dbfda6ed1a55",
     name: "string",
     email: "string",

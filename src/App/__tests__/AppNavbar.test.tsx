@@ -2,11 +2,11 @@ import React from "react";
 import AppNavbar from "../AppNavbar";
 import { shallow } from "enzyme";
 import { BrowserRouter } from "react-router-dom";
-import { IUser } from "../../Entities/User/userTypes";
+import { userTypes } from "../../Entities";
 
 describe("AppNavbar", () => {
   test("Snapshot matches", () => {
-    const user: IUser = {
+    const user: userTypes.IUser = {
       name: "string",
       email: "string",
       _id: "5bcc554259e0dbfda6ed1a55",
