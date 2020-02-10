@@ -1,13 +1,13 @@
 import React from "react";
 import { Dialog, DialogTitle } from "@material-ui/core";
-import { IComment } from "../../Entities";
+import { commentTypes } from "../../Entities";
 import CommentEditForm from "./CommentEditForm";
 
 interface ICommentEditDialog {
   open: boolean;
-  comment: IComment;
+  comment: commentTypes.IComment;
   handleCloseDialog: () => void;
-  updateComment: (post: IComment) => void;
+  updateComment: (post: commentTypes.IComment) => void;
 }
 
 const CommentEditDialog: React.SFC<ICommentEditDialog> = props => {

@@ -1,12 +1,12 @@
 import React from "react";
 import { Formik } from "formik";
-import { IComment } from "../../Entities";
+import { commentTypes } from "../../Entities";
 import { TextField, Button, DialogActions, DialogContent } from "@material-ui/core";
 
 interface ICommentEditFormProps {
-  comment: IComment;
+  comment: commentTypes.IComment;
   handleCloseDialog: () => void;
-  updateComment: (comment: IComment) => void;
+  updateComment: (comment: commentTypes.IComment) => void;
 }
 
 const CommentEditForm: React.SFC<ICommentEditFormProps> = props => {

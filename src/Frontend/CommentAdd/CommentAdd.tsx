@@ -1,6 +1,6 @@
 import React from "react";
 import { Formik } from "formik";
-import { ICommentPartial } from "../../Entities";
+import { commentTypes } from "../../Entities";
 import { TextField, Button, Typography } from "@material-ui/core";
 import styled from "styled-components";
 
@@ -18,7 +18,7 @@ const StyledForm = styled.form`
 interface ICommentAddProps {
   userId: string;
   selectedPostId?: string;
-  addComment: (comment: ICommentPartial) => void;
+  addComment: (comment: commentTypes.ICommentPartial) => void;
 }
 
 const CommentAdd: React.SFC<ICommentAddProps> = props => {

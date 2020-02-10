@@ -1,13 +1,15 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+import { connect, ConnectedProps } from "react-redux";
 import { Dispatch } from "redux";
 import { IAction, IStoreState } from "../../types";
 import { ErrorBoundary } from "../Shared";
-import { commentSelectors, ICommentPartial, commentActions, postSelectors } from "../../Entities";
+import { commentSelectors, commentTypes, commentActions, postSelectors } from "../../Entities";
 import { CommentAdd } from ".";
 import { appSelectors } from "../../App";
 
-type ICommentAddContainerProps = IStateToProps & IDispatchToProps;
+type IPropsFromRedux = ConnectedProps<typeof connector>;
+
+type ICommentAddContainerProps = IStateToProps & IDispatchToProps & IPropsFromRedux;
 
 class CommentAddContainer extends Component<ICommentAddContainerProps> {
   public render() {
@@ -28,7 +30,7 @@ interface IStateToProps {
 }
 
 interface IDispatchToProps {
-  addComment: (comment: ICommentPartial) => void;
+  addComment: (comment: commentTypes.ICommentPartial) => void;
 }
 
 const mapStateToProps = (state: IStoreState) => ({
@@ -38,12 +40,11 @@ const mapStateToProps = (state: IStoreState) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
-  addComment: (comment: ICommentPartial) => {
+  addComment: (comment: commentTypes.ICommentPartial) => {
     dispatch(commentActions.addCommentRequest(comment));
   },
 });
 
-export default connect<IStateToProps, IDispatchToProps, any>(
-  mapStateToProps,
-  mapDispatchToProps,
-)(CommentAddContainer);
+const connector = connect(mapStateToProps, mapDispatchToProps);
+
+export default connector(CommentAddContainer);

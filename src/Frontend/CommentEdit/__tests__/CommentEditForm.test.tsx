@@ -2,11 +2,11 @@ import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { shallow } from "enzyme";
 import CommentEditForm from "../CommentEditForm";
-import { IComment } from "src/Entities";
+import { commentTypes } from "../../../Entities";
 
 describe("CommentEditForm", () => {
   test("Snapshot matches", () => {
-    const comment: IComment = {
+    const comment: commentTypes.IComment= {
       _id: "5bcc554259e0dbfda6ed1a55",
       userId: "5bcc554259e0dbfda6ed1a55",
       postId: "5bcc554259e0dbfda6ed1a55",
