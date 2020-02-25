@@ -32,8 +32,4 @@ _I decided to reuse it to play with Docker and Kubernetes._
 # Installation
 
 - Clone the repo and `cd blog-react-redux-saga-typescript`
-- Run `npm install`
-- Start server as described [here](https://github.com/macrusso/node-express-restful-api).
-- Run `npm start`
-
-Application will be available on `localhost:3000`
+- Run `git submodule update --init --recursive`
