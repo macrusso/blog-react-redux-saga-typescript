@@ -1,5 +1,12 @@
 import React from "react";
-import { Dialog, DialogTitle, DialogActions, DialogContent, DialogContentText, Button } from "@material-ui/core";
+import {
+  Dialog,
+  DialogTitle,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  Button
+} from "@material-ui/core";
 
 interface IDeleteDialog {
   object: any;
@@ -8,10 +15,10 @@ interface IDeleteDialog {
   deleteFn: (id: string) => void;
 }
 
-const PostEditDialog: React.SFC<IDeleteDialog> = props => {
+const DeleteDialog: React.SFC<IDeleteDialog> = props => {
   const { object, open, handleCloseDialog, deleteFn } = props;
 
-  const itemType = object.postId ? "comment" : "post";
+  const itemType = object.postId ? "comment" : "post" || "";
   return (
     <Dialog open={open} onClose={handleCloseDialog}>
       <DialogTitle>{`Delete ${itemType}`}</DialogTitle>
@@ -37,4 +44,4 @@ const PostEditDialog: React.SFC<IDeleteDialog> = props => {
   );
 };
 
-export default PostEditDialog;
+export default DeleteDialog;

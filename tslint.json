@@ -11,13 +11,7 @@
   "rules": {
     "object-literal-sort-keys": false,
     "object-literal-key-quotes": false,
-    "trailing-comma": [
-      true,
-      {
-        "multiline": "always",
-        "singleline": "never"
-      }
-    ],
+    "trailing-comma": false,
     "ordered-imports": false,
     "semicolon": [true, "always", "ignore-bound-class-methods"],
     "jsx-no-lambda": false,

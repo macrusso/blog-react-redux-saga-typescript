@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { connect, ConnectedProps} from "react-redux";
+import { connect, ConnectedProps } from "react-redux";
 import { Dispatch } from "redux";
 import { IAction, IStoreState } from "../../types";
 import { ErrorBoundary } from "../Shared";
@@ -9,14 +9,14 @@ import {
   userTypes,
   postSelectors,
   postTypes,
-  postActions,
+  postActions
 } from "../../Entities";
 import {
   CommentListContainer,
   CommentAddContainer,
   PostEditDialog,
   Post,
-  DeleteDialog,
+  DeleteDialog
 } from "../../Frontend";
 import { Route } from "react-router-dom";
 import * as routes from "../../routes";
@@ -39,7 +39,7 @@ class PostContainer extends Component<
     super(props);
     this.state = {
       openEditDialog: false,
-      openDeleteDialog: false,
+      openDeleteDialog: false
     };
   }
 
@@ -55,8 +55,9 @@ class PostContainer extends Component<
       selectedPostId,
       loadingUsers,
       updatePost,
-      deletePost,
+      deletePost
     } = this.props;
+
     return (
       <ErrorBoundary>
         {selectedPostId && !loadingUsers && (
@@ -67,7 +68,7 @@ class PostContainer extends Component<
             handleOpenDeleteDialog={this.handleOpenDeleteDialog}
           />
         )}
-        {selectedPostId && (
+        {selectedPostId && Object.keys(posts).length > 0 && (
           <PostEditDialog
             updatePost={updatePost}
             open={this.state.openEditDialog}
@@ -75,7 +76,7 @@ class PostContainer extends Component<
             post={posts[selectedPostId]}
           />
         )}
-        {selectedPostId && (
+        {selectedPostId && Object.keys(posts).length > 0 && (
           <DeleteDialog
             deleteFn={deletePost}
             open={this.state.openDeleteDialog}
@@ -122,7 +123,7 @@ const mapStateToProps = (state: IStoreState) => ({
   currentUser: userSelectors.getCurrentUser(state),
   loadingPosts: postSelectors.getLoadingStatus(state),
   loadingUsers: userSelectors.getLoadingStatus(state),
-  selectedPostId: postSelectors.getSelectedPostId(state),
+  selectedPostId: postSelectors.getSelectedPostId(state)
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
@@ -138,7 +139,7 @@ const mapDispatchToProps = (dispatch: Dispatch<IAction>) => ({
   },
   fetchUsers: () => {
     dispatch(userActions.fetchUsersRequest());
-  },
+  }
 });
 
 const connector = connect(mapStateToProps, mapDispatchToProps);
