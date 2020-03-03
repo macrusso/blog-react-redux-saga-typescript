@@ -2,8 +2,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Blog with CRA with TypeScript, redux and redux-sagas
 
-[![Build Status](https://travis-ci.com/macrusso/blog-react-redux-saga-typescript.svg?branch=master)](https://travis-ci.com/macrusso/blog-react-redux-saga-typescript)
-
 _Main part of this application was created around July of 2018. It has some outdated patterns and solutions._
 _I decided to reuse it to play with Docker and Kubernetes._
 
